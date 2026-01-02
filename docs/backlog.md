@@ -1,13 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-01 21:54:40
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-01 22:01:36
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [# 1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) | ✅ | Implement ResearchGroup Feature (Entities, Repositories, Controllers) | - | - | - |
+| [# 1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) | ✅ | Implement ResearchGroup Feature (Entities, Repositories, Controllers) | - | - | Issue Base |
 
 ---
 
@@ -26,7 +26,7 @@ _No issues in this state._
 ### [CLOSED] [#1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) Implement ResearchGroup Feature (Entities, Repositories, Controllers)
 - **Executor**: -
 - **Labels**: enhancement, feature
-- **Milestone**: -
+- **Milestone**: Issue Base
 
 **Description**:
 ## Context
