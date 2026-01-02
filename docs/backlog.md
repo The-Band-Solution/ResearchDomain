@@ -1,6 +1,6 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 02:04:46
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 02:04:58
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
@@ -9,7 +9,7 @@ Overview of all demands, their states and executors.
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [# 6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) | ✅ | [TASK] Implementation of Role-based Leadership and Many-to-Many Areas | - | - | Issue Base |
 | [# 5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) | ✅ | [US] ResearchGroup Categorization & Leadership Recognition | - | - | Issue Base |
-| [# 4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) | 🟢 | [EPIC] ResearchGroup Metadata & Advanced Membership | - | - | Issue Base |
+| [# 4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) | ✅ | [EPIC] ResearchGroup Metadata & Advanced Membership | - | - | Issue Base |
 | [# 1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) | ✅ | Implement ResearchGroup Feature (Entities, Repositories, Controllers) | - | - | Issue Base |
 
 ---
@@ -17,11 +17,12 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
-- [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) **[EPIC] ResearchGroup Metadata & Advanced Membership**
+_No issues in this state._
 
 ### ✅ Done / Released
 - [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
+- [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) **[EPIC] ResearchGroup Metadata & Advanced Membership**
 - [#1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) **Implement ResearchGroup Feature (Entities, Repositories, Controllers)**
 
 ---
@@ -74,7 +75,7 @@ Associated with #4
 
 ---
 
-### [OPEN] [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) [EPIC] ResearchGroup Metadata & Advanced Membership
+### [CLOSED] [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) [EPIC] ResearchGroup Metadata & Advanced Membership
 - **Executor**: -
 - **Labels**: feature, epic
 - **Milestone**: Issue Base
