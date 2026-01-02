@@ -1,12 +1,14 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 01:12:31
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 01:16:48
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) | 🟢 | [US] ResearchGroup Categorization & Leadership Recognition | - | - | Issue Base |
+| [# 4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) | 🟢 | [EPIC] ResearchGroup Metadata & Advanced Membership | - | - | Issue Base |
 | [# 1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) | ✅ | Implement ResearchGroup Feature (Entities, Repositories, Controllers) | - | - | Issue Base |
 
 ---
@@ -14,7 +16,8 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
-_No issues in this state._
+- [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
+- [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) **[EPIC] ResearchGroup Metadata & Advanced Membership**
 
 ### ✅ Done / Released
 - [#1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) **Implement ResearchGroup Feature (Entities, Repositories, Controllers)**
@@ -22,6 +25,49 @@ _No issues in this state._
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) [US] ResearchGroup Categorization & Leadership Recognition
+- **Executor**: -
+- **Labels**: feature, us
+- **Milestone**: Issue Base
+
+**Description**:
+## Description
+As a researcher, I want my research group to be correctly categorized with multiple Knowledge Areas and linked to external directories (CNPq) so it can be correctly found and its leadership recognized.
+
+## Parent Epic
+Associated with #4
+
+## Acceptance Criteria
+- Researchers can assign multiple Knowledge Areas to a group.
+- Researchers can set the group's web page and CNPq link.
+- Leadership status is clearly defined by role and duration.
+
+---
+
+### [OPEN] [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) [EPIC] ResearchGroup Metadata & Advanced Membership
+- **Executor**: -
+- **Labels**: feature, epic
+- **Milestone**: Issue Base
+
+**Description**:
+## Description
+Implement metadata enhancements for ResearchGroups, including CNPq integration, site links, multiple knowledge areas (Many-to-Many), and Role-based temporal membership management (Leadership).
+
+## References
+Detailed in:
+- [docs/requirements.md](https://github.com/The-Band-Solution/ResearchDomain/blob/main/docs/requirements.md)
+- [docs/sdd.md](https://github.com/The-Band-Solution/ResearchDomain/blob/main/docs/sdd.md)
+- [docs/specifications.md](https://github.com/The-Band-Solution/ResearchDomain/blob/main/docs/specifications.md)
+
+## Acceptance Criteria
+- ResearchGroup supports `cnpq_url` and `site`.
+- ResearchGroup can be associated with multiple `KnowledgeAreas`.
+- `TeamMember` uses `Role` (specifically "Leader" for leadership roles).
+- `TeamMember` tracks `start_date` and `end_date`.
+- All layers (Domain, Infrastructure, Service, Controller) updated.
+
+---
 
 ### [CLOSED] [#1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) Implement ResearchGroup Feature (Entities, Repositories, Controllers)
 - **Executor**: -
