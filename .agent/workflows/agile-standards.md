@@ -31,12 +31,13 @@ Before moving a task to "In Progress":
     - [ ] **Draft**: Provide technical proposal/text to the user.
     - [ ] **Approval**: Mandatory user approval before proceeding.
     - [ ] **Create**: Create the issue on GitHub ONLY after approval.
-        - [ ] **Fields Requirement (Mandatory)**:
+        - [ ] **Fields Requirement (MANDATORY AND NON-NEGOTIABLE)**:
             - [ ] **Label**: Must be set (epic, us, task).
             - [ ] **Type**: Must be set (feature, bug, task).
             - [ ] **Milestone**: Must be set.
             - [ ] **Project**: Must be set to "The Band Project".
-    - [ ] **Start**: Begin programming only after issue creation.
+            - [ ] **Assignee**: Must be set to the logged-in user.
+    - [ ] **Start**: Begin programming ONLY after issue creation. **MANDATORY AND NON-NEGOTIABLE**.
 
 ## 4. Artifact Maintenance
 Maintain the following artifacts throughout the lifecycle:
@@ -79,6 +80,7 @@ Maintain the following artifacts throughout the lifecycle:
 
 ## 8. Merge Standards
 - [ ] **Conflict Free**: PR can be merged if there are no conflicts.
+- [ ] **Automation**: If the CI pipeline (`.github/workflows/ci.yml`) passes, the PR MUST be merged and related issues closed automatically. **MANDATORY AND NON-NEGOTIABLE**.
 - [ ] **Cleanup**: 
     - [ ] **Remote**: Delete the feature/bugfix branch from GitHub immediately after the PR is merged.
     - [ ] **Local**: Delete the local branch to keep the workspace clean.
