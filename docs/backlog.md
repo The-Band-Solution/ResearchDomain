@@ -1,6 +1,6 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 01:17:17
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 11:34:34
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
@@ -8,9 +8,9 @@ Overview of all demands, their states and executors.
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [# 9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) | ✅ | [US] Researcher Academic Metadata & Knowledge Areas | - | - | Issue Base |
-| [# 6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) | 🟢 | [TASK] Implementation of Role-based Leadership and Many-to-Many Areas | - | - | Issue Base |
-| [# 5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) | 🟢 | [US] ResearchGroup Categorization & Leadership Recognition | - | - | Issue Base |
-| [# 4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) | 🟢 | [EPIC] ResearchGroup Metadata & Advanced Membership | - | - | Issue Base |
+| [# 6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) | ✅ | [TASK] Implementation of Role-based Leadership and Many-to-Many Areas | - | - | Issue Base |
+| [# 5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) | ✅ | [US] ResearchGroup Categorization & Leadership Recognition | - | - | Issue Base |
+| [# 4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) | ✅ | [EPIC] ResearchGroup Metadata & Advanced Membership | - | - | Issue Base |
 | [# 1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) | ✅ | Implement ResearchGroup Feature (Entities, Repositories, Controllers) | - | - | Issue Base |
 
 ---
@@ -18,12 +18,13 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
-- [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
-- [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
-- [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) **[EPIC] ResearchGroup Metadata & Advanced Membership**
+_No issues in this state._
 
 ### ✅ Done / Released
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
+- [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
+- [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
+- [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) **[EPIC] ResearchGroup Metadata & Advanced Membership**
 - [#1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) **Implement ResearchGroup Feature (Entities, Repositories, Controllers)**
 
 ---
@@ -44,10 +45,15 @@ As a researcher, I want my profile to include my academic links (CNPq, Google Sc
 - Researcher entity supports `google_scholar_url` (optional string).
 - Researcher can be associated with multiple `KnowledgeAreas` (Many-to-Many).
 - Code must follow TDD (Tests First).
+- Documentation updated (`requirements.md`, `sdd.md`).
+
+## Technical Metadata
+- **Documentation**: Updated in `docs/requirements.md` (FR-01-C, FR-01-D).
+- **Architecture**: Domain Layer update.
 
 ---
 
-### [OPEN] [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) [TASK] Implementation of Role-based Leadership and Many-to-Many Areas
+### [CLOSED] [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) [TASK] Implementation of Role-based Leadership and Many-to-Many Areas
 - **Executor**: -
 - **Labels**: feature, task
 - **Milestone**: Issue Base
@@ -74,7 +80,7 @@ Associated with #5
 
 ---
 
-### [OPEN] [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) [US] ResearchGroup Categorization & Leadership Recognition
+### [CLOSED] [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) [US] ResearchGroup Categorization & Leadership Recognition
 - **Executor**: -
 - **Labels**: feature, us
 - **Milestone**: Issue Base
@@ -93,7 +99,7 @@ Associated with #4
 
 ---
 
-### [OPEN] [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) [EPIC] ResearchGroup Metadata & Advanced Membership
+### [CLOSED] [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) [EPIC] ResearchGroup Metadata & Advanced Membership
 - **Executor**: -
 - **Labels**: feature, epic
 - **Milestone**: Issue Base
