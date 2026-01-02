@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 01:16:48
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-02 01:17:02
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) | 🟢 | [TASK] Implementation of Role-based Leadership and Many-to-Many Areas | - | - | Issue Base |
 | [# 5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) | 🟢 | [US] ResearchGroup Categorization & Leadership Recognition | - | - | Issue Base |
 | [# 4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) | 🟢 | [EPIC] ResearchGroup Metadata & Advanced Membership | - | - | Issue Base |
 | [# 1](https://github.com/The-Band-Solution/ResearchDomain/issues/1) | ✅ | Implement ResearchGroup Feature (Entities, Repositories, Controllers) | - | - | Issue Base |
@@ -16,6 +17,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
 - [#4](https://github.com/The-Band-Solution/ResearchDomain/issues/4) **[EPIC] ResearchGroup Metadata & Advanced Membership**
 
@@ -25,6 +27,33 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) [TASK] Implementation of Role-based Leadership and Many-to-Many Areas
+- **Executor**: -
+- **Labels**: feature, task
+- **Milestone**: Issue Base
+
+**Description**:
+## Description
+Implement the technical changes for Role integration, Many-to-Many KnowledgeAreas, and Temporal Membership.
+
+## Associated US
+Associated with #5
+
+## Technical Tasks
+- [ ] Integrate `Role` entity and create default roles ("Leader", "Researcher").
+- [ ] Implement `KnowledgeArea` and `group_knowledge_areas` association table.
+- [ ] Update `ResearchGroup` and `TeamMember` (from `eo_lib`) schemas.
+- [ ] Implement membership/leadership temporal logic (`start_date`, `end_date`).
+- [ ] Update Controllers and Factories.
+- [ ] Verify with unit tests and demo script.
+
+## Definition of Done
+- Code passes all tests.
+- Documentation updated.
+- Pull Request created targeting `developing`.
+
+---
 
 ### [OPEN] [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) [US] ResearchGroup Categorization & Leadership Recognition
 - **Executor**: -
