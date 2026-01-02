@@ -31,11 +31,11 @@ Before moving a task to "In Progress":
     - [ ] **Draft**: Provide technical proposal/text to the user.
     - [ ] **Approval**: Mandatory user approval before proceeding.
     - [ ] **Create**: Create the issue on GitHub ONLY after approval.
-    - [ ] **Fields Requirement**:
-        - [ ] **Label**: Must be set.
-        - [ ] **Type**: Must be set.
-        - [ ] **Milestone**: Must be set.
-        - [ ] **Project**: Must be set to "The Band Project".
+        - [ ] **Fields Requirement (Mandatory)**:
+            - [ ] **Label**: Must be set (epic, us, task).
+            - [ ] **Type**: Must be set (feature, bug, task).
+            - [ ] **Milestone**: Must be set.
+            - [ ] **Project**: Must be set to "The Band Project".
     - [ ] **Start**: Begin programming only after issue creation.
 
 ## 4. Artifact Maintenance
@@ -69,8 +69,9 @@ Maintain the following artifacts throughout the lifecycle:
     - [ ] Open Pull Request from `developing` to `main`.
     - [ ] Title Format: `release: <description>`.
     - [ ] No direct commits to `main` allowed.
-        - [ ] **Versioning**:
-            - [ ] **DO NOT** run `bump_version.py` locally.
+        - [ ] **Versioning (MANDATORY)**:
+            - [ ] **MUST** create a new version (git tag) whenever `developing` is merged to `main`.
+            - [ ] **DO NOT** run `bump_version.py` locally (CI/CD handles this).
             - [ ] **Create Tag**: `git tag vX.Y.Z` (at end of each feature/fix/release).
             - [ ] **Update Latest**: `git tag -f latest` and `git push origin -f latest` (at end of each feature/fix/bug).
             - [ ] **Push Tag**: `git push origin vX.Y.Z`.
