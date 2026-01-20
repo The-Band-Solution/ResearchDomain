@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-20 01:12:01
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-20 23:19:00
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
 | [# 9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) | ✅ | [US] Researcher Academic Metadata & Knowledge Areas | - | - | Issue Base |
 | [# 6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) | ✅ | [TASK] Implementation of Role-based Leadership and Many-to-Many Areas | - | - | Issue Base |
 | [# 5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) | ✅ | [US] ResearchGroup Categorization & Leadership Recognition | - | - | Issue Base |
@@ -18,7 +19,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
-_No issues in this state._
+- [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
@@ -30,6 +31,16 @@ _No issues in this state._
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) Feat: Associate Knowledge Area to Initiatives
+- **Executor**: paulossjunior
+- **Labels**: epic
+- **Milestone**: -
+
+**Description**:
+Implement Many-to-Many relationship between KnowledgeArea and Initiative entities.\n\nRef: docs/requirements.md (FR-05-B)
+
+---
 
 ### [CLOSED] [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) [US] Researcher Academic Metadata & Knowledge Areas
 - **Executor**: -
