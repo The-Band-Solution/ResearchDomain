@@ -1,6 +1,11 @@
-sqlalchemy>=2.0.0
-psycopg2-binary>=2.9.0
-pydantic>=2.0.0
-python-dotenv>=1.0.0
-libbase @ git+https://github.com/The-Band-Solution/libbase.git@v0.1.0
-eo_lib @ git+https://github.com/The-Band-Solution/eo_lib.git@v0.3.2
+annotated-types==0.7.0
+eo_lib @ git+https://github.com/The-Band-Solution/eo_lib.git@691cabec1fe5d322cf04c8a6992d09e4a0c245e8
+greenlet==3.3.0
+libbase @ git+https://github.com/The-Band-Solution/libbase.git@f3d0549372ed7f43f6ce2f0d1208e1b3a78791cf
+psycopg2-binary==2.9.11
+pydantic==2.12.5
+pydantic_core==2.41.5
+python-dotenv==1.2.1
+SQLAlchemy==2.0.45
+typing-inspection==0.4.2
+typing_extensions==4.15.0
