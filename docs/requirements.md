@@ -27,6 +27,7 @@
 
 ### FR-05: Knowledge Area Management
 - **FR-05-A**: The system must allow creating a `KnowledgeArea` with a unique `name`.
+- **FR-05-B**: The system must allow linking a `KnowledgeArea` to one or more `Initiatives`.
 
 ### FR-06: Role Management
 - **FR-06-A**: The system must support the `Role` entity from `eo_lib`.

@@ -130,6 +130,12 @@ The system models a research environment within Universities.
 | `researcher_id`| Integer| FK (Researcher)| Link to the researcher. |
 | `area_id` | Integer| FK (KnowledgeArea) | Link to the area. |
 
+#### 2.2.8 Initiative Knowledge Area (Association)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
+| `area_id` | Integer| FK (KnowledgeArea) | Link to the area. |
+
 #### 2.2.5 Implementation Strategy
 The entities are implemented using **SQLAlchemy Declarative Models** inheriting from a shared `Base`. This provides a direct mapping between the classes described above and the underlying Relational Database Schema, ensuring the DRY principle is respected.
 
@@ -216,7 +222,9 @@ classDiagram
     University "1" --> "N" Campus : Contains
     ResearchGroup "N" --> "1" Campus : Present in
     ResearchGroup "N" --> "M" KnowledgeArea : Classified as
+    ResearchGroup "N" --> "M" KnowledgeArea : Classified as
     Researcher "N" --> "M" KnowledgeArea : Specializes in
+    KnowledgeArea "M" --> "N" Initiative : Categorizes
 ```
 
 ### 3.2 Architecture Class Diagram
