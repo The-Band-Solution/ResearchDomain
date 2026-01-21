@@ -1,18 +1,11 @@
-from .entities import (
-    Researcher,
-    University,
-    Campus,
-    ResearchGroup,
-    KnowledgeArea,
-)
-from .repositories import (
-    ResearcherRepositoryInterface,
-    UniversityRepositoryInterface,
-    CampusRepositoryInterface,
-    ResearchGroupRepositoryInterface,
-    KnowledgeAreaRepositoryInterface,
-    RoleRepositoryInterface,
-)
+from .entities import (Campus, KnowledgeArea, Researcher, ResearchGroup,
+                       University)
+from .repositories import (CampusRepositoryInterface,
+                           KnowledgeAreaRepositoryInterface,
+                           ResearcherRepositoryInterface,
+                           ResearchGroupRepositoryInterface,
+                           RoleRepositoryInterface,
+                           UniversityRepositoryInterface)
 
 __all__ = [
     "Researcher",

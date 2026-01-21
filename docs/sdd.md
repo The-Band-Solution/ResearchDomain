@@ -59,6 +59,11 @@ The system models a research environment within Universities.
 | `cnpq_url` | String | Optional | Link to the group in the CNPq Directory of Research Groups. |
 | `site` | String | Optional | The group's official website. |
 
+#### 2.2.3 External Research Group (Team)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `contact_email` | String | Optional | Contact email for the group. |
+
 #### 2.2.3 Knowledge Area
 | Attribute | Type | Constraints | Description |
 |-----------|------|-------------|-------------|
@@ -130,6 +135,25 @@ The system models a research environment within Universities.
 | `researcher_id`| Integer| FK (Researcher)| Link to the researcher. |
 | `area_id` | Integer| FK (KnowledgeArea) | Link to the area. |
 
+#### 2.2.8 Initiative Knowledge Area (Association)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
+| `area_id` | Integer| FK (KnowledgeArea) | Link to the area. |
+
+#### 2.2.9 Initiative External Group (Association)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
+| `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
+| `group_id` | Integer| FK (ExternalResearchGroup) | Link to the external group. |
+
+#### 2.2.10 Initiative Demandante (Association)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `initiative_id`| Integer| PK, FK (Initiative)| Link to the initiative. (Unique for 1-to-1/1-to-N semantics) |
+| `organization_id` | Integer| FK (Organization) | Link to the External Organization (Demandante). |
+
 #### 2.2.5 Implementation Strategy
 The entities are implemented using **SQLAlchemy Declarative Models** inheriting from a shared `Base`. This provides a direct mapping between the classes described above and the underlying Relational Database Schema, ensuring the DRY principle is respected.
 
@@ -184,6 +208,10 @@ classDiagram
         +str description
     }
 
+    class ExternalResearchGroup {
+        +str contact_email
+    }
+
     class KnowledgeArea {
         +int id
         +str name
@@ -206,6 +234,7 @@ classDiagram
     %% Inheritance
     Researcher --|> Person : inherits
     ResearchGroup --|> Team : inherits
+    ExternalResearchGroup --|> Team : inherits
     University --|> Organization : inherits
     Campus --|> OrganizationalUnit : inherits
 
@@ -216,7 +245,14 @@ classDiagram
     University "1" --> "N" Campus : Contains
     ResearchGroup "N" --> "1" Campus : Present in
     ResearchGroup "N" --> "M" KnowledgeArea : Classified as
+    ResearchGroup "N" --> "M" KnowledgeArea : Classified as
     Researcher "N" --> "M" KnowledgeArea : Specializes in
+    Researcher "N" --> "M" KnowledgeArea : Specializes in
+    KnowledgeArea "M" --> "N" Initiative : Categorizes
+    Researcher "N" --> "M" KnowledgeArea : Specializes in
+    KnowledgeArea "M" --> "N" Initiative : Categorizes
+    ExternalResearchGroup "M" --> "N" Initiative : Associated with
+    Initiative "N" --> "1" Organization : Has Demandante
 ```
 
 ### 3.2 Architecture Class Diagram
