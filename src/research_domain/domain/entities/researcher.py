@@ -1,8 +1,10 @@
-from sqlalchemy import Column, String, Integer, ForeignKey, Table
-from sqlalchemy.orm import relationship
-from eo_lib.domain.entities import Person
+from typing import List, Optional
+
 from eo_lib.domain.base import Base
-from typing import Optional, List
+from eo_lib.domain.entities import Person
+from sqlalchemy import Column, ForeignKey, Integer, String, Table
+from sqlalchemy.orm import relationship
+
 from research_domain.domain.mixins import SerializableMixin
 
 # Association Table for Many-to-Many relationship between Researcher and KnowledgeArea
@@ -13,6 +15,7 @@ researcher_knowledge_areas = Table(
     Column("area_id", Integer, ForeignKey("knowledge_areas.id"), primary_key=True),
 )
 
+
 class Researcher(Person, SerializableMixin):
     """
     Researcher Model.
@@ -20,6 +23,7 @@ class Researcher(Person, SerializableMixin):
     A Researcher represents a person in the research domain, extending eo_lib Person.
     It includes academic metadata like CNPq and Google Scholar links.
     """
+
     __tablename__ = "researchers"
 
     id = Column(Integer, ForeignKey("persons.id"), primary_key=True)
@@ -28,9 +32,7 @@ class Researcher(Person, SerializableMixin):
 
     # Relationships
     knowledge_areas = relationship(
-        "KnowledgeArea",
-        secondary=researcher_knowledge_areas,
-        lazy="joined"
+        "KnowledgeArea", secondary=researcher_knowledge_areas, lazy="joined"
     )
 
     def __init__(
@@ -40,7 +42,7 @@ class Researcher(Person, SerializableMixin):
         google_scholar_url: Optional[str] = None,
         knowledge_areas: Optional[List] = None,
         id: Optional[int] = None,
-        **kwargs
+        **kwargs,
     ):
         """
         Initializes a new Researcher instance.

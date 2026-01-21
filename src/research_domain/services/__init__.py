@@ -1,11 +1,5 @@
-from .services import (
-    ResearcherService,
-    UniversityService,
-    CampusService,
-    ResearchGroupService,
-    KnowledgeAreaService,
-    RoleService,
-)
+from .services import (CampusService, KnowledgeAreaService, ResearcherService,
+                       ResearchGroupService, RoleService, UniversityService)
 
 __all__ = [
     "ResearcherService",

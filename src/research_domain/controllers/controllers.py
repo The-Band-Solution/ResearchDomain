@@ -1,15 +1,13 @@
-from typing import List, Optional
 from datetime import date
-from libbase.controllers.generic_controller import GenericController
+from typing import List, Optional
+
 from eo_lib.domain.entities import Role, TeamMember
-from research_domain.domain.entities import (
-    Researcher,
-    University,
-    Campus,
-    ResearchGroup,
-    KnowledgeArea,
-)
+from libbase.controllers.generic_controller import GenericController
+
+from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+                                             ResearchGroup, University)
 from research_domain.factories import ServiceFactory
+
 
 class ResearcherController(GenericController[Researcher]):
     def __init__(self):
@@ -23,7 +21,10 @@ class ResearcherController(GenericController[Researcher]):
         identification_id: str = None,
         birthday: date = None,
     ) -> Researcher:
-        return self._service.create_with_details(name, emails, identification_id, birthday)
+        return self._service.create_with_details(
+            name, emails, identification_id, birthday
+        )
+
 
 class UniversityController(GenericController[University]):
     def __init__(self):
@@ -36,9 +37,12 @@ class UniversityController(GenericController[University]):
         description: str = None,
         short_name: str = None,
     ) -> University:
-        university = University(name=name, description=description, short_name=short_name)
+        university = University(
+            name=name, description=description, short_name=short_name
+        )
         self.create(university)
         return university
+
 
 class CampusController(GenericController[Campus]):
     def __init__(self):
@@ -52,9 +56,15 @@ class CampusController(GenericController[Campus]):
         description: str = None,
         short_name: str = None,
     ) -> Campus:
-        campus = Campus(name=name, organization_id=organization_id, description=description, short_name=short_name)
+        campus = Campus(
+            name=name,
+            organization_id=organization_id,
+            description=description,
+            short_name=short_name,
+        )
         self.create(campus)
         return campus
+
 
 class KnowledgeAreaController(GenericController[KnowledgeArea]):
     def __init__(self):
@@ -65,6 +75,7 @@ class KnowledgeAreaController(GenericController[KnowledgeArea]):
         area = KnowledgeArea(name=name)
         self.create(area)
         return area
+
 
 class RoleController(GenericController[Role]):
     def __init__(self):
@@ -78,6 +89,7 @@ class RoleController(GenericController[Role]):
 
     def get_or_create_leader_role(self) -> Role:
         return self._service.get_or_create_leader_role()
+
 
 class ResearchGroupController(GenericController[ResearchGroup]):
     def __init__(self):
@@ -103,7 +115,7 @@ class ResearchGroupController(GenericController[ResearchGroup]):
                 area = self._area_service.get_by_id(aid)
                 if area:
                     areas.append(area)
-        
+
         return self._service.create_research_group(
             name=name,
             campus_id=campus_id,
@@ -130,7 +142,7 @@ class ResearchGroupController(GenericController[ResearchGroup]):
             start_date=start_date,
             end_date=end_date,
         )
-        
+
     def get_leaders(self, team_id: int) -> List[TeamMember]:
         members = self._service.get_members(team_id)
         leader_role = self._role_service.get_or_create_leader_role()

@@ -1,8 +1,10 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Table
-from sqlalchemy.orm import relationship
-from eo_lib.domain.entities import Team
+from typing import List, Optional
+
 from eo_lib.domain.base import Base
-from typing import Optional, List
+from eo_lib.domain.entities import Team
+from sqlalchemy import Column, ForeignKey, Integer, String, Table
+from sqlalchemy.orm import relationship
+
 from research_domain.domain.mixins import SerializableMixin
 
 # Association Table for Many-to-Many relationship between ResearchGroup and KnowledgeArea
@@ -13,14 +15,16 @@ group_knowledge_areas = Table(
     Column("area_id", Integer, ForeignKey("knowledge_areas.id"), primary_key=True),
 )
 
+
 class ResearchGroup(Team, SerializableMixin):
     """
     ResearchGroup Model.
-    
+
     A ResearchGroup is a team associated with a campus, extending eo_lib Team.
     It includes research-specific metadata like CNPq links and Knowledge Areas.
     """
-    __tablename__ = "research_groups" # Explicitly redefined to handle inheritance correctly in some versions
+
+    __tablename__ = "research_groups"  # Explicitly redefined to handle inheritance correctly in some versions
 
     id = Column(Integer, ForeignKey("teams.id"), primary_key=True)
     campus_id = Column(Integer, ForeignKey("organizational_units.id"), nullable=True)
@@ -29,9 +33,7 @@ class ResearchGroup(Team, SerializableMixin):
 
     # Relationships
     knowledge_areas = relationship(
-        "KnowledgeArea",
-        secondary=group_knowledge_areas,
-        lazy="joined"
+        "KnowledgeArea", secondary=group_knowledge_areas, lazy="joined"
     )
 
     def __init__(

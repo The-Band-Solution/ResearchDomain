@@ -1,19 +1,15 @@
-from .sql_repositories import (
-    PostgresResearcherRepository,
-    PostgresUniversityRepository,
-    PostgresCampusRepository,
-    PostgresResearchGroupRepository,
-    PostgresKnowledgeAreaRepository,
-    PostgresRoleRepository,
-)
-from .memory_repositories import (
-    InMemoryResearcherRepository,
-    InMemoryUniversityRepository,
-    InMemoryCampusRepository,
-    InMemoryResearchGroupRepository,
-    InMemoryKnowledgeAreaRepository,
-    InMemoryRoleRepository,
-)
+from .memory_repositories import (InMemoryCampusRepository,
+                                  InMemoryKnowledgeAreaRepository,
+                                  InMemoryResearcherRepository,
+                                  InMemoryResearchGroupRepository,
+                                  InMemoryRoleRepository,
+                                  InMemoryUniversityRepository)
+from .sql_repositories import (PostgresCampusRepository,
+                               PostgresKnowledgeAreaRepository,
+                               PostgresResearcherRepository,
+                               PostgresResearchGroupRepository,
+                               PostgresRoleRepository,
+                               PostgresUniversityRepository)
 
 __all__ = [
     "PostgresResearcherRepository",

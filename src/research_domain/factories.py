@@ -1,31 +1,21 @@
 from research_domain.config import Config
 from research_domain.infrastructure.repositories import (
-    InMemoryResearcherRepository,
-    InMemoryUniversityRepository,
-    InMemoryCampusRepository,
-    InMemoryResearchGroupRepository,
-    InMemoryKnowledgeAreaRepository,
-    InMemoryRoleRepository,
-    PostgresResearcherRepository,
-    PostgresUniversityRepository,
-    PostgresCampusRepository,
-    PostgresResearchGroupRepository,
-    PostgresKnowledgeAreaRepository,
-    PostgresRoleRepository,
-)
-from research_domain.services import (
-    ResearcherService,
-    UniversityService,
-    CampusService,
-    ResearchGroupService,
-    KnowledgeAreaService,
-    RoleService,
-)
+    InMemoryCampusRepository, InMemoryKnowledgeAreaRepository,
+    InMemoryResearcherRepository, InMemoryResearchGroupRepository,
+    InMemoryRoleRepository, InMemoryUniversityRepository,
+    PostgresCampusRepository, PostgresKnowledgeAreaRepository,
+    PostgresResearcherRepository, PostgresResearchGroupRepository,
+    PostgresRoleRepository, PostgresUniversityRepository)
+from research_domain.services import (CampusService, KnowledgeAreaService,
+                                      ResearcherService, ResearchGroupService,
+                                      RoleService, UniversityService)
+
 
 class ServiceFactory:
     """
     Factory for creating Service instances with the appropriate Repository Strategy.
     """
+
     @staticmethod
     def _get_strategies():
         t = Config.get_storage_type().lower()
