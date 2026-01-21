@@ -1,28 +1,18 @@
-from typing import List, Optional
 from datetime import date
+from typing import List, Optional
+
+from eo_lib.domain.entities import Role, TeamMember
+from eo_lib.services import (OrganizationalUnitService, OrganizationService,
+                             PersonService, TeamService)
 from libbase.services.generic_service import GenericService
-from eo_lib.services import (
-    PersonService,
-    OrganizationService,
-    OrganizationalUnitService,
-    TeamService,
-)
-from eo_lib.domain.entities import TeamMember, Role
-from research_domain.domain.entities import (
-    Researcher,
-    University,
-    Campus,
-    ResearchGroup,
-    KnowledgeArea,
-)
+
+from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+                                             ResearchGroup, University)
 from research_domain.domain.repositories import (
-    ResearcherRepositoryInterface,
-    UniversityRepositoryInterface,
-    CampusRepositoryInterface,
-    ResearchGroupRepositoryInterface,
-    KnowledgeAreaRepositoryInterface,
-    RoleRepositoryInterface,
-)
+    CampusRepositoryInterface, KnowledgeAreaRepositoryInterface,
+    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
+    RoleRepositoryInterface, UniversityRepositoryInterface)
+
 
 class RoleService(GenericService[Role]):
     def __init__(self, repo: RoleRepositoryInterface):
@@ -35,26 +25,31 @@ class RoleService(GenericService[Role]):
         for r in roles:
             if r.name.lower() == "leader":
                 return r
-        
+
         leader_role = Role(name="Leader", description="Research Group Leader")
         self.create(leader_role)
         return leader_role
+
 
 class KnowledgeAreaService(GenericService[KnowledgeArea]):
     def __init__(self, repo: KnowledgeAreaRepositoryInterface):
         super().__init__(repo)
 
+
 class ResearcherService(PersonService):
     def __init__(self, repo: ResearcherRepositoryInterface):
         super().__init__(repo)
+
 
 class UniversityService(OrganizationService):
     def __init__(self, repo: UniversityRepositoryInterface):
         super().__init__(repo)
 
+
 class CampusService(OrganizationalUnitService):
     def __init__(self, repo: CampusRepositoryInterface):
         super().__init__(repo)
+
 
 class ResearchGroupService(TeamService):
     def __init__(self, repo: ResearchGroupRepositoryInterface):
@@ -96,7 +91,7 @@ class ResearchGroupService(TeamService):
         """Adds a leader to the group."""
         if not start_date:
             start_date = date.today()
-        
+
         return self.add_member(
             team_id=team_id,
             person_id=person_id,

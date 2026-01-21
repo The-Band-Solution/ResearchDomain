@@ -1,8 +1,9 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Table
-from sqlalchemy.orm import relationship
-from eo_lib.domain.entities import Team
-from eo_lib.domain.base import Base
 from typing import Optional
+
+from eo_lib.domain.base import Base
+from eo_lib.domain.entities import Team
+from sqlalchemy import Column, ForeignKey, Integer, String, Table
+from sqlalchemy.orm import relationship
 
 # Association Table
 initiative_external_groups = Table(

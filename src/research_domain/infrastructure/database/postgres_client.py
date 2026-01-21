@@ -1,7 +1,7 @@
-from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker, Session, scoped_session
 from eo_lib.config import Config
 from eo_lib.domain.base import Base
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import Session, scoped_session, sessionmaker
 
 
 class PostgresClient:
@@ -35,9 +35,14 @@ class PostgresClient:
         """
         db_url = Config.get_database_url()
         self._engine = create_engine(db_url, echo=False)
-        self._SessionLocal = scoped_session(sessionmaker(
-            autocommit=False, autoflush=False, bind=self._engine, expire_on_commit=False
-        ))
+        self._SessionLocal = scoped_session(
+            sessionmaker(
+                autocommit=False,
+                autoflush=False,
+                bind=self._engine,
+                expire_on_commit=False,
+            )
+        )
 
     def get_session(self) -> Session:
         """

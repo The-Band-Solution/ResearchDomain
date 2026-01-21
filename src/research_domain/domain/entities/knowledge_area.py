@@ -15,9 +15,7 @@ initiative_knowledge_areas = Table(
         ForeignKey("initiatives.id"),
         primary_key=True,
     ),
-    Column(
-        "area_id", Integer, ForeignKey("knowledge_areas.id"), primary_key=True
-    ),
+    Column("area_id", Integer, ForeignKey("knowledge_areas.id"), primary_key=True),
 )
 
 

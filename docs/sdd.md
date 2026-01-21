@@ -145,7 +145,14 @@ The system models a research environment within Universities.
 | Attribute | Type | Constraints | Description |
 |-----------|------|-------------|-------------|
 | `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
+| `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
 | `group_id` | Integer| FK (ExternalResearchGroup) | Link to the external group. |
+
+#### 2.2.10 Initiative Demandante (Association)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `initiative_id`| Integer| PK, FK (Initiative)| Link to the initiative. (Unique for 1-to-1/1-to-N semantics) |
+| `organization_id` | Integer| FK (Organization) | Link to the External Organization (Demandante). |
 
 #### 2.2.5 Implementation Strategy
 The entities are implemented using **SQLAlchemy Declarative Models** inheriting from a shared `Base`. This provides a direct mapping between the classes described above and the underlying Relational Database Schema, ensuring the DRY principle is respected.
@@ -242,7 +249,10 @@ classDiagram
     Researcher "N" --> "M" KnowledgeArea : Specializes in
     Researcher "N" --> "M" KnowledgeArea : Specializes in
     KnowledgeArea "M" --> "N" Initiative : Categorizes
+    Researcher "N" --> "M" KnowledgeArea : Specializes in
+    KnowledgeArea "M" --> "N" Initiative : Categorizes
     ExternalResearchGroup "M" --> "N" Initiative : Associated with
+    Initiative "N" --> "1" Organization : Has Demandante
 ```
 
 ### 3.2 Architecture Class Diagram

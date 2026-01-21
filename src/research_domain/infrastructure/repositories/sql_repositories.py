@@ -1,39 +1,42 @@
 from typing import List
-from libbase.infrastructure.sql_repository import GenericSqlRepository
-from eo_lib.infrastructure.database.postgres_client import PostgresClient
-from eo_lib.domain.entities import TeamMember, Role
-from research_domain.domain.repositories import (
-    ResearcherRepositoryInterface,
-    UniversityRepositoryInterface,
-    CampusRepositoryInterface,
-    ResearchGroupRepositoryInterface,
-    KnowledgeAreaRepositoryInterface,
-    RoleRepositoryInterface,
-)
-from research_domain.domain.entities import (
-    Researcher,
-    University,
-    Campus,
-    ResearchGroup,
-    KnowledgeArea,
-)
 
-class PostgresResearcherRepository(GenericSqlRepository[Researcher], ResearcherRepositoryInterface):
+from eo_lib.domain.entities import Role, TeamMember
+from eo_lib.infrastructure.database.postgres_client import PostgresClient
+from libbase.infrastructure.sql_repository import GenericSqlRepository
+
+from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+                                             ResearchGroup, University)
+from research_domain.domain.repositories import (
+    CampusRepositoryInterface, KnowledgeAreaRepositoryInterface,
+    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
+    RoleRepositoryInterface, UniversityRepositoryInterface)
+
+
+class PostgresResearcherRepository(
+    GenericSqlRepository[Researcher], ResearcherRepositoryInterface
+):
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), Researcher)
 
-class PostgresUniversityRepository(GenericSqlRepository[University], UniversityRepositoryInterface):
+
+class PostgresUniversityRepository(
+    GenericSqlRepository[University], UniversityRepositoryInterface
+):
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), University)
+
 
 class PostgresCampusRepository(GenericSqlRepository[Campus], CampusRepositoryInterface):
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), Campus)
 
-class PostgresResearchGroupRepository(GenericSqlRepository[ResearchGroup], ResearchGroupRepositoryInterface):
+
+class PostgresResearchGroupRepository(
+    GenericSqlRepository[ResearchGroup], ResearchGroupRepositoryInterface
+):
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), ResearchGroup)
@@ -59,10 +62,14 @@ class PostgresResearchGroupRepository(GenericSqlRepository[ResearchGroup], Resea
     def get_members(self, team_id: int) -> List[TeamMember]:
         return self._session.query(TeamMember).filter_by(team_id=team_id).all()
 
-class PostgresKnowledgeAreaRepository(GenericSqlRepository[KnowledgeArea], KnowledgeAreaRepositoryInterface):
+
+class PostgresKnowledgeAreaRepository(
+    GenericSqlRepository[KnowledgeArea], KnowledgeAreaRepositoryInterface
+):
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), KnowledgeArea)
+
 
 class PostgresRoleRepository(GenericSqlRepository[Role], RoleRepositoryInterface):
     def __init__(self):

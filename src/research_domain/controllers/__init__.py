@@ -1,11 +1,6 @@
-from .controllers import (
-    ResearcherController,
-    UniversityController,
-    CampusController,
-    ResearchGroupController,
-    KnowledgeAreaController,
-    RoleController,
-)
+from .controllers import (CampusController, KnowledgeAreaController,
+                          ResearcherController, ResearchGroupController,
+                          RoleController, UniversityController)
 
 __all__ = [
     "ResearcherController",

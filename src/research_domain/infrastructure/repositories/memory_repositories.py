@@ -1,15 +1,15 @@
-from typing import List, Dict, Optional, TypeVar, Any
+from typing import Any, Dict, List, Optional, TypeVar
+
+from eo_lib.domain.entities import Role, TeamMember
 from libbase.infrastructure.memory_repository import GenericMemoryRepository
-from eo_lib.domain.entities import TeamMember, Role
+
+from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+                                             ResearchGroup, University)
 from research_domain.domain.repositories import (
-    ResearcherRepositoryInterface,
-    UniversityRepositoryInterface,
-    CampusRepositoryInterface,
-    ResearchGroupRepositoryInterface,
-    KnowledgeAreaRepositoryInterface,
-    RoleRepositoryInterface,
-)
-from research_domain.domain.entities import Researcher, University, Campus, ResearchGroup, KnowledgeArea
+    CampusRepositoryInterface, KnowledgeAreaRepositoryInterface,
+    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
+    RoleRepositoryInterface, UniversityRepositoryInterface)
+
 
 class BaseInMemoryRepository(GenericMemoryRepository):
     def __init__(self):
@@ -17,22 +17,32 @@ class BaseInMemoryRepository(GenericMemoryRepository):
         self._id_counter = 1
 
     def add(self, entity: Any) -> Any:
-        if not hasattr(entity, 'id') or not entity.id:
+        if not hasattr(entity, "id") or not entity.id:
             entity.id = self._id_counter
             self._id_counter += 1
         super().add(entity)
         return entity
 
-class InMemoryResearcherRepository(BaseInMemoryRepository, ResearcherRepositoryInterface):
+
+class InMemoryResearcherRepository(
+    BaseInMemoryRepository, ResearcherRepositoryInterface
+):
     pass
 
-class InMemoryUniversityRepository(BaseInMemoryRepository, UniversityRepositoryInterface):
+
+class InMemoryUniversityRepository(
+    BaseInMemoryRepository, UniversityRepositoryInterface
+):
     pass
+
 
 class InMemoryCampusRepository(BaseInMemoryRepository, CampusRepositoryInterface):
     pass
 
-class InMemoryResearchGroupRepository(BaseInMemoryRepository, ResearchGroupRepositoryInterface):
+
+class InMemoryResearchGroupRepository(
+    BaseInMemoryRepository, ResearchGroupRepositoryInterface
+):
     def __init__(self):
         super().__init__()
         self._members: Dict[int, TeamMember] = {}
@@ -54,8 +64,12 @@ class InMemoryResearchGroupRepository(BaseInMemoryRepository, ResearchGroupRepos
     def get_members(self, team_id: int) -> List[TeamMember]:
         return [m for m in self._members.values() if m.team_id == team_id]
 
-class InMemoryKnowledgeAreaRepository(BaseInMemoryRepository, KnowledgeAreaRepositoryInterface):
+
+class InMemoryKnowledgeAreaRepository(
+    BaseInMemoryRepository, KnowledgeAreaRepositoryInterface
+):
     pass
+
 
 class InMemoryRoleRepository(BaseInMemoryRepository, RoleRepositoryInterface):
     pass
