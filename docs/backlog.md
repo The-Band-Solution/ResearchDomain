@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-21 01:14:31
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-21 12:16:27
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
 | [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
 | [# 9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) | ✅ | [US] Researcher Academic Metadata & Knowledge Areas | - | - | Issue Base |
 | [# 6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) | ✅ | [TASK] Implementation of Role-based Leadership and Many-to-Many Areas | - | - | Issue Base |
@@ -19,6 +20,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) **Feat: Associate Initiative to External Research Group**
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
@@ -31,6 +33,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) Feat: Associate Initiative to External Research Group
+- **Executor**: paulossjunior
+- **Labels**: epic
+- **Milestone**: -
+
+**Description**:
+Implement ExternalResearchGroup entity and many-to-many relationship with Initiative.\n\nRef: docs/requirements.md (FR-05-C)
+
+---
 
 ### [OPEN] [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) Feat: Associate Knowledge Area to Initiatives
 - **Executor**: paulossjunior
