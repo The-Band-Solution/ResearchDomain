@@ -59,6 +59,11 @@ The system models a research environment within Universities.
 | `cnpq_url` | String | Optional | Link to the group in the CNPq Directory of Research Groups. |
 | `site` | String | Optional | The group's official website. |
 
+#### 2.2.3 External Research Group (Team)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `contact_email` | String | Optional | Contact email for the group. |
+
 #### 2.2.3 Knowledge Area
 | Attribute | Type | Constraints | Description |
 |-----------|------|-------------|-------------|
@@ -136,6 +141,12 @@ The system models a research environment within Universities.
 | `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
 | `area_id` | Integer| FK (KnowledgeArea) | Link to the area. |
 
+#### 2.2.9 Initiative External Group (Association)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `initiative_id`| Integer| FK (Initiative)| Link to the initiative. |
+| `group_id` | Integer| FK (ExternalResearchGroup) | Link to the external group. |
+
 #### 2.2.5 Implementation Strategy
 The entities are implemented using **SQLAlchemy Declarative Models** inheriting from a shared `Base`. This provides a direct mapping between the classes described above and the underlying Relational Database Schema, ensuring the DRY principle is respected.
 
@@ -190,6 +201,10 @@ classDiagram
         +str description
     }
 
+    class ExternalResearchGroup {
+        +str contact_email
+    }
+
     class KnowledgeArea {
         +int id
         +str name
@@ -212,6 +227,7 @@ classDiagram
     %% Inheritance
     Researcher --|> Person : inherits
     ResearchGroup --|> Team : inherits
+    ExternalResearchGroup --|> Team : inherits
     University --|> Organization : inherits
     Campus --|> OrganizationalUnit : inherits
 
@@ -224,7 +240,9 @@ classDiagram
     ResearchGroup "N" --> "M" KnowledgeArea : Classified as
     ResearchGroup "N" --> "M" KnowledgeArea : Classified as
     Researcher "N" --> "M" KnowledgeArea : Specializes in
+    Researcher "N" --> "M" KnowledgeArea : Specializes in
     KnowledgeArea "M" --> "N" Initiative : Categorizes
+    ExternalResearchGroup "M" --> "N" Initiative : Associated with
 ```
 
 ### 3.2 Architecture Class Diagram
