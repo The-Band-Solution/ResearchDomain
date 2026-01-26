@@ -7,6 +7,7 @@ Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
 | [# 19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) | ✅ | Task: Add fellowship/voluntary status to Advisorship | @paulossjunior | - | - |
 | [# 18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) | ✅ | Feat: Implementation of Advisorship (Student/Supervisor) | @paulossjunior | - | - |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
@@ -23,6 +24,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) **Feat: Implement Services and Improve Factories**
 - [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
 - [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) **Feat: Associate Initiative to External Research Group**
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
@@ -39,6 +41,11 @@ Overview of all demands, their states and executors.
 ---
 
 ## 🚀 Releases
+
+### v0.6.0
+- **PR**: # (to be created)
+- **Description**: Implemented `FellowshipService`, `ExternalResearchGroupService`, and `AdvisorshipService`. Refactored `ServiceFactory` for better maintainability (mapping-based strategy).
+- **Commit**: (to be filled after merge)
 
 ### v0.5.0
 - **PR**: Local release (direct merge based on workflow)

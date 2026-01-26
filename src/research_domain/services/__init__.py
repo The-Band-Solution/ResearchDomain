@@ -1,4 +1,6 @@
-from .services import (CampusService, KnowledgeAreaService, ResearcherService,
+from .services import (AdvisorshipService, CampusService,
+                       ExternalResearchGroupService, FellowshipService,
+                       KnowledgeAreaService, ResearcherService,
                        ResearchGroupService, RoleService, UniversityService)
 
 __all__ = [
@@ -8,4 +10,7 @@ __all__ = [
     "ResearchGroupService",
     "KnowledgeAreaService",
     "RoleService",
+    "FellowshipService",
+    "ExternalResearchGroupService",
+    "AdvisorshipService",
 ]
