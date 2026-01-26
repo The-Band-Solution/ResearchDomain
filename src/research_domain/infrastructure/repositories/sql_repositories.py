@@ -4,12 +4,16 @@ from eo_lib.domain.entities import Role, TeamMember
 from eo_lib.infrastructure.database.postgres_client import PostgresClient
 from libbase.infrastructure.sql_repository import GenericSqlRepository
 
-from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+from research_domain.domain.entities import (Advisorship, Campus,
+                                             ExternalResearchGroup, Fellowship,
+                                             KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
-    CampusRepositoryInterface, KnowledgeAreaRepositoryInterface,
-    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
-    RoleRepositoryInterface, UniversityRepositoryInterface)
+    AdvisorshipRepositoryInterface, CampusRepositoryInterface,
+    ExternalResearchGroupRepositoryInterface, FellowshipRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    ResearchGroupRepositoryInterface, RoleRepositoryInterface,
+    UniversityRepositoryInterface)
 
 
 class PostgresResearcherRepository(
@@ -75,3 +79,28 @@ class PostgresRoleRepository(GenericSqlRepository[Role], RoleRepositoryInterface
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), Role)
+
+
+class PostgresFellowshipRepository(
+    GenericSqlRepository[Fellowship], FellowshipRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), Fellowship)
+
+
+class PostgresExternalResearchGroupRepository(
+    PostgresResearchGroupRepository, ExternalResearchGroupRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        # Use GenericSqlRepository's init directly to set the session and model
+        GenericSqlRepository.__init__(self, client.get_session(), ExternalResearchGroup)
+
+
+class PostgresAdvisorshipRepository(
+    GenericSqlRepository[Advisorship], AdvisorshipRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), Advisorship)

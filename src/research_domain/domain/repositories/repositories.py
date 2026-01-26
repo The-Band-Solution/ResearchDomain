@@ -45,3 +45,21 @@ class RoleRepositoryInterface(GenericRepositoryInterface):
     """Interface for Role Repository."""
 
     pass
+
+
+class FellowshipRepositoryInterface(GenericRepositoryInterface):
+    """Interface for Fellowship Repository."""
+
+    pass
+
+
+class ExternalResearchGroupRepositoryInterface(TeamRepositoryInterface):
+    """Interface for ExternalResearchGroup Repository."""
+
+    pass
+
+
+class AdvisorshipRepositoryInterface(GenericRepositoryInterface):
+    """Interface for Advisorship Repository."""
+
+    pass

@@ -6,12 +6,16 @@ from eo_lib.services import (OrganizationalUnitService, OrganizationService,
                              PersonService, TeamService)
 from libbase.services.generic_service import GenericService
 
-from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+from research_domain.domain.entities import (Advisorship, Campus,
+                                             ExternalResearchGroup, Fellowship,
+                                             KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
-    CampusRepositoryInterface, KnowledgeAreaRepositoryInterface,
-    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
-    RoleRepositoryInterface, UniversityRepositoryInterface)
+    AdvisorshipRepositoryInterface, CampusRepositoryInterface,
+    ExternalResearchGroupRepositoryInterface, FellowshipRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    ResearchGroupRepositoryInterface, RoleRepositoryInterface,
+    UniversityRepositoryInterface)
 
 
 class RoleService(GenericService[Role]):
@@ -99,3 +103,18 @@ class ResearchGroupService(TeamService):
             start_date=start_date,
             end_date=end_date,
         )
+
+
+class FellowshipService(GenericService[Fellowship]):
+    def __init__(self, repo: FellowshipRepositoryInterface):
+        super().__init__(repo)
+
+
+class ExternalResearchGroupService(TeamService):
+    def __init__(self, repo: ExternalResearchGroupRepositoryInterface):
+        super().__init__(repo)
+
+
+class AdvisorshipService(GenericService[Advisorship]):
+    def __init__(self, repo: AdvisorshipRepositoryInterface):
+        super().__init__(repo)

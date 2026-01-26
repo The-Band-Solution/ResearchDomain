@@ -3,12 +3,16 @@ from typing import Any, Dict, List, Optional, TypeVar
 from eo_lib.domain.entities import Role, TeamMember
 from libbase.infrastructure.memory_repository import GenericMemoryRepository
 
-from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+from research_domain.domain.entities import (Advisorship, Campus,
+                                             ExternalResearchGroup, Fellowship,
+                                             KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
-    CampusRepositoryInterface, KnowledgeAreaRepositoryInterface,
-    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
-    RoleRepositoryInterface, UniversityRepositoryInterface)
+    AdvisorshipRepositoryInterface, CampusRepositoryInterface,
+    ExternalResearchGroupRepositoryInterface, FellowshipRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    ResearchGroupRepositoryInterface, RoleRepositoryInterface,
+    UniversityRepositoryInterface)
 
 
 class BaseInMemoryRepository(GenericMemoryRepository):
@@ -72,4 +76,22 @@ class InMemoryKnowledgeAreaRepository(
 
 
 class InMemoryRoleRepository(BaseInMemoryRepository, RoleRepositoryInterface):
+    pass
+
+
+class InMemoryFellowshipRepository(
+    BaseInMemoryRepository, FellowshipRepositoryInterface
+):
+    pass
+
+
+class InMemoryExternalResearchGroupRepository(
+    InMemoryResearchGroupRepository, ExternalResearchGroupRepositoryInterface
+):
+    pass
+
+
+class InMemoryAdvisorshipRepository(
+    BaseInMemoryRepository, AdvisorshipRepositoryInterface
+):
     pass
