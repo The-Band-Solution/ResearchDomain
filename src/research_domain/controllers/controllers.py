@@ -4,7 +4,9 @@ from typing import List, Optional
 from eo_lib.domain.entities import Role, TeamMember
 from libbase.controllers.generic_controller import GenericController
 
-from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+from research_domain.domain.entities import (Advisorship, Campus,
+                                             ExternalResearchGroup, Fellowship,
+                                             KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.factories import ServiceFactory
 
@@ -147,3 +149,21 @@ class ResearchGroupController(GenericController[ResearchGroup]):
         members = self._service.get_members(team_id)
         leader_role = self._role_service.get_or_create_leader_role()
         return [m for m in members if m.role_id == leader_role.id]
+
+
+class FellowshipController(GenericController[Fellowship]):
+    def __init__(self):
+        service = ServiceFactory.create_fellowship_service()
+        super().__init__(service)
+
+
+class ExternalResearchGroupController(GenericController[ExternalResearchGroup]):
+    def __init__(self):
+        service = ServiceFactory.create_external_research_group_service()
+        super().__init__(service)
+
+
+class AdvisorshipController(GenericController[Advisorship]):
+    def __init__(self):
+        service = ServiceFactory.create_advisorship_service()
+        super().__init__(service)

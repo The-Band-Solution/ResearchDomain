@@ -1,4 +1,5 @@
-from .controllers import (CampusController, KnowledgeAreaController,
+from .controllers import (AdvisorshipController, CampusController,
+                          FellowshipController, KnowledgeAreaController,
                           ResearcherController, ResearchGroupController,
                           RoleController, UniversityController)
 from .domain.entities import (Advisorship, Campus, Fellowship, KnowledgeArea,
@@ -7,6 +8,8 @@ from .services import (CampusService, KnowledgeAreaService, ResearcherService,
                        ResearchGroupService, RoleService, UniversityService)
 
 __all__ = [
+    "AdvisorshipController",
+    "FellowshipController",
     "ResearcherController",
     "UniversityController",
     "CampusController",

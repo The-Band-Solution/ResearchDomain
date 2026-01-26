@@ -30,6 +30,13 @@ Implement services for `Fellowship`, `ExternalResearchGroup`, and `Advisorship`,
 - Update existing `create_*` methods to use the new strategy structure.
 - Register `create_fellowship_service`, `create_external_research_group_service`, and `create_advisorship_service`.
 
+### Controllers
+
+#### [MODIFY] [controllers.py](file:///home/paulossjunior/projects/ResearchDomain/src/research_domain/controllers/controllers.py)
+- Implement `FellowshipController`
+- Implement `ExternalResearchGroupController`
+- Implement `AdvisorshipController`
+
 ## Verification Plan
 
 ### Automated Tests
