@@ -1,14 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-26 01:18:57
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-26 18:51:27
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [# 19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) | ✅ | Task: Add fellowship/voluntary status to Advisorship | @paulossjunior | - | - |
-| [# 18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) | ✅ | Feat: Implementation of Advisorship (Student/Supervisor) | @paulossjunior | - | - |
+| [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
 | [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
 | [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
@@ -23,13 +22,12 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) **Feat: Implement Services and Improve Factories**
 - [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
 - [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) **Feat: Associate Initiative to External Research Group**
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
-- [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) **Task: Implement Fellowship Entity and Association**
-- [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) **Feat: Implementation of Advisorship (Student/Supervisor)**
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
 - [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
@@ -38,34 +36,15 @@ Overview of all demands, their states and executors.
 
 ---
 
-## 🚀 Releases
-
-### v0.5.0
-- **PR**: Local release (direct merge based on workflow)
-- **Description**: Implementation of `Advisorship` and `Fellowship` entities. Refined to use `Person` roles for Student and Supervisor.
-- **Commit**: [ee113d4](https://github.com/The-Band-Solution/ResearchDomain/commit/ee113d42e9d698cba71d9bbd1a31f9e7c398856b)
-
----
-
 ## 📝 Detailed Backlog
 
-### [CLOSED] [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) Task: Implement Fellowship Entity and Association
+### [OPEN] [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) Feat: Implement Services and Improve Factories
 - **Executor**: paulossjunior
 - **Labels**: feature, task
-- **Milestone**: -
+- **Milestone**: Issue Base
 
 **Description**:
-Implement `Fellowship` entity (name, description, value) and connect it to `Advisorship` via a nullable foreign key. Add `is_volunteer` property to `Advisorship`.\n\nRef: docs/requirements.md (FR-05-F, FR-05-G)
-
----
-
-### [CLOSED] [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) Feat: Implementation of Advisorship (Student/Supervisor)
-- **Executor**: paulossjunior
-- **Labels**: feature, us
-- **Milestone**: -
-
-**Description**:
-As a researcher, I want to record and track students under my supervision (Advisorship) so that I can manage research initiatives involving students correctly.\n\nRef: docs/requirements.md (FR-05-E)
+Implement the service layer for the recently added domain entities and refactor ServiceFactory for better maintainability.\n\nRef: docs/requirements.md (FR-05-C, FR-05-E, FR-05-G)
 
 ---
 
