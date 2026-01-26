@@ -7,6 +7,8 @@ Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) | 🟢 | Task: Add fellowship/voluntary status to Advisorship | @paulossjunior | - | - |
+| [# 18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) | 🟢 | Feat: Implementation of Advisorship (Student/Supervisor) | @paulossjunior | - | - |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
 | [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
 | [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
@@ -21,6 +23,8 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) **Task: Add fellowship/voluntary status to Advisorship**
+- [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) **Feat: Implementation of Advisorship (Student/Supervisor)**
 - [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
 - [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) **Feat: Associate Initiative to External Research Group**
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
@@ -35,6 +39,26 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) Task: Implement Fellowship Entity and Association
+- **Executor**: paulossjunior
+- **Labels**: feature, task
+- **Milestone**: -
+
+**Description**:
+Implement `Fellowship` entity (name, description, value) and connect it to `Advisorship` via a nullable foreign key. Add `is_volunteer` property to `Advisorship`.\n\nRef: docs/requirements.md (FR-05-F, FR-05-G)
+
+---
+
+### [OPEN] [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) Feat: Implementation of Advisorship (Student/Supervisor)
+- **Executor**: paulossjunior
+- **Labels**: feature, us
+- **Milestone**: -
+
+**Description**:
+As a researcher, I want to record and track students under my supervision (Advisorship) so that I can manage research initiatives involving students correctly.\n\nRef: docs/requirements.md (FR-05-E)
+
+---
 
 ### [OPEN] [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) Feat: Associate Initiative to Demandante (Organization)
 - **Executor**: paulossjunior

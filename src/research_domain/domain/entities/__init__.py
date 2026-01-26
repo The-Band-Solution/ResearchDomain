@@ -1,4 +1,6 @@
+from .advisorship import Advisorship
 from .external_research_group import ExternalResearchGroup
+from .fellowship import Fellowship
 from .initiative_demandante import initiative_demandantes
 from .knowledge_area import KnowledgeArea
 from .research_group import ResearchGroup
@@ -13,4 +15,6 @@ __all__ = [
     "KnowledgeArea",
     "ExternalResearchGroup",
     "initiative_demandantes",
+    "Advisorship",
+    "Fellowship",
 ]
