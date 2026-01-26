@@ -151,10 +151,26 @@ The system models a research environment within Universities.
 #### 2.2.10 Initiative Demandante (Association)
 | Attribute | Type | Constraints | Description |
 |-----------|------|-------------|-------------|
-| `initiative_id`| Integer| PK, FK (Initiative)| Link to the initiative. (Unique for 1-to-1/1-to-N semantics) |
+| `initiative_id`| PK, FK (Initiative)| Link to the initiative. (Unique for 1-to-1/1-to-N semantics) |
 | `organization_id` | Integer| FK (Organization) | Link to the External Organization (Demandante). |
 
-#### 2.2.5 Implementation Strategy
+#### 2.2.11 Advisorship (Initiative Extension)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `initiative_id`| PK, FK (Initiative)| Link to the initiative. |
+| `student_id` | Integer| FK (Person) | Link to the student (Person). |
+| `supervisor_id` | Integer| FK (Person) | Link to the supervisor (Person). |
+| `start_date` | Date | Optional | Start date of the supervision. |
+| `end_date` | Date | Optional | End date of the supervision. |
+| `fellowship_id` | Integer| FK (Fellowship), Opt | Link to the fellowship (bolsa). If null, is voluntary. |
+
+#### 2.2.12 Fellowship
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `name` | String | Not Null | Name of the fellowship (e.g., PIBITI). |
+| `description` | Text | Optional | - |
+| `value` | Float | Not Null | Monthly value of the fellowship. |
 The entities are implemented using **SQLAlchemy Declarative Models** inheriting from a shared `Base`. This provides a direct mapping between the classes described above and the underlying Relational Database Schema, ensuring the DRY principle is respected.
 
 ## 3. Class Diagrams
@@ -231,6 +247,22 @@ classDiagram
         +date end_date
     }
 
+    class Advisorship {
+        +int initiative_id
+        +int student_id
+        +int supervisor_id
+        +date start_date
+        +date end_date
+        +int fellowship_id
+    }
+
+    class Fellowship {
+        +int id
+        +str name
+        +str description
+        +float value
+    }
+
     %% Inheritance
     Researcher --|> Person : inherits
     ResearchGroup --|> Team : inherits
@@ -252,6 +284,10 @@ classDiagram
     Researcher "N" --> "M" KnowledgeArea : Specializes in
     KnowledgeArea "M" --> "N" Initiative : Categorizes
     ExternalResearchGroup "M" --> "N" Initiative : Associated with
+    Initiative "1" -- "1" Advisorship : Has details
+    Advisorship "N" --> "1" Person : Student
+    Advisorship "N" --> "1" Person : Supervisor
+    Advisorship "N" --> "0..1" Fellowship : receives
     Initiative "N" --> "1" Organization : Has Demandante
 ```
 

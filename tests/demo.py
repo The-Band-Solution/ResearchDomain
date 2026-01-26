@@ -17,9 +17,9 @@ from eo_lib.domain.entities import (Organization, OrganizationalUnit, Person,
                                     PersonEmail, Role, Team, TeamMember)
 
 # Import all research domain entities
-from research_domain import (Campus, CampusController, KnowledgeArea,
-                             KnowledgeAreaController, Researcher,
-                             ResearcherController, ResearchGroup,
+from research_domain import (Advisorship, Campus, CampusController, Fellowship,
+                             KnowledgeArea, KnowledgeAreaController,
+                             Researcher, ResearcherController, ResearchGroup,
                              ResearchGroupController, RoleController,
                              University, UniversityController)
 
@@ -123,6 +123,49 @@ def run_demo():
             print(
                 f"- Person ID: {l.person_id}, Role ID: {l.role_id}, Started: {l.start_date}"
             )
+
+        # 8. Advisorship (New Feature)
+        print("\n--- Testing Advisorship Feature ---")
+        student_amy = Person(name="Amy Student", identification_id="STU-001")
+        # In this model, Supervisor is also a Person
+        supervisor_bob = Person(name="Dr. Bob Supervisor")
+
+        # Creating a Fellowship
+        fellowship_pibiti = Fellowship(
+            name="PIBITI 2025",
+            value=700.0,
+            description="Technological Innovation scholarship",
+        )
+        print(
+            f"Fellowship created: {fellowship_pibiti.name} (${fellowship_pibiti.value})"
+        )
+
+        advisorship_2025 = Advisorship(
+            name="AI in Healthcare Research",
+            description="Applying LLMs to medical diagnosis",
+            student=student_amy,
+            supervisor=supervisor_bob,
+            fellowship=fellowship_pibiti,
+            start_date=date(2025, 3, 1),
+            status="active",
+        )
+        print(f"Advisorship created: {advisorship_2025.name}")
+        print(f"Student: {advisorship_2025.student.name}")
+        print(f"Supervisor: {advisorship_2025.supervisor.name}")
+        print(
+            f"Fellowship: {advisorship_2025.fellowship.name} (Value: {advisorship_2025.fellowship.value})"
+        )
+        print(f"Is Volunteer: {advisorship_2025.is_volunteer}")
+
+        # Testing a Volunteer Advisorship
+        voluntary_project = Advisorship(
+            name="Organic Gardering Study",
+            student=student_amy,
+            supervisor=dr_paul,
+            start_date=date(2025, 2, 1),
+        )
+        print(f"\nCreatedvoluntary project: {voluntary_project.name}")
+        print(f"Is Volunteer: {voluntary_project.is_volunteer}")
 
     except Exception as e:
         print(f"\nERROR during demo execution: {e}")
