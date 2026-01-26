@@ -1,12 +1,17 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-12 01:15:48
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-21 12:56:12
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) | 🟢 | Task: Add fellowship/voluntary status to Advisorship | @paulossjunior | - | - |
+| [# 18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) | 🟢 | Feat: Implementation of Advisorship (Student/Supervisor) | @paulossjunior | - | - |
+| [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
+| [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
+| [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
 | [# 9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) | ✅ | [US] Researcher Academic Metadata & Knowledge Areas | - | - | Issue Base |
 | [# 6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) | ✅ | [TASK] Implementation of Role-based Leadership and Many-to-Many Areas | - | - | Issue Base |
 | [# 5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) | ✅ | [US] ResearchGroup Categorization & Leadership Recognition | - | - | Issue Base |
@@ -18,7 +23,11 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
-_No issues in this state._
+- [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) **Task: Add fellowship/voluntary status to Advisorship**
+- [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) **Feat: Implementation of Advisorship (Student/Supervisor)**
+- [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
+- [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) **Feat: Associate Initiative to External Research Group**
+- [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
@@ -30,6 +39,56 @@ _No issues in this state._
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) Task: Implement Fellowship Entity and Association
+- **Executor**: paulossjunior
+- **Labels**: feature, task
+- **Milestone**: -
+
+**Description**:
+Implement `Fellowship` entity (name, description, value) and connect it to `Advisorship` via a nullable foreign key. Add `is_volunteer` property to `Advisorship`.\n\nRef: docs/requirements.md (FR-05-F, FR-05-G)
+
+---
+
+### [OPEN] [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) Feat: Implementation of Advisorship (Student/Supervisor)
+- **Executor**: paulossjunior
+- **Labels**: feature, us
+- **Milestone**: -
+
+**Description**:
+As a researcher, I want to record and track students under my supervision (Advisorship) so that I can manage research initiatives involving students correctly.\n\nRef: docs/requirements.md (FR-05-E)
+
+---
+
+### [OPEN] [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) Feat: Associate Initiative to Demandante (Organization)
+- **Executor**: paulossjunior
+- **Labels**: epic
+- **Milestone**: -
+
+**Description**:
+Implement Many-to-One relationship between Initiative and Organization (Demandante).\n\nRef: docs/requirements.md (FR-05-D)
+
+---
+
+### [OPEN] [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) Feat: Associate Initiative to External Research Group
+- **Executor**: paulossjunior
+- **Labels**: epic
+- **Milestone**: -
+
+**Description**:
+Implement ExternalResearchGroup entity and many-to-many relationship with Initiative.\n\nRef: docs/requirements.md (FR-05-C)
+
+---
+
+### [OPEN] [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) Feat: Associate Knowledge Area to Initiatives
+- **Executor**: paulossjunior
+- **Labels**: epic
+- **Milestone**: -
+
+**Description**:
+Implement Many-to-Many relationship between KnowledgeArea and Initiative entities.\n\nRef: docs/requirements.md (FR-05-B)
+
+---
 
 ### [CLOSED] [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) [US] Researcher Academic Metadata & Knowledge Areas
 - **Executor**: -

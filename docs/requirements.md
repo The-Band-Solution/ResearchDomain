@@ -30,6 +30,9 @@
 - **FR-05-B**: The system must allow linking a `KnowledgeArea` to one or more `Initiatives`.
 - **FR-05-C**: The system must allow linking an `Initiative` to an `ExternalResearchGroup` (Team).
 - **FR-05-D**: The system must allow associating an `Initiative` with a Demandante (`Organization`).
+- **FR-05-E**: The system must allow creating an `Advisorship`, which links an `Initiative` to a student (Person) and a supervisor (Person) for a specific period.
+- **FR-05-F**: An `Advisorship` can optionally be associated with a `Fellowship`. If no fellowship is linked, the advisorship is considered "voluntary".
+- **FR-05-G**: The `Fellowship` entity must store `name`, `description`, and `value`.
 
 ### FR-06: Role Management
 - **FR-06-A**: The system must support the `Role` entity from `eo_lib`.
