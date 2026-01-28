@@ -6,7 +6,10 @@ from research_domain.domain.entities.fellowship import Fellowship
 def test_fellowship_creation():
     """Test creating a Fellowship instance."""
     fellowship = Fellowship(
-        name="PIBITI", value=700.0, description="Technological Innovation Fellowship"
+        name="PIBITI",
+        value=700.0,
+        description="Technological Innovation Fellowship",
+        sponsor_id=1,
     )
 
     assert fellowship.name == "PIBITI"
@@ -16,9 +19,35 @@ def test_fellowship_creation():
 
 def test_fellowship_serialization():
     """Test serializing a Fellowship instance to dict."""
-    fellowship = Fellowship(name="IC", value=400.0, id=5)
+    fellowship = Fellowship(name="IC", value=400.0, id=5, sponsor_id=1)
 
     data = fellowship.to_dict()
     assert data["name"] == "IC"
     assert data["value"] == 400.0
     assert data["id"] == 5
+    assert data["sponsor_id"] == 1
+
+
+def test_fellowship_with_sponsor():
+    """Test creating a Fellowship with a sponsor organization."""
+    fellowship = Fellowship(
+        name="PIBITI",
+        value=700.0,
+        description="Technological Innovation Fellowship",
+        sponsor_id=1,
+    )
+
+    assert fellowship.name == "PIBITI"
+    assert fellowship.value == 700.0
+    assert fellowship.sponsor_id == 1
+
+
+def test_fellowship_serialization_with_sponsor():
+    """Test serializing a Fellowship with a sponsor to dict."""
+    fellowship = Fellowship(name="IC", value=400.0, id=5, sponsor_id=2)
+
+    data = fellowship.to_dict()
+    assert data["name"] == "IC"
+    assert data["value"] == 400.0
+    assert data["id"] == 5
+    assert data["sponsor_id"] == 2

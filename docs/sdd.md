@@ -171,6 +171,7 @@ The system models a research environment within Universities.
 | `name` | String | Not Null | Name of the fellowship (e.g., PIBITI). |
 | `description` | Text | Optional | - |
 | `value` | Float | Not Null | Monthly value of the fellowship. |
+| `sponsor_id` | Integer | FK (Organization) | The organization that sponsors the fellowship. |
 The entities are implemented using **SQLAlchemy Declarative Models** inheriting from a shared `Base`. This provides a direct mapping between the classes described above and the underlying Relational Database Schema, ensuring the DRY principle is respected.
 
 ## 3. Class Diagrams
@@ -261,6 +262,7 @@ classDiagram
         +str name
         +str description
         +float value
+        +int sponsor_id
     }
 
     %% Inheritance
@@ -289,6 +291,7 @@ classDiagram
     Advisorship "N" --> "1" Person : Supervisor
     Advisorship "N" --> "0..1" Fellowship : receives
     Initiative "N" --> "1" Organization : Has Demandante
+    Fellowship "N" --> "1" Organization : Sponsored by
 ```
 
 ### 3.2 Architecture Class Diagram
