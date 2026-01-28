@@ -7,6 +7,7 @@ Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | ✅ | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | Integration |
 | [# 19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) | ✅ | Task: Add fellowship/voluntary status to Advisorship | @paulossjunior | - | - |
 | [# 18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) | ✅ | Feat: Implementation of Advisorship (Student/Supervisor) | @paulossjunior | - | - |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
@@ -28,6 +29,7 @@ Overview of all demands, their states and executors.
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
+- [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
 - [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) **Task: Implement Fellowship Entity and Association**
 - [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) **Feat: Implementation of Advisorship (Student/Supervisor)**
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
@@ -40,10 +42,12 @@ Overview of all demands, their states and executors.
 
 ## 🚀 Releases
 
+### v0.6.0
+- **PR**: [#23](https://github.com/The-Band-Solution/ResearchDomain/pull/23)
+- **Description**: Added mandatory `sponsor_id` to `Fellowship` entity. Updated documentation and tests.
+- **Commit**: [bc8b169](https://github.com/The-Band-Solution/ResearchDomain/commit/bc8b1695a6be3924a428e33cb51f97fc25daea9c)
+
 ### v0.5.0
-- **PR**: Local release (direct merge based on workflow)
-- **Description**: Implementation of `Advisorship` and `Fellowship` entities. Refined to use `Person` roles for Student and Supervisor.
-- **Commit**: [ee113d4](https://github.com/The-Band-Solution/ResearchDomain/commit/ee113d42e9d698cba71d9bbd1a31f9e7c398856b)
 
 ---
 
