@@ -1,4 +1,6 @@
-from .repositories import (CampusRepositoryInterface,
+from .repositories import (AdvisorshipRepositoryInterface,
+                           CampusRepositoryInterface,
+                           FellowshipRepositoryInterface,
                            KnowledgeAreaRepositoryInterface,
                            ResearcherRepositoryInterface,
                            ResearchGroupRepositoryInterface,
@@ -12,4 +14,6 @@ __all__ = [
     "ResearchGroupRepositoryInterface",
     "KnowledgeAreaRepositoryInterface",
     "RoleRepositoryInterface",
+    "AdvisorshipRepositoryInterface",
+    "FellowshipRepositoryInterface",
 ]
