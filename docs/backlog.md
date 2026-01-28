@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-28 01:13:59
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-28 19:43:45
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | 🟢 | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | - |
 | [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
 | [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
@@ -22,6 +23,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
 - [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) **Feat: Implement Services and Improve Factories**
 - [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
 - [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) **Feat: Associate Initiative to External Research Group**
@@ -37,6 +39,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) [feat] Add Sponsor Organization to Fellowship
+- **Executor**: paulossjunior
+- **Labels**: 
+- **Milestone**: -
+
+**Description**:
+Implement requirement FR-05-H as detailed in docs/requirements.md. A Fellowship must now be associated with an Organization that acts as its sponsor.
+
+---
 
 ### [OPEN] [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) Feat: Implement Services and Improve Factories
 - **Executor**: paulossjunior
