@@ -4,10 +4,12 @@ from eo_lib.domain.entities import Role, TeamMember
 from eo_lib.infrastructure.database.postgres_client import PostgresClient
 from libbase.infrastructure.sql_repository import GenericSqlRepository
 
-from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
+                                             KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
-    CampusRepositoryInterface, KnowledgeAreaRepositoryInterface,
+    AdvisorshipRepositoryInterface, CampusRepositoryInterface,
+    FellowshipRepositoryInterface, KnowledgeAreaRepositoryInterface,
     ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
     RoleRepositoryInterface, UniversityRepositoryInterface)
 
@@ -75,3 +77,19 @@ class PostgresRoleRepository(GenericSqlRepository[Role], RoleRepositoryInterface
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), Role)
+
+
+class PostgresAdvisorshipRepository(
+    GenericSqlRepository[Advisorship], AdvisorshipRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), Advisorship)
+
+
+class PostgresFellowshipRepository(
+    GenericSqlRepository[Fellowship], FellowshipRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), Fellowship)
