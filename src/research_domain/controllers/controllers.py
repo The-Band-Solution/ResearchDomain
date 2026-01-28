@@ -4,7 +4,8 @@ from typing import List, Optional
 from eo_lib.domain.entities import Role, TeamMember
 from libbase.controllers.generic_controller import GenericController
 
-from research_domain.domain.entities import (Campus, KnowledgeArea, Researcher,
+from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
+                                             KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.factories import ServiceFactory
 
@@ -147,3 +148,55 @@ class ResearchGroupController(GenericController[ResearchGroup]):
         members = self._service.get_members(team_id)
         leader_role = self._role_service.get_or_create_leader_role()
         return [m for m in members if m.role_id == leader_role.id]
+
+
+class AdvisorshipController(GenericController[Advisorship]):
+    def __init__(self):
+        service = ServiceFactory.create_advisorship_service()
+        super().__init__(service)
+
+    def create_advisorship(
+        self,
+        name: str,
+        student_id: Optional[int] = None,
+        supervisor_id: Optional[int] = None,
+        fellowship_id: Optional[int] = None,
+        start_date: Optional[date] = None,
+        end_date: Optional[date] = None,
+        description: Optional[str] = None,
+        status: str = "active",
+    ) -> Advisorship:
+        advisorship = Advisorship(
+            name=name,
+            student_id=student_id,
+            supervisor_id=supervisor_id,
+            fellowship_id=fellowship_id,
+            start_date=start_date,
+            end_date=end_date,
+            description=description,
+            status=status,
+        )
+        self.create(advisorship)
+        return advisorship
+
+
+class FellowshipController(GenericController[Fellowship]):
+    def __init__(self):
+        service = ServiceFactory.create_fellowship_service()
+        super().__init__(service)
+
+    def create_fellowship(
+        self,
+        name: str,
+        value: float,
+        description: Optional[str] = None,
+        sponsor_id: Optional[int] = None,
+    ) -> Fellowship:
+        fellowship = Fellowship(
+            name=name,
+            value=value,
+            description=description,
+            sponsor_id=sponsor_id,
+        )
+        self.create(fellowship)
+        return fellowship

@@ -12,6 +12,7 @@ class Fellowship(Base, SerializableMixin):
     Fellowship Model.
 
     Represents a scholarship or funding for a student in an advisorship.
+    A fellowship can have a sponsor organization that provides the funding.
     """
 
     __tablename__ = "fellowships"
@@ -20,23 +21,36 @@ class Fellowship(Base, SerializableMixin):
     name = Column(String(255), nullable=False)
     description = Column(Text, nullable=True)
     value = Column(Float, nullable=False)
-    sponsor_id = Column(Integer, ForeignKey("organizations.id"), nullable=False)
+    sponsor_id = Column(Integer, ForeignKey("organizations.id"), nullable=True)
+
+    # Relationships
+    sponsor = relationship("Organization", foreign_keys=[sponsor_id])
 
     def __init__(
         self,
         name: str,
         value: float,
-        sponsor_id: int,
         description: Optional[str] = None,
+        sponsor_id: Optional[int] = None,
+        sponsor: Optional[object] = None,
         id: Optional[int] = None,
         **kwargs,
     ):
         """
         Initializes a new Fellowship instance.
+
+        Args:
+            name: Name of the fellowship
+            value: Monetary value of the fellowship
+            description: Optional description
+            sponsor_id: Optional ID of the sponsoring organization
+            sponsor: Optional sponsor Organization object
+            id: Optional fellowship ID
         """
         super().__init__(**kwargs)
         self.id = id
         self.name = name
         self.value = value
-        self.sponsor_id = sponsor_id
         self.description = description
+        self.sponsor_id = sponsor_id
+        self.sponsor = sponsor
