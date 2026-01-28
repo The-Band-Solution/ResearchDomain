@@ -33,6 +33,7 @@
 - **FR-05-E**: The system must allow creating an `Advisorship`, which links an `Initiative` to a student (Person) and a supervisor (Person) for a specific period.
 - **FR-05-F**: An `Advisorship` can optionally be associated with a `Fellowship`. If no fellowship is linked, the advisorship is considered "voluntary".
 - **FR-05-G**: The `Fellowship` entity must store `name`, `description`, and `value`.
+- **FR-05-H**: A `Fellowship` must be associated with an `Organization` that acts as its **Sponsor**.
 
 ### FR-06: Role Management
 - **FR-06-A**: The system must support the `Role` entity from `eo_lib`.

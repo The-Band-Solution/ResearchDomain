@@ -41,7 +41,7 @@ def test_advisorship_with_fellowship():
     """Test that Advisorship correctly links to Fellowship."""
     student = Person(name="Charlie")
     supervisor = Person(name="Dr. Dave")
-    fellowship = Fellowship(name="PIBIC", value=700.0)
+    fellowship = Fellowship(name="PIBIC", value=700.0, sponsor_id=1)
 
     advisorship = Advisorship(
         name="Fellowship Advisorship",
