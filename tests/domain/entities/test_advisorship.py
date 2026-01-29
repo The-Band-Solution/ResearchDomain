@@ -87,3 +87,24 @@ def test_advisorship_serialization():
     assert data["supervisor_id"] == 20
     assert data["fellowship_id"] == 30
     assert data["start_date"] == date(2023, 1, 1)
+
+
+def test_advisorship_cancellation():
+    """Test that Advisorship can be cancelled and stores the cancellation date."""
+    cancellation_date = date(2025, 6, 1)
+    advisorship = Advisorship(
+        name="Cancelled Project",
+        cancelled=True,
+        cancellation_date=cancellation_date,
+    )
+
+    assert advisorship.cancelled is True
+    assert advisorship.cancellation_date == cancellation_date
+
+
+def test_advisorship_cancellation_default():
+    """Test default values for cancellation fields."""
+    advisorship = Advisorship(name="Active Project")
+
+    assert advisorship.cancelled is False
+    assert advisorship.cancellation_date is None

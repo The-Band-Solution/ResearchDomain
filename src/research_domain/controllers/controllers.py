@@ -165,6 +165,8 @@ class AdvisorshipController(GenericController[Advisorship]):
         end_date: Optional[date] = None,
         description: Optional[str] = None,
         status: str = "active",
+        cancelled: bool = False,
+        cancellation_date: Optional[date] = None,
     ) -> Advisorship:
         advisorship = Advisorship(
             name=name,
@@ -175,9 +177,18 @@ class AdvisorshipController(GenericController[Advisorship]):
             end_date=end_date,
             description=description,
             status=status,
+            cancelled=cancelled,
+            cancellation_date=cancellation_date,
         )
         self.create(advisorship)
         return advisorship
+
+    def cancel_advisorship(
+        self, advisorship_id: int, cancellation_date: Optional[date] = None
+    ) -> Optional[Advisorship]:
+        if not cancellation_date:
+            cancellation_date = date.today()
+        return self._service.cancel_advisorship(advisorship_id, cancellation_date)
 
 
 class FellowshipController(GenericController[Fellowship]):

@@ -2,7 +2,7 @@ from datetime import date
 from typing import Optional
 
 from eo_lib.domain.entities import Initiative
-from sqlalchemy import Column, Date, ForeignKey, Integer
+from sqlalchemy import Boolean, Column, Date, ForeignKey, Integer
 from sqlalchemy.orm import relationship
 
 from research_domain.domain.mixins import SerializableMixin
@@ -23,6 +23,8 @@ class Advisorship(Initiative, SerializableMixin):
     student_id = Column(Integer, ForeignKey("persons.id"), nullable=True)
     supervisor_id = Column(Integer, ForeignKey("persons.id"), nullable=True)
     fellowship_id = Column(Integer, ForeignKey("fellowships.id"), nullable=True)
+    cancelled = Column(Boolean, default=False)
+    cancellation_date = Column(Date, nullable=True)
 
     # Relationships
     student = relationship("Person", foreign_keys=[student_id])
@@ -45,6 +47,8 @@ class Advisorship(Initiative, SerializableMixin):
         fellowship: Optional[object] = None,
         start_date: Optional[date] = None,
         end_date: Optional[date] = None,
+        cancelled: bool = False,
+        cancellation_date: Optional[date] = None,
         description: Optional[str] = None,
         status: str = "active",
         id: Optional[int] = None,
@@ -65,3 +69,5 @@ class Advisorship(Initiative, SerializableMixin):
         self.student = student
         self.supervisor = supervisor
         self.fellowship = fellowship
+        self.cancelled = cancelled
+        self.cancellation_date = cancellation_date
