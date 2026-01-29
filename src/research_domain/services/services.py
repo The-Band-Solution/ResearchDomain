@@ -107,6 +107,19 @@ class AdvisorshipService(GenericService[Advisorship]):
     def __init__(self, repo: AdvisorshipRepositoryInterface):
         super().__init__(repo)
 
+    def cancel_advisorship(
+        self, advisorship_id: int, cancellation_date: date
+    ) -> Optional[Advisorship]:
+        """Marks an advisorship as cancelled."""
+        advisorship = self.get_by_id(advisorship_id)
+        if advisorship:
+            advisorship.cancelled = True
+            advisorship.cancellation_date = cancellation_date
+            # The generic service should have an update method or we can call repository directly
+            self.update(advisorship)
+            return advisorship
+        return None
+
 
 class FellowshipService(GenericService[Fellowship]):
     def __init__(self, repo: FellowshipRepositoryInterface):

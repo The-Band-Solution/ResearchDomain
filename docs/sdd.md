@@ -163,6 +163,8 @@ The system models a research environment within Universities.
 | `start_date` | Date | Optional | Start date of the supervision. |
 | `end_date` | Date | Optional | End date of the supervision. |
 | `fellowship_id` | Integer| FK (Fellowship), Opt | Link to the fellowship (bolsa). If null, is voluntary. |
+| `cancelled` | Boolean | Default False | Indicates if the advisorship was cancelled. |
+| `cancellation_date` | Date | Nullable | The date when the advisorship was cancelled. |
 
 #### 2.2.12 Fellowship
 | Attribute | Type | Constraints | Description |
@@ -255,6 +257,8 @@ classDiagram
         +date start_date
         +date end_date
         +int fellowship_id
+        +bool cancelled
+        +date cancellation_date
     }
 
     class Fellowship {
