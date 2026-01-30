@@ -1,16 +1,14 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-28 19:43:45
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-30 01:23:11
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | ✅ | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | Integration |
+| [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | 🟢 | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | - |
 | [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
-| [# 19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) | ✅ | Task: Add fellowship/voluntary status to Advisorship | @paulossjunior | - | - |
-| [# 18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) | ✅ | Feat: Implementation of Advisorship (Student/Supervisor) | @paulossjunior | - | - |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
 | [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
 | [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
@@ -32,9 +30,6 @@ Overview of all demands, their states and executors.
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
-- [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
-- [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) **Task: Implement Fellowship Entity and Association**
-- [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) **Feat: Implementation of Advisorship (Student/Supervisor)**
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
 - [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
@@ -43,14 +38,6 @@ Overview of all demands, their states and executors.
 
 ---
 
-## 🚀 Releases
-
-### v0.7.0
-- **PR**: [#23](https://github.com/The-Band-Solution/ResearchDomain/pull/23)
-- **Description**: Added mandatory `sponsor_id` to `Fellowship` entity. Updated documentation and tests.
-- **Commit**: [bc8b169](https://github.com/The-Band-Solution/ResearchDomain/commit/bc8b1695a6be3924a428e33cb51f97fc25daea9c)
-
-### v0.5.0
 ## 📝 Detailed Backlog
 
 ### [OPEN] [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) [feat] Add Sponsor Organization to Fellowship
