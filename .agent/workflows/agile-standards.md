@@ -53,6 +53,11 @@ Maintain the following artifacts throughout the lifecycle:
 - [ ] **TDD**: Implement the test cases defined in the plan BEFORE the implementation code. **MANDATORY AND NON-NEGOTIABLE**.
 - [ ] **Style**: Code must pass `black`, `flake8`, `isort`.
 - [ ] **Business Logic**: All business rules requirements must be satisfied and verified.
+- [ ] **Design Pattern Consistency**:
+    - [ ] **Every Model/Entity** MUST have a corresponding:
+        - [ ] **Repository Interface** (in Domain) & Implementation.
+        - [ ] **Service** (Business Logic).
+        - [ ] **Controller** (Presentation/Facade).
 
 ## 6. Pull Request Standards
 - [ ] **Process**:

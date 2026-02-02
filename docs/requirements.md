@@ -7,6 +7,12 @@
 - **FR-01-B**: The system must allow retrieving a Researcher by ID.
 - **FR-01-C**: Researcher must store `cnpq_url` and `google_scholar_url` (optional, strings).
 - **FR-01-D**: Researcher must be associated with one or more `KnowledgeAreas`.
+- **FR-01-E**: Researcher must store a history of **Academic Education** (Formações), including title, **Institution (Organization)**, start/end years, thesis title, **Advisor (Researcher)**, **Co-Advisor (Researcher)**, and knowledge areas.
+- **FR-01-F**: Academic Education must be categorized by **Education Type** (e.g., Graduation, Master, Doctorate).
+- **FR-01-G**: Researcher must store a list of **Bibliographic Citation Names** (names used in publications).
+- **FR-01-H**: Researcher must store a list of **Language Proficiencies** (Proficiências em Idiomas), where each proficiency includes the language and levels for Comprehension, Speaking, Reading, and Writing.
+- **FR-01-I**: Researcher must store a list of **Awards** (Prêmios/Títulos).
+- **FR-01-J**: Researcher must store a history of **Scientific Articles** (Artigos), including title, DOI, year, journal/conference details, and associated authors (Researchers).
 
 ### FR-02: Team Management (Research Groups)
 - **FR-02-A**: The system must allow creating a ResearchGroup (Team).
