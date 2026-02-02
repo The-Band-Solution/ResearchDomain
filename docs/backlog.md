@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:28:48
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:52:48
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | 🟢 | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
 | [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
 | [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
 | [# 28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) | 🟢 | [feat] Implement Article Entity and Author Relationship | @paulossjunior | - | Issue Base |
@@ -29,6 +30,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) **[feat] Implement Advisorship Types and Examination Board**
 - [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
 - [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) **[feat] Add Article Type (Journal vs Conference)**
 - [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) **[feat] Implement Article Entity and Author Relationship**
@@ -51,6 +53,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) [feat] Implement Advisorship Types and Examination Board
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Enhance Advisorship with types/program/institution and create Examination Board entity for defense committees.
+
+---
 
 ### [OPEN] [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) [feat] Implement Article Architecture Layers
 - **Executor**: paulossjunior
