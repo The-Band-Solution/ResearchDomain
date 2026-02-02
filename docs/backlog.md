@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 17:25:04
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 17:44:43
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) | 🟢 | [feat] Add Proficiencies and Awards to Researcher | @paulossjunior | - | Issue Base |
 | [# 25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) | 🟢 | [feat] Implement Academic Education History for Researcher | @paulossjunior | - | Issue Base |
 | [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | 🟢 | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | - |
 | [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
@@ -24,6 +25,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) **[feat] Add Proficiencies and Awards to Researcher**
 - [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) **[feat] Implement Academic Education History for Researcher**
 - [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
 - [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) **Feat: Implement Services and Improve Factories**
@@ -41,6 +43,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) [feat] Add Proficiencies and Awards to Researcher
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Add  (JSON List) and  (JSON List) to Researcher.
+
+---
 
 ### [OPEN] [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) [feat] Implement Academic Education History for Researcher
 - **Executor**: paulossjunior
