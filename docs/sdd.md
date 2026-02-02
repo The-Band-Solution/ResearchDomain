@@ -42,6 +42,75 @@ The system models a research environment within Universities.
 | `birthday` | Date | Optional | The date of birth. |
 | `cnpq_url` | String | Optional | Link to CNPq Lattes curriculum. |
 | `google_scholar_url` | String | Optional | Link to Google Scholar profile. |
+| `citation_names` | String | - | Names used in bibliographic citations (e.g., "SILVA, J.; SILVA, Joao"). |
+| `awards` | List[String] | - | List of awards or titles received. |
+| `academic_educations` | List | - | Historical records of academic degrees. |
+| `proficiencies` | List | - | List of language proficiencies (See 2.2.3). |
+| `awards` | List | - | List of awards or titles (See 2.2.4). |
+| `articles` | List | - | List of scientific articles (See 2.2.6). |
+
+#### 2.2.3 Proficiency
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `researcher_id` | Integer | FK (Researcher) | The person with this skill. |
+| `language_id` | Integer | FK (Language) | The language (See 2.2.5). |
+| `comprehension` | Enum | - | Level (Basico, Medio, Alto, NaoSeAplica). |
+| `speaking` | Enum | - | Level (Basico, Medio, Alto, NaoSeAplica). |
+| `reading` | Enum | - | Level (Basico, Medio, Alto, NaoSeAplica). |
+| `writing` | Enum | - | Level (Basico, Medio, Alto, NaoSeAplica). |
+
+#### 2.2.4 Award
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `researcher_id` | Integer | FK (Researcher) | The recipient of the award. |
+| `title` | String | Not Null | The name of the award/title. |
+| `year` | Integer | Optional | Year received. |
+
+#### 2.2.5 Language
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `name` | String | Unique, Not Null | Language name (e.g., "Portuguese"). |
+
+#### 2.2.6 Article
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `title` | String | Not Null | Article title. |
+| `doi` | String | Optional | Digital Object Identifier. |
+| `year` | Integer | Not Null | Publication year. |
+| `type` | Enum | Not Null | Periodico or Evento. |
+| `journal_conference` | String | Optional | Name of the Journal or Conference due to type. |
+| `volume` | String | Optional | Volume/Issue information. |
+| `pages` | String | Optional | Page range (e.g., "100-110"). |
+
+#### 2.2.7 Article Author (Association)
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `article_id` | Integer | FK (Article) | Link to the Article. |
+| `researcher_id` | Integer | FK (Researcher) | Link to the Author. |
+
+#### 2.2.2 EducationType
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `name` | String | Unique, Not Null | Type name (e.g., "Graduation", "Master", "Doctorate"). |
+
+#### 2.2.3 AcademicEducation (Value Object/Entity)
+| Attribute | Type | Constraints | Description |
+|-----------|------|-------------|-------------|
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `researcher_id` | Integer | FK (Researcher) | The person who holds the degree. |
+| `education_type_id` | Integer | FK (EducationType) | The level of the degree. |
+| `title` | String | Not Null | The title of the degree/thesis. |
+| `institution_id` | Integer | FK (Organization) | The institution (entidade formadora). |
+| `start_year` | Integer | Not Null | Year the program started. |
+| `end_year` | Integer | Optional | Year the program ended (null if ongoing). |
+| `thesis_title` | String | Optional | Title of the final work/thesis. |
+| `advisor_id` | Integer | FK (Person/Researcher) | Primary advisor. |
+| `co_advisor_id` | Integer | FK (Person/Researcher) | Co-advisor. |
 
 #### 2.2.2 PersonEmail
 | Attribute | Type | Constraints | Description |
