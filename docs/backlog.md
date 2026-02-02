@@ -5,6 +5,14 @@ This document is automatically synchronized with GitHub Issues. Last updated: 20
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
+## 🚀 Releases
+
+### v0.10.0 (2026-02-02)
+- **Description**: Implemented Researcher metadata (Proficiencies, Awards, String Citations) and full Article entity architecture (Entity, Repository, Service, Controller).
+- **PR**: [#32](https://github.com/The-Band-Solution/ResearchDomain/pull/32)
+- **Tag**: `v0.10.0`
+
+
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |

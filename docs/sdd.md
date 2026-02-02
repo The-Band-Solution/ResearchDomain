@@ -338,6 +338,31 @@ classDiagram
         +int sponsor_id
     }
 
+    class Article {
+        +int id
+        +str title
+        +int year
+        +str doi
+        +ArticleType type
+    }
+
+    class Award {
+        +int id
+        +str title
+        +int year
+    }
+
+    class Proficiency {
+        +str comprehension
+        +str speaking
+        +str reading
+        +str writing
+    }
+
+    class Language {
+        +str name
+    }
+
     %% Inheritance
     Researcher --|> Person : inherits
     ResearchGroup --|> Team : inherits
@@ -365,6 +390,11 @@ classDiagram
     Advisorship "N" --> "0..1" Fellowship : receives
     Initiative "N" --> "1" Organization : Has Demandante
     Fellowship "N" --> "1" Organization : Sponsored by
+    
+    Researcher "1" --> "N" Award : Received
+    Researcher "1" --> "N" Proficiency : Has
+    Proficiency "N" --> "1" Language : Of
+    Researcher "M" --> "N" Article : Authors
 ```
 
 ### 3.2 Architecture Class Diagram
