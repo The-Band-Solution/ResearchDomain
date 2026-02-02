@@ -338,6 +338,14 @@ classDiagram
         +int sponsor_id
     }
 
+    class Advisorship {
+        +int id
+        +str name
+        +AdvisorshipType type
+        +str program
+        +date defense_date
+    }
+
     class Article {
         +int id
         +str title
@@ -345,12 +353,17 @@ classDiagram
         +str doi
         +ArticleType type
     }
-
-    class Award {
+    
+    class Team {
         +int id
-        +str title
-        +int year
+        +str name
     }
+
+    %% Inheritance
+    Researcher --|> Person : inherits
+    ResearchGroup --|> Team : inherits
+    Advisorship --|> Initiative : inherits
+    Advisorship --|> Team : composes (via Initiative)
 
     class Proficiency {
         +str comprehension

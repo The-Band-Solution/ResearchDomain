@@ -13,7 +13,13 @@ from research_domain.domain.mixins import SerializableMixin
 # OR just import it here if academic_education doesn't import Researcher.
 # academic_education.py DOES NOT import Researcher (uses string). So we can import it.
 from research_domain.domain.entities.academic_education import AcademicEducation
-from research_domain.domain.entities.article import Article # Make sure Article is registered
+from research_domain.domain.entities.article import Article 
+# Ensure other related entities are imported or available in metadata
+# Importing them here might cause circular loop if they import Researcher.
+# Proficiency imports Researcher? NO, it uses "Researcher" string.
+# But SQLAlchemy needs them registered.
+from research_domain.domain.entities.proficiency import Proficiency
+from research_domain.domain.entities.award import Award
 
 # Association Table for Many-to-Many relationship between Researcher and KnowledgeArea
 researcher_knowledge_areas = Table(
@@ -64,9 +70,6 @@ class Researcher(Person, SerializableMixin):
     )
     articles = relationship(
         "Article",
-        # We need article_authors here. If we can't import it at top, we can use string "article_authors" 
-        # IF it is in the same metadata/registry. But typically secondary expects the Table object.
-        # Let's import it inside the file but correctly.
         secondary="article_authors", 
         back_populates="authors",
         lazy="joined"
