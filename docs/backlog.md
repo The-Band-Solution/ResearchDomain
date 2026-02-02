@@ -1,16 +1,28 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-01-28 19:43:45
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:28:48
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
+## 🚀 Releases
+
+### v0.10.0 (2026-02-02)
+- **Description**: Implemented Researcher metadata (Proficiencies, Awards, String Citations) and full Article entity architecture (Entity, Repository, Service, Controller).
+- **PR**: [#32](https://github.com/The-Band-Solution/ResearchDomain/pull/32)
+- **Tag**: `v0.10.0`
+
+
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | ✅ | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | Integration |
+| [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
+| [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
+| [# 28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) | 🟢 | [feat] Implement Article Entity and Author Relationship | @paulossjunior | - | Issue Base |
+| [# 27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) | 🟢 | [feat] Implement Metadata Entities (Language, Award, Proficiency) | @paulossjunior | - | Issue Base |
+| [# 26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) | 🟢 | [feat] Add Proficiencies and Awards to Researcher | @paulossjunior | - | Issue Base |
+| [# 25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) | 🟢 | [feat] Implement Academic Education History for Researcher | @paulossjunior | - | Issue Base |
+| [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | 🟢 | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | - |
 | [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
-| [# 19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) | ✅ | Task: Add fellowship/voluntary status to Advisorship | @paulossjunior | - | - |
-| [# 18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) | ✅ | Feat: Implementation of Advisorship (Student/Supervisor) | @paulossjunior | - | - |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
 | [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
 | [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
@@ -25,6 +37,12 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
+- [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) **[feat] Add Article Type (Journal vs Conference)**
+- [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) **[feat] Implement Article Entity and Author Relationship**
+- [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) **[feat] Implement Metadata Entities (Language, Award, Proficiency)**
+- [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) **[feat] Add Proficiencies and Awards to Researcher**
+- [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) **[feat] Implement Academic Education History for Researcher**
 - [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
 - [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) **Feat: Implement Services and Improve Factories**
 - [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
@@ -32,9 +50,6 @@ Overview of all demands, their states and executors.
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
-- [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
-- [#19](https://github.com/The-Band-Solution/ResearchDomain/issues/19) **Task: Implement Fellowship Entity and Association**
-- [#18](https://github.com/The-Band-Solution/ResearchDomain/issues/18) **Feat: Implementation of Advisorship (Student/Supervisor)**
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
 - [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
@@ -43,15 +58,67 @@ Overview of all demands, their states and executors.
 
 ---
 
-## 🚀 Releases
-
-### v0.7.0
-- **PR**: [#23](https://github.com/The-Band-Solution/ResearchDomain/pull/23)
-- **Description**: Added mandatory `sponsor_id` to `Fellowship` entity. Updated documentation and tests.
-- **Commit**: [bc8b169](https://github.com/The-Band-Solution/ResearchDomain/commit/bc8b1695a6be3924a428e33cb51f97fc25daea9c)
-
-### v0.5.0
 ## 📝 Detailed Backlog
+
+### [OPEN] [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) [feat] Implement Article Architecture Layers
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Create Repository, Service, and Controller for Article entity following strict layered architecture.
+
+---
+
+### [OPEN] [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) [feat] Add Article Type (Journal vs Conference)
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Add ArticleType Enum (PERIODICO, EVENTO) and update Article entity to distinguish publication types.
+
+---
+
+### [OPEN] [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) [feat] Implement Article Entity and Author Relationship
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Implement Article entity with Many-to-Many relationship to Researcher. - Article Entity - Researcher Relationship (Authors) - Tests
+
+---
+
+### [OPEN] [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) [feat] Implement Metadata Entities (Language, Award, Proficiency)
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Refactor metadata into dedicated entities to support normalization. - Language Entity - Proficiency Entity - Award Entity - Citation Names as String
+
+---
+
+### [OPEN] [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) [feat] Add Proficiencies and Awards to Researcher
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Add  (JSON List) and  (JSON List) to Researcher.
+
+---
+
+### [OPEN] [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) [feat] Implement Academic Education History for Researcher
+- **Executor**: paulossjunior
+- **Labels**: feature, us
+- **Milestone**: Issue Base
+
+**Description**:
+Implement requirement FR-01-E and FR-01-F. Store academic history (graduation, master, phd) for researchers, distinct from Knowledge Areas.
+
+---
 
 ### [OPEN] [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) [feat] Add Sponsor Organization to Fellowship
 - **Executor**: paulossjunior
