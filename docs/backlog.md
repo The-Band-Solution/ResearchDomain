@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:21:27
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:28:30
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
 | [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
 | [# 28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) | 🟢 | [feat] Implement Article Entity and Author Relationship | @paulossjunior | - | Issue Base |
 | [# 27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) | 🟢 | [feat] Implement Metadata Entities (Language, Award, Proficiency) | @paulossjunior | - | Issue Base |
@@ -28,6 +29,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
 - [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) **[feat] Add Article Type (Journal vs Conference)**
 - [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) **[feat] Implement Article Entity and Author Relationship**
 - [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) **[feat] Implement Metadata Entities (Language, Award, Proficiency)**
@@ -49,6 +51,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) [feat] Implement Article Architecture Layers
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Create Repository, Service, and Controller for Article entity following strict layered architecture.
+
+---
 
 ### [OPEN] [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) [feat] Add Article Type (Journal vs Conference)
 - **Executor**: paulossjunior
