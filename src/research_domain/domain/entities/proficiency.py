@@ -6,6 +6,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Enum
 from sqlalchemy.orm import relationship
 
 from research_domain.domain.mixins import SerializableMixin
+from research_domain.domain.entities.language import Language
 
 
 class ProficiencyLevel(enum.Enum):
