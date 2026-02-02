@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:03:26
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:16:02
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) | 🟢 | [feat] Implement Article Entity and Author Relationship | @paulossjunior | - | Issue Base |
 | [# 27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) | 🟢 | [feat] Implement Metadata Entities (Language, Award, Proficiency) | @paulossjunior | - | Issue Base |
 | [# 26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) | 🟢 | [feat] Add Proficiencies and Awards to Researcher | @paulossjunior | - | Issue Base |
 | [# 25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) | 🟢 | [feat] Implement Academic Education History for Researcher | @paulossjunior | - | Issue Base |
@@ -26,6 +27,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) **[feat] Implement Article Entity and Author Relationship**
 - [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) **[feat] Implement Metadata Entities (Language, Award, Proficiency)**
 - [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) **[feat] Add Proficiencies and Awards to Researcher**
 - [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) **[feat] Implement Academic Education History for Researcher**
@@ -45,6 +47,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) [feat] Implement Article Entity and Author Relationship
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Implement Article entity with Many-to-Many relationship to Researcher. - Article Entity - Researcher Relationship (Authors) - Tests
+
+---
 
 ### [OPEN] [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) [feat] Implement Metadata Entities (Language, Award, Proficiency)
 - **Executor**: paulossjunior
