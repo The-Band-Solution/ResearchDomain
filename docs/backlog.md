@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 17:45:08
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:03:05
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) | 🟢 | [feat] Implement Metadata Entities (Language, Award, Proficiency) | @paulossjunior | - | Issue Base |
 | [# 26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) | 🟢 | [feat] Add Proficiencies and Awards to Researcher | @paulossjunior | - | Issue Base |
 | [# 25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) | 🟢 | [feat] Implement Academic Education History for Researcher | @paulossjunior | - | Issue Base |
 | [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | 🟢 | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | - |
@@ -25,6 +26,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) **[feat] Implement Metadata Entities (Language, Award, Proficiency)**
 - [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) **[feat] Add Proficiencies and Awards to Researcher**
 - [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) **[feat] Implement Academic Education History for Researcher**
 - [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
@@ -43,6 +45,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) [feat] Implement Metadata Entities (Language, Award, Proficiency)
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Refactor metadata into dedicated entities to support normalization. - Language Entity - Proficiency Entity - Award Entity - Citation Names as String
+
+---
 
 ### [OPEN] [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) [feat] Add Proficiencies and Awards to Researcher
 - **Executor**: paulossjunior
