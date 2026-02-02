@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:16:19
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:21:10
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
 | [# 28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) | 🟢 | [feat] Implement Article Entity and Author Relationship | @paulossjunior | - | Issue Base |
 | [# 27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) | 🟢 | [feat] Implement Metadata Entities (Language, Award, Proficiency) | @paulossjunior | - | Issue Base |
 | [# 26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) | 🟢 | [feat] Add Proficiencies and Awards to Researcher | @paulossjunior | - | Issue Base |
@@ -27,6 +28,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) **[feat] Add Article Type (Journal vs Conference)**
 - [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) **[feat] Implement Article Entity and Author Relationship**
 - [#27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) **[feat] Implement Metadata Entities (Language, Award, Proficiency)**
 - [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) **[feat] Add Proficiencies and Awards to Researcher**
@@ -47,6 +49,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) [feat] Add Article Type (Journal vs Conference)
+- **Executor**: paulossjunior
+- **Labels**: feature
+- **Milestone**: Issue Base
+
+**Description**:
+Add ArticleType Enum (PERIODICO, EVENTO) and update Article entity to distinguish publication types.
+
+---
 
 ### [OPEN] [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) [feat] Implement Article Entity and Author Relationship
 - **Executor**: paulossjunior
