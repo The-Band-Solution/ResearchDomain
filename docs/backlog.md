@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 01:27:45
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 17:24:36
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) | 🟢 | [feat] Implement Academic Education History for Researcher | @paulossjunior | - | Issue Base |
 | [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | 🟢 | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | - |
 | [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
@@ -23,6 +24,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) **[feat] Implement Academic Education History for Researcher**
 - [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
 - [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) **Feat: Implement Services and Improve Factories**
 - [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
@@ -39,6 +41,16 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) [feat] Implement Academic Education History for Researcher
+- **Executor**: paulossjunior
+- **Labels**: feature, us
+- **Milestone**: Issue Base
+
+**Description**:
+Implement requirement FR-01-E and FR-01-F. Store academic history (graduation, master, phd) for researchers, distinct from Knowledge Areas.
+
+---
 
 ### [OPEN] [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) [feat] Add Sponsor Organization to Fellowship
 - **Executor**: paulossjunior
