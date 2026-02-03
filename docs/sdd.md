@@ -42,6 +42,7 @@ The system models a research environment within Universities.
 | `birthday` | Date | Optional | The date of birth. |
 | `cnpq_url` | String | Optional | Link to CNPq Lattes curriculum. |
 | `google_scholar_url` | String | Optional | Link to Google Scholar profile. |
+| `resume` | Text | Optional | Professional summary. |
 | `citation_names` | String | - | Names used in bibliographic citations (e.g., "SILVA, J.; SILVA, Joao"). |
 | `awards` | List[String] | - | List of awards or titles received. |
 | `academic_educations` | List | - | Historical records of academic degrees. |
@@ -277,6 +278,7 @@ classDiagram
         +list[PersonEmail] emails
         +str cnpq_url
         +str google_scholar_url
+        +str resume
         +list[KnowledgeArea] knowledge_areas
     }
 

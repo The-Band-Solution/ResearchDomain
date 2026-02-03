@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from eo_lib.domain.base import Base
 from eo_lib.domain.entities import Person
-from sqlalchemy import Column, ForeignKey, Integer, String, Table, JSON
+from sqlalchemy import Column, ForeignKey, Integer, String, Table, JSON, Text
 from sqlalchemy.orm import relationship
 
 from research_domain.domain.mixins import SerializableMixin
@@ -43,6 +43,7 @@ class Researcher(Person, SerializableMixin):
     id = Column(Integer, ForeignKey("persons.id"), primary_key=True)
     cnpq_url = Column(String(255), nullable=True)
     google_scholar_url = Column(String(255), nullable=True)
+    resume = Column(Text, nullable=True)
     # Storing list of strings as JSON/ARRAY. 
     # Using JSON for better compatibility with SQLite (testing) and Postgres.
     
@@ -80,6 +81,7 @@ class Researcher(Person, SerializableMixin):
         name: str,
         cnpq_url: Optional[str] = None,
         google_scholar_url: Optional[str] = None,
+        resume: Optional[str] = None,
         citation_names: Optional[str] = None,
         knowledge_areas: Optional[List] = None,
         articles: Optional[List] = None, # Add to init
@@ -92,6 +94,7 @@ class Researcher(Person, SerializableMixin):
         super().__init__(name=name, id=id, **kwargs)
         self.cnpq_url = cnpq_url
         self.google_scholar_url = google_scholar_url
+        self.resume = resume
         self.citation_names = citation_names
         
         if knowledge_areas:
