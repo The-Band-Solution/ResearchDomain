@@ -2,6 +2,15 @@
 
 This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-03 01:28:01
 
+## 🚀 Releases
+
+### v0.12.0 (2026-02-02)
+- **Description**: Implemented full layered Architecture for `EducationType` (Repository, Service, Controller) utilizing `libbase` generic components. Added verification tests.
+- **PR**: [#39](https://github.com/The-Band-Solution/ResearchDomain/pull/39)
+- **Tag**: `v0.12.0`
+
+### v0.11.0 (2026-02-02)
+
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
