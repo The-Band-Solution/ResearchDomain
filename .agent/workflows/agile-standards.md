@@ -115,3 +115,12 @@ Maintain the following artifacts throughout the lifecycle:
         - Releases.
     - [ ] **AVOID** `git` CLI commands where MCP alternatives exist.
     - [ ] **Legacy Git**: Use `git` CLI only for local workspace synchronization (checkout/pull) if MCP equivalent is unavailable.
+
+## 11. CI/CD Monitoring & Troubleshooting
+- [ ] **Proactive Monitoring**:
+    - [ ] Monitor GitHub Actions tab after every push.
+    - [ ] **Build Failures**: Treat CI/CD errors as **BLOCKERS**. Resolve immediately.
+- [ ] **Error Resolution**:
+    - [ ] Read error logs carefully (stack traces, import errors).
+    - [ ] Refactor code or dependencies if environment paths change (e.g., using `libbase` instead of `eo_lib`).
+    - [ ] Verify locally (`pytest`, `lint`) before pushing fixes.
