@@ -25,9 +25,10 @@ class ResearcherController(GenericController[Researcher]):
         emails: List[str] = None,
         identification_id: str = None,
         birthday: date = None,
+        resume: str = None,
     ) -> Researcher:
         return self._service.create_with_details(
-            name, emails, identification_id, birthday
+            name, emails, identification_id, birthday, resume=resume
         )
 
 

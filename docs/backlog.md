@@ -7,7 +7,7 @@ Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | 🟢 | Add resume field to Researcher entity | - | - | Issue Base |
+| [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | 🟢 | Add resume field to Researcher entity | @paulossjunior | - | Issue Base |
 | [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | 🟢 | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
 | [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
 | [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
@@ -54,27 +54,19 @@ Overview of all demands, their states and executors.
 
 ---
 
-## 📝 Detailed Backlog
-
 ### [OPEN] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
-- **Executor**: -
-- **Labels**: feature, task
+- **Executor**: paulossjunior
+- **Labels**: task, feature
 - **Milestone**: Issue Base
 
 **Description**:
-This issue tracks the addition of a resume field (Text) to the Researcher entity to store a brief professional summary.
+Add a `resume` field (Text) to the `Researcher` entity to store a brief professional summary.
 
 **Tasks**:
-- [ ] Update documentation (entities.md, sdd.md).
-- [ ] Add resume field to Researcher entity in researcher.py.
-- [ ] Update ResearcherController to support the new field.
-- [ ] Add unit tests for the field.
-
-**Details**:
-- Label: task
-- Type: feature
-- Project: The Band Project
-- Assignee: @paulossjunior
+- [x] Update documentation (entities.md, sdd.md).
+- [x] Add resume field to Researcher entity in researcher.py.
+- [x] Update ResearcherController to support the new field.
+- [x] Add unit tests for the field.
 
 ---
 
