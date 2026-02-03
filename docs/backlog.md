@@ -1,39 +1,22 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-03 01:28:01
-
-## 🚀 Releases
-
-### v0.12.7 (2026-02-03)
-- **Description**: Standardized and consolidated controllers, services, and repository interfaces across AcademicEducation, Article, and EducationType modules.
-- **Tag**: `v0.12.7`
-
-### v0.12.1 (2026-02-02)
-- **Description**: Hotfix for `ModuleNotFoundError` in `ArticleService` and `ArticleController` by refactoring to use `libbase` components. Updated `@agile-standards` with CI/CD monitoring.
-- **PR**: [#42](https://github.com/The-Band-Solution/ResearchDomain/pull/42)
-- **Tag**: `v0.12.1`
-
-### v0.12.0 (2026-02-02)
-- **Description**: Implemented full layered Architecture for `EducationType` (Repository, Service, Controller) utilizing `libbase` generic components. Added verification tests.
-- **PR**: [#39](https://github.com/The-Band-Solution/ResearchDomain/pull/39)
-- **Tag**: `v0.12.0`
-
-### v0.11.0 (2026-02-02)
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-03 17:19:59
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | 🟢 | Add resume field to Researcher entity | - | - | Issue Base |
 | [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | 🟢 | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
-| [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | ✅ | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
+| [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
 | [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
 | [# 28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) | 🟢 | [feat] Implement Article Entity and Author Relationship | @paulossjunior | - | Issue Base |
 | [# 27](https://github.com/The-Band-Solution/ResearchDomain/issues/27) | 🟢 | [feat] Implement Metadata Entities (Language, Award, Proficiency) | @paulossjunior | - | Issue Base |
 | [# 26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) | 🟢 | [feat] Add Proficiencies and Awards to Researcher | @paulossjunior | - | Issue Base |
-| [# 25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) | ✅ | [feat] Implement Academic Education History for Researcher | @paulossjunior | - | Issue Base |
+| [# 25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) | 🟢 | [feat] Implement Academic Education History for Researcher | @paulossjunior | - | Issue Base |
 | [# 22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) | 🟢 | [feat] Add Sponsor Organization to Fellowship | @paulossjunior | - | - |
-| [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | ✅ | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
+| [# 20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) | 🟢 | Feat: Implement Services and Improve Factories | @paulossjunior | - | Issue Base |
 | [# 17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) | 🟢 | Feat: Associate Initiative to Demandante (Organization) | @paulossjunior | - | - |
 | [# 15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) | 🟢 | Feat: Associate Initiative to External Research Group | @paulossjunior | - | - |
 | [# 13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) | 🟢 | Feat: Associate Knowledge Area to Initiatives | @paulossjunior | - | - |
@@ -48,6 +31,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) **Add resume field to Researcher entity**
 - [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) **[feat] Implement Advisorship Types and Examination Board**
 - [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
 - [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) **[feat] Add Article Type (Journal vs Conference)**
@@ -56,10 +40,12 @@ Overview of all demands, their states and executors.
 - [#26](https://github.com/The-Band-Solution/ResearchDomain/issues/26) **[feat] Add Proficiencies and Awards to Researcher**
 - [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) **[feat] Implement Academic Education History for Researcher**
 - [#22](https://github.com/The-Band-Solution/ResearchDomain/issues/22) **[feat] Add Sponsor Organization to Fellowship**
-### ✅ Done / Released
-- [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
-- [#25](https://github.com/The-Band-Solution/ResearchDomain/issues/25) **[feat] Implement Academic Education History for Researcher**
 - [#20](https://github.com/The-Band-Solution/ResearchDomain/issues/20) **Feat: Implement Services and Improve Factories**
+- [#17](https://github.com/The-Band-Solution/ResearchDomain/issues/17) **Feat: Associate Initiative to Demandante (Organization)**
+- [#15](https://github.com/The-Band-Solution/ResearchDomain/issues/15) **Feat: Associate Initiative to External Research Group**
+- [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
+
+### ✅ Done / Released
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
 - [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
@@ -69,6 +55,28 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
+- **Executor**: -
+- **Labels**: feature, task
+- **Milestone**: Issue Base
+
+**Description**:
+This issue tracks the addition of a resume field (Text) to the Researcher entity to store a brief professional summary.
+
+**Tasks**:
+- [ ] Update documentation (entities.md, sdd.md).
+- [ ] Add resume field to Researcher entity in researcher.py.
+- [ ] Update ResearcherController to support the new field.
+- [ ] Add unit tests for the field.
+
+**Details**:
+- Label: task
+- Type: feature
+- Project: The Band Project
+- Assignee: @paulossjunior
+
+---
 
 ### [OPEN] [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) [feat] Implement Advisorship Types and Examination Board
 - **Executor**: paulossjunior
