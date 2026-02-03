@@ -1,11 +1,11 @@
 from typing import List, Optional
 
-from eo_lib.services.base_service import BaseService
+from libbase.services.generic_service import GenericService
 from research_domain.domain.entities.article import Article, ArticleType
 from research_domain.domain.repositories.article_repository import IArticleRepository
 from research_domain.domain.repositories.researcher_repository import IResearcherRepository
 
-class ArticleService(BaseService[Article]):
+class ArticleService(GenericService[Article]):
     """
     Service for managing Articles.
     """
@@ -47,18 +47,19 @@ class ArticleService(BaseService[Article]):
             journal_conference=journal_conference,
             **kwargs
         )
-        return self.repository.add(article)
+        self._repository.add(article)
+        return article
 
     def add_author(self, article_id: int, researcher_id: int) -> Optional[Article]:
         """
         Add an author to an existing article.
         """
-        article = self.repository.get(article_id)
+        article = self._repository.get_by_id(article_id)
         researcher = self.researcher_repository.get(researcher_id)
         
         if article and researcher:
             if researcher not in article.authors:
                 article.authors.append(researcher)
-                self.repository.update(article)
+                self._repository.update(article)
             return article
         return None

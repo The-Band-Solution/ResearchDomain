@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from eo_lib.domain.repositories.repository import Repository
+from libbase.infrastructure.interface import IRepository
 from research_domain.domain.entities.article import Article
 
-class IArticleRepository(Repository[Article], ABC):
+class IArticleRepository(IRepository[Article], ABC):
     """
     Interface for Article Repository.
     """

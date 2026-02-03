@@ -1,16 +1,15 @@
 from typing import List, Optional, Any
 
-from eo_lib.controllers.base_controller import BaseController
+from libbase.controllers.generic_controller import GenericController
 from research_domain.services.article_service import ArticleService
-from research_domain.domain.entities.article import ArticleType
+from research_domain.domain.entities.article import Article, ArticleType
 
-class ArticleController(BaseController):
+class ArticleController(GenericController[Article]):
     """
     Controller for Article management.
     """
     def __init__(self, service: ArticleService):
         super().__init__(service)
-        self.service = service
 
     def create_article(
         self, 
@@ -23,7 +22,7 @@ class ArticleController(BaseController):
         try:
             # Parse Enum from string if needed, or pass directly if internal call
             article_type = ArticleType(type) if isinstance(type, str) else type
-            return self.service.create_article(
+            return self._service.create_article(
                 title=title,
                 year=year,
                 type=article_type,
@@ -34,4 +33,4 @@ class ArticleController(BaseController):
             raise ValueError(f"Invalid ArticleType: {type}")
 
     def add_author(self, article_id: int, researcher_id: int) -> Any:
-        return self.service.add_author(article_id, researcher_id)
+        return self._service.add_author(article_id, researcher_id)
