@@ -5,16 +5,16 @@ from research_domain.controllers.article_controller import ArticleController
 from research_domain.domain.entities.article import Article, ArticleType
 from research_domain.domain.entities.researcher import Researcher
 from research_domain.domain.repositories.article_repository import IArticleRepository
-from research_domain.domain.repositories.researcher_repository import IResearcherRepository
+from research_domain.domain.repositories.repositories import ResearcherRepositoryInterface
 
 class TestArticleLayers:
     @pytest.fixture
     def mock_article_repo(self):
-        return MagicMock(spec=IArticleRepository)
+        return MagicMock()
 
     @pytest.fixture
     def mock_researcher_repo(self):
-        return MagicMock(spec=IResearcherRepository)
+        return MagicMock()
 
     @pytest.fixture
     def service(self, mock_article_repo, mock_researcher_repo):
@@ -62,7 +62,7 @@ class TestArticleLayers:
         article = Article(title="Existing", year=2020, type=ArticleType.CONFERENCE_EVENT, id=10)
         researcher = Researcher(name="New Author", id=5)
         
-        mock_article_repo.get.return_value = article
+        mock_article_repo.get_by_id.return_value = article
         mock_researcher_repo.get.return_value = researcher
         
         service.add_author(10, 5)

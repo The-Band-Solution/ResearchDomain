@@ -51,6 +51,7 @@ Maintain the following artifacts throughout the lifecycle:
 
 ## 5. Implementation Standards
 - [ ] **TDD**: Implement the test cases defined in the plan BEFORE the implementation code. **MANDATORY AND NON-NEGOTIABLE**.
+- [ ] **Local Testing**: ALWAYS run the full test suite locally (`pytest`) BEFORE pushing any changes. **MANDATORY AND NON-NEGOTIABLE**.
 - [ ] **Style**: Code must pass `black`, `flake8`, `isort`.
 - [ ] **Business Logic**: All business rules requirements must be satisfied and verified.
 - [ ] **Design Pattern Consistency**:
