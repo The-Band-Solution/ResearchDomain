@@ -1,22 +1,9 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-02 18:53:10
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-03 01:28:01
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
-
-## 🚀 Releases
-
-### v0.11.0 (2026-02-02)
-- **Description**: Enhanced Advisorship with explicit Types (English), `defense_date`, and Team-based Examination Board (management via `Initiative.teams`). Resolved circular dependencies in Researcher.
-- **PR**: [#36](https://github.com/The-Band-Solution/ResearchDomain/pull/36)
-- **Tag**: `v0.11.0`
-
-### v0.10.0 (2026-02-02)
-- **Description**: Implemented Researcher metadata (Proficiencies, Awards, String Citations) and full Article entity architecture (Entity, Repository, Service, Controller).
-- **PR**: [#32](https://github.com/The-Band-Solution/ResearchDomain/pull/32)
-- **Tag**: `v0.10.0`
-
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
