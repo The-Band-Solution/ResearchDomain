@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "research-domain"
+name = "research_domain"
 version = "0.3.1"
 description = "Library for managing research data: groups, campus, university, researchers, and papers."
 readme = "README.md"
@@ -43,4 +43,3 @@ ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
-
