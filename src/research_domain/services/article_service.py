@@ -3,7 +3,7 @@ from typing import List, Optional
 from libbase.services.generic_service import GenericService
 from research_domain.domain.entities.article import Article, ArticleType
 from research_domain.domain.repositories.article_repository import IArticleRepository
-from research_domain.domain.repositories.researcher_repository import IResearcherRepository
+from research_domain.domain.repositories.repositories import ResearcherRepositoryInterface
 
 class ArticleService(GenericService[Article]):
     """
@@ -12,7 +12,7 @@ class ArticleService(GenericService[Article]):
     def __init__(
         self, 
         repository: IArticleRepository,
-        researcher_repository: IResearcherRepository
+        researcher_repository: ResearcherRepositoryInterface
     ):
         super().__init__(repository)
         self.article_repository = repository
