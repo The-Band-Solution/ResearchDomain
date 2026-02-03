@@ -6,14 +6,19 @@ from eo_lib.services import (OrganizationalUnitService, OrganizationService,
                              PersonService, TeamService)
 from libbase.services.generic_service import GenericService
 
+from research_domain.domain.entities.academic_education import (
+    AcademicEducation, EducationType)
+from research_domain.domain.entities.article import Article, ArticleType
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
                                              KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
-    AdvisorshipRepositoryInterface, CampusRepositoryInterface,
-    FellowshipRepositoryInterface, KnowledgeAreaRepositoryInterface,
-    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
-    RoleRepositoryInterface, UniversityRepositoryInterface)
+    AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
+    ArticleRepositoryInterface, CampusRepositoryInterface,
+    EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    ResearchGroupRepositoryInterface, RoleRepositoryInterface,
+    UniversityRepositoryInterface)
 
 
 class RoleService(GenericService[Role]):
@@ -124,3 +129,143 @@ class AdvisorshipService(GenericService[Advisorship]):
 class FellowshipService(GenericService[Fellowship]):
     def __init__(self, repo: FellowshipRepositoryInterface):
         super().__init__(repo)
+
+
+class AcademicEducationService(GenericService[AcademicEducation]):
+    """
+    Service for managing Academic Education history.
+    """
+
+    def __init__(self, repository: AcademicEducationRepositoryInterface):
+        super().__init__(repository)
+
+    def create_education(
+        self,
+        researcher_id: int,
+        education_type_id: int,
+        title: str,
+        institution_id: int,
+        start_year: int,
+        end_year: Optional[int] = None,
+        thesis_title: Optional[str] = None,
+        advisor_id: Optional[int] = None,
+        co_advisor_id: Optional[int] = None,
+        knowledge_areas: list = None,
+    ) -> AcademicEducation:
+        """
+        Creates and persists a new academic education record.
+        """
+        education = AcademicEducation(
+            researcher_id=researcher_id,
+            education_type_id=education_type_id,
+            title=title,
+            institution_id=institution_id,
+            start_year=start_year,
+            end_year=end_year,
+            thesis_title=thesis_title,
+            advisor_id=advisor_id,
+            co_advisor_id=co_advisor_id,
+            knowledge_areas=knowledge_areas,
+        )
+
+        self.create(education)
+        return education
+
+    def get_by_researcher(self, researcher_id: int) -> List[AcademicEducation]:
+        """
+        Retrieves all education records for a researcher.
+        """
+        return self._repository.list_by_researcher(researcher_id)
+
+    def delete_education(self, education_id: int) -> bool:
+        """
+        Deletes an education record.
+        """
+        return self.delete(education_id)
+
+
+class ArticleService(GenericService[Article]):
+    """
+    Service for managing Articles.
+    """
+
+    def __init__(
+        self,
+        repository: ArticleRepositoryInterface,
+        researcher_repository: ResearcherRepositoryInterface,
+    ):
+        super().__init__(repository)
+        self.researcher_repository = researcher_repository
+
+    def create_article(
+        self,
+        title: str,
+        year: int,
+        type: ArticleType,
+        author_ids: Optional[List[int]] = None,
+        doi: Optional[str] = None,
+        journal_conference: Optional[str] = None,
+        **kwargs,
+    ) -> Article:
+        """
+        Create a new article and associate authors.
+        """
+        authors = []
+        if author_ids:
+            for rid in author_ids:
+                author = self.researcher_repository.get(rid)
+                if author:
+                    authors.append(author)
+
+        article = Article(
+            title=title,
+            year=year,
+            type=type,
+            authors=authors,
+            doi=doi,
+            journal_conference=journal_conference,
+            **kwargs,
+        )
+        self.create(article)
+        return article
+
+    def add_author(self, article_id: int, researcher_id: int) -> Optional[Article]:
+        """
+        Add an author to an existing article.
+        """
+        article = self.get_by_id(article_id)
+        researcher = self.researcher_repository.get(researcher_id)
+
+        if article and researcher:
+            if researcher not in article.authors:
+                article.authors.append(researcher)
+                self.update(article)
+            return article
+        return None
+
+
+class EducationTypeService(GenericService[EducationType]):
+    """
+    Service for managing Education Types.
+    """
+
+    def __init__(self, repository: EducationTypeRepositoryInterface):
+        super().__init__(repository)
+
+    def create_education_type(self, name: str) -> EducationType:
+        """
+        Creates a new Education Type.
+        """
+        education_type = EducationType(name=name)
+        self.create(education_type)
+        return education_type
+
+    def get_by_name(self, name: str) -> Optional[EducationType]:
+        """
+        Retrieves an Education Type by name.
+        """
+        all_types = self.get_all()
+        for et in all_types:
+            if et.name == name:
+                return et
+        return None

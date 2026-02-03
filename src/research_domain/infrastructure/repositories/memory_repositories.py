@@ -3,14 +3,19 @@ from typing import Any, Dict, List, Optional, TypeVar
 from eo_lib.domain.entities import Role, TeamMember
 from libbase.infrastructure.memory_repository import GenericMemoryRepository
 
+from research_domain.domain.entities.academic_education import (
+    AcademicEducation, EducationType)
+from research_domain.domain.entities.article import Article
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
                                              KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
-    AdvisorshipRepositoryInterface, CampusRepositoryInterface,
-    FellowshipRepositoryInterface, KnowledgeAreaRepositoryInterface,
-    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
-    RoleRepositoryInterface, UniversityRepositoryInterface)
+    AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
+    ArticleRepositoryInterface, CampusRepositoryInterface,
+    EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    ResearchGroupRepositoryInterface, RoleRepositoryInterface,
+    UniversityRepositoryInterface)
 
 
 class BaseInMemoryRepository(GenericMemoryRepository):
@@ -85,5 +90,23 @@ class InMemoryAdvisorshipRepository(
 
 class InMemoryFellowshipRepository(
     BaseInMemoryRepository, FellowshipRepositoryInterface
+):
+    pass
+
+
+class InMemoryAcademicEducationRepository(
+    BaseInMemoryRepository, AcademicEducationRepositoryInterface
+):
+    pass
+
+
+class InMemoryArticleRepository(
+    BaseInMemoryRepository, ArticleRepositoryInterface
+):
+    pass
+
+
+class InMemoryEducationTypeRepository(
+    BaseInMemoryRepository, EducationTypeRepositoryInterface
 ):
     pass

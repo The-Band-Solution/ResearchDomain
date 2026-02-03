@@ -1,10 +1,10 @@
 import pytest
 from unittest.mock import MagicMock
-from research_domain.services.article_service import ArticleService
-from research_domain.controllers.article_controller import ArticleController
+from research_domain.services import ArticleService
+from research_domain.controllers import ArticleController
 from research_domain.domain.entities.article import Article, ArticleType
 from research_domain.domain.entities.researcher import Researcher
-from research_domain.domain.repositories.article_repository import IArticleRepository
+from research_domain.domain.repositories import ArticleRepositoryInterface as IArticleRepository
 from research_domain.domain.repositories.repositories import ResearcherRepositoryInterface
 
 class TestArticleLayers:
@@ -22,7 +22,9 @@ class TestArticleLayers:
 
     @pytest.fixture
     def controller(self, service):
-        return ArticleController(service)
+        ctrl = ArticleController()
+        ctrl._service = service
+        return ctrl
 
     def test_service_create_article(self, service, mock_article_repo, mock_researcher_repo):
         # Setup

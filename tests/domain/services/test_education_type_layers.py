@@ -1,9 +1,10 @@
 import pytest
 from unittest.mock import MagicMock
 from research_domain.domain.entities.academic_education import EducationType
-from research_domain.services.education_type_service import EducationTypeService
-from research_domain.controllers.education_type_controller import EducationTypeController
-from research_domain.domain.repositories.education_type_repository import IEducationTypeRepository
+from research_domain.domain.entities.researcher import Researcher
+from research_domain.services import EducationTypeService
+from research_domain.controllers import EducationTypeController
+from research_domain.domain.repositories import EducationTypeRepositoryInterface as IEducationTypeRepository
 
 class TestEducationTypeLayers:
     @pytest.fixture
@@ -16,7 +17,9 @@ class TestEducationTypeLayers:
 
     @pytest.fixture
     def controller(self, service):
-        return EducationTypeController(service)
+        ctrl = EducationTypeController()
+        ctrl._service = service
+        return ctrl
 
     def test_create_education_type_service(self, service, mock_repo):
         # Arrange
@@ -50,11 +53,10 @@ class TestEducationTypeLayers:
 
         # Act
         response = controller.create_education_type(name="Master")
-
+        
         # Assert
-        assert response["success"] is True
-        assert response["education_type"]["name"] == "Master"
-        assert response["education_type"]["id"] == 2
+        assert response.name == "Master"
+        assert response.id == 2
 
     def test_controller_list_types(self, controller, service, mock_repo):
         # Arrange
@@ -67,6 +69,5 @@ class TestEducationTypeLayers:
         response = controller.list_education_types()
 
         # Assert
-        assert response["success"] is True
-        assert len(response["education_types"]) == 2
-        assert response["education_types"][0]["name"] == "PhD"
+        assert len(response) == 2
+        assert response[0].name == "PhD"

@@ -4,8 +4,12 @@ from typing import List, Optional
 from eo_lib.domain.entities import Role, TeamMember
 from libbase.controllers.generic_controller import GenericController
 
+from research_domain.domain.entities.academic_education import (
+    AcademicEducation, EducationType)
+from research_domain.domain.entities.article import Article, ArticleType
+from research_domain.domain.entities.researcher import Researcher
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
-                                             KnowledgeArea, Researcher,
+                                             KnowledgeArea,
                                              ResearchGroup, University)
 from research_domain.factories import ServiceFactory
 
@@ -211,3 +215,104 @@ class FellowshipController(GenericController[Fellowship]):
         )
         self.create(fellowship)
         return fellowship
+
+
+class AcademicEducationController(GenericController[AcademicEducation]):
+    """
+    Controller for Academic Education operations.
+    """
+
+    def __init__(self):
+        service = ServiceFactory.create_academic_education_service()
+        super().__init__(service)
+
+    def create_academic_education(
+        self,
+        researcher_id: int,
+        education_type_id: int,
+        title: str,
+        institution_id: int,
+        start_year: int,
+        end_year: Optional[int] = None,
+        thesis_title: Optional[str] = None,
+        advisor_id: Optional[int] = None,
+        co_advisor_id: Optional[int] = None,
+        knowledge_areas: list = None,
+    ) -> AcademicEducation:
+        """
+        Adds a new education entry to a researcher's profile.
+        """
+        return self._service.create_education(
+            researcher_id=researcher_id,
+            education_type_id=education_type_id,
+            title=title,
+            institution_id=institution_id,
+            start_year=start_year,
+            end_year=end_year,
+            thesis_title=thesis_title,
+            advisor_id=advisor_id,
+            co_advisor_id=co_advisor_id,
+            knowledge_areas=knowledge_areas,
+        )
+
+    def list_history(self, researcher_id: int) -> List[AcademicEducation]:
+        """
+        Lists academic history for a researcher.
+        """
+        return self._service.get_by_researcher(researcher_id)
+
+
+class ArticleController(GenericController[Article]):
+    """
+    Controller for Article management.
+    """
+
+    def __init__(self):
+        service = ServiceFactory.create_article_service()
+        super().__init__(service)
+
+    def create_article(
+        self,
+        title: str,
+        year: int,
+        type: str,  # String input from API/CLI parsed to Enum
+        author_ids: Optional[List[int]] = None,
+        **kwargs,
+    ) -> Article:
+        try:
+            # Parse Enum from string if needed, or pass directly if internal call
+            article_type = ArticleType(type) if isinstance(type, str) else type
+            return self._service.create_article(
+                title=title,
+                year=year,
+                type=article_type,
+                author_ids=author_ids,
+                **kwargs,
+            )
+        except ValueError:
+            raise ValueError(f"Invalid ArticleType: {type}")
+
+    def add_author(self, article_id: int, researcher_id: int) -> Optional[Article]:
+        return self._service.add_author(article_id, researcher_id)
+
+
+class EducationTypeController(GenericController[EducationType]):
+    """
+    Controller for Education Types.
+    """
+
+    def __init__(self):
+        service = ServiceFactory.create_education_type_service()
+        super().__init__(service)
+
+    def create_education_type(self, name: str) -> EducationType:
+        """
+        Creates a new Education Type.
+        """
+        return self._service.create_education_type(name=name)
+
+    def list_education_types(self) -> List[EducationType]:
+        """
+        Lists all Education Types.
+        """
+        return self.get_all()

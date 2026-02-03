@@ -4,14 +4,19 @@ from eo_lib.domain.entities import Role, TeamMember
 from eo_lib.infrastructure.database.postgres_client import PostgresClient
 from libbase.infrastructure.sql_repository import GenericSqlRepository
 
+from research_domain.domain.entities.academic_education import (
+    AcademicEducation, EducationType)
+from research_domain.domain.entities.article import Article
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
                                              KnowledgeArea, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
-    AdvisorshipRepositoryInterface, CampusRepositoryInterface,
-    FellowshipRepositoryInterface, KnowledgeAreaRepositoryInterface,
-    ResearcherRepositoryInterface, ResearchGroupRepositoryInterface,
-    RoleRepositoryInterface, UniversityRepositoryInterface)
+    AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
+    ArticleRepositoryInterface, CampusRepositoryInterface,
+    EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    ResearchGroupRepositoryInterface, RoleRepositoryInterface,
+    UniversityRepositoryInterface)
 
 
 class PostgresResearcherRepository(
@@ -93,3 +98,27 @@ class PostgresFellowshipRepository(
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), Fellowship)
+
+
+class PostgresAcademicEducationRepository(
+    GenericSqlRepository[AcademicEducation], AcademicEducationRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), AcademicEducation)
+
+
+class PostgresArticleRepository(
+    GenericSqlRepository[Article], ArticleRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), Article)
+
+
+class PostgresEducationTypeRepository(
+    GenericSqlRepository[EducationType], EducationTypeRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), EducationType)
