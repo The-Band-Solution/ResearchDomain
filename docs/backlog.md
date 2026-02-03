@@ -4,6 +4,11 @@ This document is automatically synchronized with GitHub Issues. Last updated: 20
 
 ## 🚀 Releases
 
+### v0.12.1 (2026-02-02)
+- **Description**: Hotfix for `ModuleNotFoundError` in `ArticleService` and `ArticleController` by refactoring to use `libbase` components. Updated `@agile-standards` with CI/CD monitoring.
+- **PR**: [#42](https://github.com/The-Band-Solution/ResearchDomain/pull/42)
+- **Tag**: `v0.12.1`
+
 ### v0.12.0 (2026-02-02)
 - **Description**: Implemented full layered Architecture for `EducationType` (Repository, Service, Controller) utilizing `libbase` generic components. Added verification tests.
 - **PR**: [#39](https://github.com/The-Band-Solution/ResearchDomain/pull/39)
