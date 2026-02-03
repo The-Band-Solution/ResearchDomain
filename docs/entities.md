@@ -42,6 +42,7 @@ classDiagram
     class Researcher {
         +str cnpq_url
         +str google_scholar_url
+        +str resume
         +list[KnowledgeArea] knowledge_areas
     }
 
@@ -109,7 +110,7 @@ classDiagram
 
 | Entity | Purpose | Key Attributes | Inheritance |
 |:---|:---|:---|:---|
-| **Researcher** | Represents an individual conducting research. | `cnpq_url`, `google_scholar_url` | `Person` |
+| **Researcher** | Represents an individual conducting research. | `cnpq_url`, `google_scholar_url`, `resume` | `Person` |
 | **ResearchGroup** | A collective of researchers working on specific themes. | `campus_id`, `cnpq_url`, `site` | `Team` |
 | **University** | The high-level academic organization. | `short_name` | `Organization` |
 | **Campus** | A specific physical or administrative branch of a university. | `organization_id`, `short_name` | `OrganizationalUnit` |

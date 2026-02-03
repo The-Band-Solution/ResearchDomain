@@ -21,6 +21,7 @@ Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | 🟢 | Add resume field to Researcher entity | @paulossjunior | - | Issue Base |
 | [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | 🟢 | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
 | [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
 | [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
@@ -44,6 +45,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) **Add resume field to Researcher entity**
 - [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) **[feat] Implement Advisorship Types and Examination Board**
 - [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
 - [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) **[feat] Add Article Type (Journal vs Conference)**
@@ -66,7 +68,17 @@ Overview of all demands, their states and executors.
 
 ---
 
-## 📝 Detailed Backlog
+## 📂 Workflow States
+
+### [OPEN] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
+- **Executor**: paulossjunior
+- **Labels**: task, feature
+- **Milestone**: Issue Base
+
+**Description**:
+Add a \`resume\` field (Text) to the \`Researcher\` entity to store a brief professional summary.
+
+---
 
 ### [OPEN] [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) [feat] Implement Advisorship Types and Examination Board
 - **Executor**: paulossjunior
