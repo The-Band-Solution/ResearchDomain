@@ -1,20 +1,6 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-03 01:28:01
-
-## 🚀 Releases
-
-### v0.12.1 (2026-02-02)
-- **Description**: Hotfix for `ModuleNotFoundError` in `ArticleService` and `ArticleController` by refactoring to use `libbase` components. Updated `@agile-standards` with CI/CD monitoring.
-- **PR**: [#42](https://github.com/The-Band-Solution/ResearchDomain/pull/42)
-- **Tag**: `v0.12.1`
-
-### v0.12.0 (2026-02-02)
-- **Description**: Implemented full layered Architecture for `EducationType` (Repository, Service, Controller) utilizing `libbase` generic components. Added verification tests.
-- **PR**: [#39](https://github.com/The-Band-Solution/ResearchDomain/pull/39)
-- **Tag**: `v0.12.0`
-
-### v0.11.0 (2026-02-02)
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-03 17:19:59
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
@@ -68,15 +54,19 @@ Overview of all demands, their states and executors.
 
 ---
 
-## 📂 Workflow States
-
 ### [OPEN] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
 - **Executor**: paulossjunior
 - **Labels**: task, feature
 - **Milestone**: Issue Base
 
 **Description**:
-Add a \`resume\` field (Text) to the \`Researcher\` entity to store a brief professional summary.
+Add a `resume` field (Text) to the `Researcher` entity to store a brief professional summary.
+
+**Tasks**:
+- [x] Update documentation (entities.md, sdd.md).
+- [x] Add resume field to Researcher entity in researcher.py.
+- [x] Update ResearcherController to support the new field.
+- [x] Add unit tests for the field.
 
 ---
 
