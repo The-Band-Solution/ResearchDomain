@@ -39,9 +39,13 @@
 - **FR-05-E**: The system must allow creating an `Advisorship`, which links an `Initiative` to a student (Person) and a supervisor (Person) for a specific period.
 - **FR-05-F**: An `Advisorship` can optionally be associated with a `Fellowship`. If no fellowship is linked, the advisorship is considered "voluntary".
 - **FR-05-G**: The `Fellowship` entity must store `name`, `description`, and `value`.
-- **FR-05-H**: A `Fellowship` must be associated with an `Organization` that acts as its **Sponsor**.
-- **FR-05-I**: The system must allow marking an `Advisorship` as `cancelled`.
-- **FR-05-J**: The system must store the `cancellation_date` for a cancelled `Advisorship`.
+- [x] FR-05-H: A `Fellowship` must be associated with an `Organization` that acts as its **Sponsor**.
+- [x] FR-05-I: The system must allow marking an `Advisorship` as `cancelled`.
+- [x] FR-05-J: The system must store the `cancellation_date` for a cancelled `Advisorship`.
+- [x] FR-05-K: An `Advisorship` must allow the definition of an **Examination Board** (Banca).
+- [x] FR-05-L: A Board is composed of the **Supervisor**, the **Student**, and **Board Members**.
+- [x] FR-05-M: All members of the Board must be registered Researchers.
+- [x] FR-05-N: An Advisorship must be associated with a **Research Group**.
 
 ### FR-06: Role Management
 - **FR-06-A**: The system must support the `Role` entity from `eo_lib`.

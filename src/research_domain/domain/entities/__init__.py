@@ -1,4 +1,4 @@
-from .advisorship import Advisorship
+from .advisorship import Advisorship, AdvisorshipRole, AdvisorshipMember
 from .external_research_group import ExternalResearchGroup
 from .fellowship import Fellowship
 from .initiative_demandante import initiative_demandantes
@@ -16,5 +16,7 @@ __all__ = [
     "ExternalResearchGroup",
     "initiative_demandantes",
     "Advisorship",
+    "AdvisorshipRole",
+    "AdvisorshipMember",
     "Fellowship",
 ]
