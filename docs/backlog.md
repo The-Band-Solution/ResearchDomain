@@ -1,5 +1,6 @@
 # Project Backlog - ResearchDomain
 
+<<<<<<< HEAD
 This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-03 17:19:59
 
 ## 🚀 Releases
@@ -13,14 +14,22 @@ This document is automatically synchronized with GitHub Issues. Last updated: 20
 - **Description**: Added `resume` field to `Researcher` entity. Updated documentation and controllers.
 - **PR**: [#50](https://github.com/The-Band-Solution/ResearchDomain/pull/50), [#51](https://github.com/The-Band-Solution/ResearchDomain/pull/51)
 - **Tag**: `v0.12.8`
+=======
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-13 01:44:56
+>>>>>>> main
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+<<<<<<< HEAD
 | [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | ✅ | Add resume field to Researcher entity | @paulossjunior | - | Issue Base |
 | [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | ✅ | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
+=======
+| [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | 🟢 | Add resume field to Researcher entity | - | - | Issue Base |
+| [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | 🟢 | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
+>>>>>>> main
 | [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
 | [# 29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) | 🟢 | [feat] Add Article Type (Journal vs Conference) | @paulossjunior | - | Issue Base |
 | [# 28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) | 🟢 | [feat] Implement Article Entity and Author Relationship | @paulossjunior | - | Issue Base |
@@ -43,7 +52,12 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+<<<<<<< HEAD
 
+=======
+- [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) **Add resume field to Researcher entity**
+- [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) **[feat] Implement Advisorship Types and Examination Board**
+>>>>>>> main
 - [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
 - [#29](https://github.com/The-Band-Solution/ResearchDomain/issues/29) **[feat] Add Article Type (Journal vs Conference)**
 - [#28](https://github.com/The-Band-Solution/ResearchDomain/issues/28) **[feat] Implement Article Entity and Author Relationship**
@@ -57,8 +71,11 @@ Overview of all demands, their states and executors.
 - [#13](https://github.com/The-Band-Solution/ResearchDomain/issues/13) **Feat: Associate Knowledge Area to Initiatives**
 
 ### ✅ Done / Released
+<<<<<<< HEAD
 - [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) **[feat] Implement Advisorship Types and Examination Board**
 - [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) **Add resume field to Researcher entity**
+=======
+>>>>>>> main
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
 - [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
@@ -67,19 +84,27 @@ Overview of all demands, their states and executors.
 
 ---
 
-### [CLOSED] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
-- **Executor**: paulossjunior
-- **Labels**: task, feature
+## 📝 Detailed Backlog
+
+### [OPEN] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
+- **Executor**: -
+- **Labels**: feature, task
 - **Milestone**: Issue Base
 
 **Description**:
-Add a `resume` field (Text) to the `Researcher` entity to store a brief professional summary.
+This issue tracks the addition of a resume field (Text) to the Researcher entity to store a brief professional summary.
 
 **Tasks**:
-- [x] Update documentation (entities.md, sdd.md).
-- [x] Add resume field to Researcher entity in researcher.py.
-- [x] Update ResearcherController to support the new field.
-- [x] Add unit tests for the field.
+- [ ] Update documentation (entities.md, sdd.md).
+- [ ] Add resume field to Researcher entity in researcher.py.
+- [ ] Update ResearcherController to support the new field.
+- [ ] Add unit tests for the field.
+
+**Details**:
+- Label: task
+- Type: feature
+- Project: The Band Project
+- Assignee: @paulossjunior
 
 ---
 
