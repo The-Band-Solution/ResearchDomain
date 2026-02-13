@@ -5,6 +5,7 @@ from research_domain.infrastructure.repositories import (
     InMemoryFellowshipRepository, InMemoryKnowledgeAreaRepository,
     InMemoryResearcherRepository, InMemoryResearchGroupRepository,
     InMemoryRoleRepository, InMemoryUniversityRepository,
+    InMemoryAcademicEducationRepository,
     PostgresAcademicEducationRepository, PostgresAdvisorshipRepository,
     PostgresArticleRepository, PostgresCampusRepository,
     PostgresEducationTypeRepository, PostgresFellowshipRepository,
@@ -88,19 +89,23 @@ class ServiceFactory:
     @staticmethod
     def create_advisorship_service() -> AdvisorshipService:
         (
+            ResearcherRepo,
             _,
             _,
             _,
             _,
-            _,
-            _,
+            RoleRepo,
             AdvisorshipRepo,
             _,
             _,
             _,
             _,
         ) = ServiceFactory._get_strategies()
-        return AdvisorshipService(AdvisorshipRepo())
+        return AdvisorshipService(
+            repo=AdvisorshipRepo(),
+            researcher_repo=ResearcherRepo(),
+            role_repo=RoleRepo()
+        )
 
     @staticmethod
     def create_fellowship_service() -> FellowshipService:

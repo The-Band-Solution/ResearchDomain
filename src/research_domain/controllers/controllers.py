@@ -4,13 +4,13 @@ from typing import List, Optional
 from eo_lib.domain.entities import Role, TeamMember
 from libbase.controllers.generic_controller import GenericController
 
+from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
+                                             KnowledgeArea, ResearchGroup,
+                                             University)
 from research_domain.domain.entities.academic_education import (
     AcademicEducation, EducationType)
 from research_domain.domain.entities.article import Article, ArticleType
 from research_domain.domain.entities.researcher import Researcher
-from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
-                                             KnowledgeArea,
-                                             ResearchGroup, University)
 from research_domain.factories import ServiceFactory
 
 
@@ -173,7 +173,7 @@ class AdvisorshipController(GenericController[Advisorship]):
         cancelled: bool = False,
         cancellation_date: Optional[date] = None,
     ) -> Advisorship:
-        advisorship = Advisorship(
+        return self._service.create_advisorship(
             name=name,
             student_id=student_id,
             supervisor_id=supervisor_id,
@@ -185,8 +185,6 @@ class AdvisorshipController(GenericController[Advisorship]):
             cancelled=cancelled,
             cancellation_date=cancellation_date,
         )
-        self.create(advisorship)
-        return advisorship
 
     def cancel_advisorship(
         self, advisorship_id: int, cancellation_date: Optional[date] = None
