@@ -29,6 +29,10 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/research_domain"]
+artifacts = ["src/research_domain/*.md"]
+
+[tool.hatch.build.hooks.custom]
+path = "hatch_build.py"
 
 [tool.mypy]
 python_version = "3.12"
