@@ -173,7 +173,7 @@ class AdvisorshipController(GenericController[Advisorship]):
         cancelled: bool = False,
         cancellation_date: Optional[date] = None,
     ) -> Advisorship:
-        advisorship = Advisorship(
+        return self._service.create_advisorship(
             name=name,
             student_id=student_id,
             supervisor_id=supervisor_id,
@@ -185,8 +185,6 @@ class AdvisorshipController(GenericController[Advisorship]):
             cancelled=cancelled,
             cancellation_date=cancellation_date,
         )
-        self.create(advisorship)
-        return advisorship
 
     def cancel_advisorship(
         self, advisorship_id: int, cancellation_date: Optional[date] = None

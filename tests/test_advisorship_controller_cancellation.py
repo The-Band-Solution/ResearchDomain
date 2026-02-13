@@ -12,18 +12,38 @@ def test_controller_create_advisorship_with_cancellation():
     """Test that controller correctly passes cancellation fields to the entity."""
     controller = AdvisorshipController()
 
-    # Mock the create method which interacts with DB
-    controller.create = MagicMock()
-
+    # Mock the service
+    mock_service = MagicMock()
+    controller._service = mock_service
+    
     cancellation_date = date(2025, 1, 1)
+    
+    # Configure mock return value to match input mostly, or just return a dummy
+    mock_service.create_advisorship.return_value = Advisorship(
+        name="Test Project",
+        cancelled=True,
+        cancellation_date=cancellation_date
+    )
     advisorship = controller.create_advisorship(
         name="Test Project", cancelled=True, cancellation_date=cancellation_date
     )
 
     assert advisorship.name == "Test Project"
-    assert advisorship.cancelled is True
-    assert advisorship.cancellation_date == cancellation_date
-    controller.create.assert_called_once_with(advisorship)
+    # assert advisorship.cancelled is True # This depends on mock return
+    # assert advisorship.cancellation_date == cancellation_date
+
+    mock_service.create_advisorship.assert_called_once_with(
+        name="Test Project",
+        student_id=None,
+        supervisor_id=None,
+        fellowship_id=None,
+        start_date=None,
+        end_date=None,
+        description=None,
+        status="active",
+        cancelled=True,
+        cancellation_date=cancellation_date,
+    )
 
 
 def test_controller_cancel_advisorship():
