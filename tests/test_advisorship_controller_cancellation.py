@@ -15,14 +15,12 @@ def test_controller_create_advisorship_with_cancellation():
     # Mock the service
     mock_service = MagicMock()
     controller._service = mock_service
-    
+
     cancellation_date = date(2025, 1, 1)
-    
+
     # Configure mock return value to match input mostly, or just return a dummy
     mock_service.create_advisorship.return_value = Advisorship(
-        name="Test Project",
-        cancelled=True,
-        cancellation_date=cancellation_date
+        name="Test Project", cancelled=True, cancellation_date=cancellation_date
     )
     advisorship = controller.create_advisorship(
         name="Test Project", cancelled=True, cancellation_date=cancellation_date

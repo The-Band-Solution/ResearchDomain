@@ -3,7 +3,8 @@ from datetime import date
 import pytest
 from eo_lib.domain.entities import Initiative, Person, Role
 
-from research_domain.domain.entities.advisorship import Advisorship, AdvisorshipRole
+from research_domain.domain.entities.advisorship import (Advisorship,
+                                                         AdvisorshipRole)
 from research_domain.domain.entities.fellowship import Fellowship
 
 
@@ -24,7 +25,7 @@ def test_advisorship_roles_student_supervisor():
     """Test that Advisorship correctly links to Student and Supervisor via Roles."""
     student = Person(name="Alice Student")
     supervisor = Person(name="Dr. Bob")
-    
+
     # Mock Roles for testing context (In real app, these come from DB)
     role_student = Role(name=AdvisorshipRole.STUDENT.value)
     role_supervisor = Role(name=AdvisorshipRole.SUPERVISOR.value)
@@ -33,7 +34,7 @@ def test_advisorship_roles_student_supervisor():
         name="Advisorship 2025",
         start_date=date(2025, 1, 1),
     )
-    
+
     # Use generic Team/Initiative methods to add members
     advisorship.add_member(person=student, role=role_student)
     advisorship.add_member(person=supervisor, role=role_supervisor)
@@ -49,12 +50,12 @@ def test_advisorship_board_members():
     advisorship = Advisorship(name="Board Exam")
     member1 = Person(name="Prof. External")
     member2 = Person(name="Prof. Internal")
-    
+
     role_board = Role(name=AdvisorshipRole.BOARD_MEMBER.value)
-    
+
     advisorship.add_member(member1, role_board)
     advisorship.add_member(member2, role_board)
-    
+
     assert len(advisorship.board_members) == 2
     assert member1 in advisorship.board_members
     assert member2 in advisorship.board_members
@@ -64,7 +65,7 @@ def test_advisorship_with_fellowship():
     """Test that Advisorship correctly links to Fellowship."""
     student = Person(name="Charlie")
     role_student = Role(name=AdvisorshipRole.STUDENT.value)
-    
+
     fellowship = Fellowship(name="PIBIC", value=700.0, sponsor_id=1)
 
     advisorship = Advisorship(

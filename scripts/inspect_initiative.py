@@ -1,22 +1,8 @@
-from eo_lib.domain.entities import Initiative
-from research_domain.domain.entities import ResearchGroup, Researcher
-from sqlalchemy.inspection import inspect
+from eo_lib.domain.entities import Initiative, Team, Role
+import inspect
 
-def check_relationships():
-    print("Checking Initiative relationships:")
-    mapper = inspect(Initiative)
-    for rel in mapper.relationships:
-        print(f" - {rel.key}: {rel.mapper.class_.__name__}")
+print("Initiative MRO:", Initiative.__mro__)
+print("Is Initiative a subclass of Team?", issubclass(Initiative, Team))
+print("Initiative attributes:", dir(Initiative))
 
-    print("\nChecking ResearchGroup relationships:")
-    mapper = inspect(ResearchGroup)
-    for rel in mapper.relationships:
-        print(f" - {rel.key}: {rel.mapper.class_.__name__}")
-        
-    print("\nChecking Researcher relationships:")
-    mapper = inspect(Researcher)
-    for rel in mapper.relationships:
-        print(f" - {rel.key}: {rel.mapper.class_.__name__}")
-
-if __name__ == "__main__":
-    check_relationships()
+print("Role defined:", Role)

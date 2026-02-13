@@ -6,12 +6,13 @@ from eo_lib.services import (OrganizationalUnitService, OrganizationService,
                              PersonService, TeamService)
 from libbase.services.generic_service import GenericService
 
+from research_domain.domain.entities import (Advisorship, AdvisorshipRole,
+                                             Campus, Fellowship, KnowledgeArea,
+                                             Researcher, ResearchGroup,
+                                             University)
 from research_domain.domain.entities.academic_education import (
     AcademicEducation, EducationType)
 from research_domain.domain.entities.article import Article, ArticleType
-from research_domain.domain.entities import (Advisorship, AdvisorshipRole, Campus, Fellowship,
-                                             KnowledgeArea, Researcher,
-                                             ResearchGroup, University)
 from research_domain.domain.repositories import (
     AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
     ArticleRepositoryInterface, CampusRepositoryInterface,
@@ -132,7 +133,7 @@ class AdvisorshipService(GenericService[Advisorship]):
         status: str = "active",
         cancelled: bool = False,
         cancellation_date: Optional[date] = None,
-        type: Optional[str] = None, # Assuming type might be passed
+        type: Optional[str] = None,  # Assuming type might be passed
     ) -> Advisorship:
         """
         Creates an Advisorship and assigns Student/Supervisor roles.
@@ -149,36 +150,50 @@ class AdvisorshipService(GenericService[Advisorship]):
             cancellation_date=cancellation_date,
             # Type handling omitted for brevity/compatibility with existing call signature, can add if needed
         )
-        
+
         # Add Student
         if student_id:
             student = self.researcher_repo.get(student_id)
             if student:
-                # We need to find or create the Role object. 
+                # We need to find or create the Role object.
                 # Ideally we fetch by name.
                 # Since RoleRepo is generic, we might iterate or assuming we can create if not exists.
-                # For simplicity here, we assume we can filter or just create for now. 
+                # For simplicity here, we assume we can filter or just create for now.
                 # Actually, role_repo should ideally have find_by_name. But GenericRepository usually has get_all.
                 # Let's iterate for safety as we did in RoleService.
                 all_roles = self.role_repo.get_all()
-                role_student = next((r for r in all_roles if r.name == AdvisorshipRole.STUDENT.value), None)
+                role_student = next(
+                    (r for r in all_roles if r.name == AdvisorshipRole.STUDENT.value),
+                    None,
+                )
                 if not role_student:
                     role_student = Role(name=AdvisorshipRole.STUDENT.value)
                     self.role_repo.create(role_student)
-                
-                advisorship.add_member(person=student, role=role_student, start_date=start_date)
+
+                advisorship.add_member(
+                    person=student, role=role_student, start_date=start_date
+                )
 
         # Add Supervisor
         if supervisor_id:
             supervisor = self.researcher_repo.get(supervisor_id)
             if supervisor:
                 all_roles = self.role_repo.get_all()
-                role_supervisor = next((r for r in all_roles if r.name == AdvisorshipRole.SUPERVISOR.value), None)
+                role_supervisor = next(
+                    (
+                        r
+                        for r in all_roles
+                        if r.name == AdvisorshipRole.SUPERVISOR.value
+                    ),
+                    None,
+                )
                 if not role_supervisor:
                     role_supervisor = Role(name=AdvisorshipRole.SUPERVISOR.value)
                     self.role_repo.create(role_supervisor)
 
-                advisorship.add_member(person=supervisor, role=role_supervisor, start_date=start_date)
+                advisorship.add_member(
+                    person=supervisor, role=role_supervisor, start_date=start_date
+                )
 
         self.create(advisorship)
         return advisorship
