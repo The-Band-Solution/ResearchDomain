@@ -91,3 +91,19 @@ class EducationTypeRepositoryInterface(GenericRepositoryInterface):
     """
 
     pass
+
+
+class ProductionTypeRepositoryInterface(GenericRepositoryInterface):
+    """
+    Interface for ProductionType Repository.
+    """
+
+    pass
+
+
+class ResearchProductionRepositoryInterface(GenericRepositoryInterface):
+    """
+    Interface for ResearchProduction Repository.
+    """
+
+    pass

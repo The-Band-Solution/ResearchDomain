@@ -7,13 +7,15 @@ from research_domain.domain.entities.academic_education import (
     AcademicEducation, EducationType)
 from research_domain.domain.entities.article import Article
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
-                                             KnowledgeArea, Researcher,
+                                             KnowledgeArea, ProductionType,
+                                             ResearchProduction, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
     AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
     ArticleRepositoryInterface, CampusRepositoryInterface,
     EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
-    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ProductionTypeRepositoryInterface,
+    ResearchProductionRepositoryInterface, ResearcherRepositoryInterface,
     ResearchGroupRepositoryInterface, RoleRepositoryInterface,
     UniversityRepositoryInterface)
 
@@ -108,5 +110,17 @@ class InMemoryArticleRepository(
 
 class InMemoryEducationTypeRepository(
     BaseInMemoryRepository, EducationTypeRepositoryInterface
+):
+    pass
+
+
+class InMemoryProductionTypeRepository(
+    BaseInMemoryRepository, ProductionTypeRepositoryInterface
+):
+    pass
+
+
+class InMemoryResearchProductionRepository(
+    BaseInMemoryRepository, ResearchProductionRepositoryInterface
 ):
     pass

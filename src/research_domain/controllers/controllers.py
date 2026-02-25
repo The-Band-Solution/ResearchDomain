@@ -5,7 +5,8 @@ from eo_lib.domain.entities import Role, TeamMember
 from libbase.controllers.generic_controller import GenericController
 
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
-                                             KnowledgeArea, ResearchGroup,
+                                             KnowledgeArea, ProductionType,
+                                             ResearchProduction, ResearchGroup,
                                              University)
 from research_domain.domain.entities.academic_education import (
     AcademicEducation, EducationType)
@@ -315,3 +316,68 @@ class EducationTypeController(GenericController[EducationType]):
         Lists all Education Types.
         """
         return self.get_all()
+class ProductionTypeController(GenericController[ProductionType]):
+    """
+    Controller for Production Types.
+    """
+
+    def __init__(self):
+        service = ServiceFactory.create_production_type_service()
+        super().__init__(service)
+
+    def create_production_type(self, name: str) -> ProductionType:
+        """
+        Creates a new Production Type.
+        """
+        return self._service.create_production_type(name=name)
+
+
+class ResearchProductionController(GenericController[ResearchProduction]):
+    """
+    Controller for Research Productions.
+    """
+
+    def __init__(self):
+        service = ServiceFactory.create_research_production_service()
+        super().__init__(service)
+
+    def create_production(
+        self,
+        title: str,
+        year: int,
+        production_type_id: int,
+        author_ids: Optional[List[int]] = None,
+        publisher: Optional[str] = None,
+        isbn: Optional[str] = None,
+        edition: Optional[str] = None,
+        book_title: Optional[str] = None,
+        pages: Optional[str] = None,
+        version: Optional[str] = None,
+        platform: Optional[str] = None,
+        link: Optional[str] = None,
+        **kwargs,
+    ) -> ResearchProduction:
+        """
+        Creates a new research production and associates authors.
+        """
+        return self._service.create_production(
+            title=title,
+            year=year,
+            production_type_id=production_type_id,
+            author_ids=author_ids,
+            publisher=publisher,
+            isbn=isbn,
+            edition=edition,
+            book_title=book_title,
+            pages=pages,
+            version=version,
+            platform=platform,
+            link=link,
+            **kwargs,
+        )
+
+    def add_author(self, production_id: int, researcher_id: int) -> Optional[ResearchProduction]:
+        """
+        Add an author to an existing production.
+        """
+        return self._service.add_author(production_id, researcher_id)

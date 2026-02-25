@@ -65,3 +65,10 @@
 - Must use PostgreSQL.
 - Must use SQLAlchemy.
 - Must inherit/use patterns from `libbase`.
+### FR-07: Research Production Management
+- **FR-07-A**: The system must allow creating a **Research Production**, including title, year, and authors (Researchers).
+- **FR-07-B**: Scientific productions must be categorized by **Production Type**: BOOK, BOOK_CHAPTER, SOFTWARE, or OTHER.
+- **FR-07-C**: BOOK type must store `publisher`, `isbn`, and `edition`.
+- **FR-07-D**: BOOK_CHAPTER type must store `book_title`, `publisher`, `isbn`, and `pages`.
+- **FR-07-E**: SOFTWARE type must store `version`, `platform`, and `link`.
+- **FR-07-F**: A Research Production must allow multiple authors (Researchers).

@@ -75,6 +75,12 @@ class Researcher(Person, SerializableMixin):
         back_populates="authors",
         lazy="joined"
     )
+    productions = relationship(
+        "ResearchProduction",
+        secondary="production_authors",
+        back_populates="authors",
+        lazy="joined"
+    )
 
     def __init__(
         self,
