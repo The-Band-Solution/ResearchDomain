@@ -167,6 +167,40 @@ Automated documentation for LLM ingestion.
 
 ---
 
+### Class `ProductionTypeController`
+
+  > Controller for Production Types.
+
+*Inherits from:* `GenericController[ProductionType]`
+
+- **Method** `__init__(self)`
+
+- **Method** `create_production_type(self, name: str) -> ProductionType`
+
+  > Creates a new Production Type.
+
+
+---
+
+### Class `ResearchProductionController`
+
+  > Controller for Research Productions.
+
+*Inherits from:* `GenericController[ResearchProduction]`
+
+- **Method** `__init__(self)`
+
+- **Method** `create_production(self, title: str, year: int, production_type_id: int, author_ids: Optional[List[int]], publisher: Optional[str], isbn: Optional[str], edition: Optional[str], book_title: Optional[str], pages: Optional[str], version: Optional[str], platform: Optional[str], link: Optional[str], **kwargs) -> ResearchProduction`
+
+  > Creates a new research production and associates authors.
+
+- **Method** `add_author(self, production_id: int, researcher_id: int) -> Optional[ResearchProduction]`
+
+  > Add an author to an existing production.
+
+
+---
+
 ## File: `domain/base.py`
 
 ## File: `domain/entities/academic_education.py`
@@ -327,6 +361,34 @@ Automated documentation for LLM ingestion.
   >     sponsor_id: Optional ID of the sponsoring organization
   >     sponsor: Optional sponsor Organization object
   >     id: Optional fellowship ID
+
+
+---
+
+## File: `domain/entities/production_type.py`
+
+### Class `ProductionType`
+
+  > Production Type Entity.
+  > Categorizes different types of research production (e.g., BOOK, SOFTWARE).
+
+*Inherits from:* `Base`
+
+- **Method** `__init__(self, name: str, id: Optional[int], **kwargs)`
+
+
+---
+
+## File: `domain/entities/research_production.py`
+
+### Class `ResearchProduction`
+
+  > Research Production Entity.
+  > Represents academic outputs like Books, Chapters, and Software.
+
+*Inherits from:* `Base, SerializableMixin`
+
+- **Method** `__init__(self, title: str, year: int, production_type: Optional[object], production_type_id: Optional[int], authors: Optional[List], publisher: Optional[str], isbn: Optional[str], edition: Optional[str], book_title: Optional[str], pages: Optional[str], version: Optional[str], platform: Optional[str], link: Optional[str], id: Optional[int], **kwargs)`
 
 
 ---
@@ -571,6 +633,24 @@ Automated documentation for LLM ingestion.
 
 ---
 
+### Class `ProductionTypeRepositoryInterface`
+
+  > Interface for ProductionType Repository.
+
+*Inherits from:* `GenericRepositoryInterface`
+
+
+---
+
+### Class `ResearchProductionRepositoryInterface`
+
+  > Interface for ResearchProduction Repository.
+
+*Inherits from:* `GenericRepositoryInterface`
+
+
+---
+
 ## File: `factories.py`
 
 ### Class `ServiceFactory`
@@ -600,6 +680,10 @@ Automated documentation for LLM ingestion.
 - **Method** `create_article_service() -> ArticleService`
 
 - **Method** `create_education_type_service() -> EducationTypeService`
+
+- **Method** `create_production_type_service() -> ProductionTypeService`
+
+- **Method** `create_research_production_service() -> ResearchProductionService`
 
 
 ---
@@ -786,6 +870,20 @@ Automated documentation for LLM ingestion.
 
 ---
 
+### Class `InMemoryProductionTypeRepository`
+
+*Inherits from:* `BaseInMemoryRepository, ProductionTypeRepositoryInterface`
+
+
+---
+
+### Class `InMemoryResearchProductionRepository`
+
+*Inherits from:* `BaseInMemoryRepository, ResearchProductionRepositoryInterface`
+
+
+---
+
 ## File: `infrastructure/repositories/sql_repositories.py`
 
 ### Class `PostgresResearcherRepository`
@@ -796,6 +894,30 @@ Automated documentation for LLM ingestion.
 
 
 ---
+
+### Class `PostgresEducationTypeRepository`
+
+*Inherits from:* `GenericSqlRepository[EducationType], EducationTypeRepositoryInterface`
+
+- **Method** `__init__(self)`
+
+
+---
+
+### Class `PostgresProductionTypeRepository`
+
+*Inherits from:* `GenericSqlRepository[ProductionType], ProductionTypeRepositoryInterface`
+
+- **Method** `__init__(self)`
+
+
+---
+
+### Class `PostgresResearchProductionRepository`
+
+*Inherits from:* `GenericSqlRepository[ResearchProduction], ResearchProductionRepositoryInterface`
+
+- **Method** `__init__(self)`
 
 ### Class `PostgresUniversityRepository`
 
@@ -1045,3 +1167,38 @@ Automated documentation for LLM ingestion.
 
 
 ---
+
+### Class `ProductionTypeService`
+
+  > Service for managing Production Types.
+
+*Inherits from:* `GenericService[ProductionType]`
+
+- **Method** `__init__(self, repository: ProductionTypeRepositoryInterface)`
+
+- **Method** `create_production_type(self, name: str) -> ProductionType`
+
+  > Creates a new Production Type.
+
+- **Method** `get_by_name(self, name: str) -> Optional[ProductionType]`
+
+  > Retrieves a Production Type by name.
+
+
+---
+
+### Class `ResearchProductionService`
+
+  > Service for managing Research Productions.
+
+*Inherits from:* `GenericService[ResearchProduction]`
+
+- **Method** `__init__(self, repository: ResearchProductionRepositoryInterface, researcher_repository: ResearcherRepositoryInterface)`
+
+- **Method** `create_production(self, title: str, year: int, production_type_id: int, author_ids: Optional[List[int]], publisher: Optional[str], isbn: Optional[str], edition: Optional[str], book_title: Optional[str], pages: Optional[str], version: Optional[str], platform: Optional[str], link: Optional[str], **kwargs) -> ResearchProduction`
+
+  > Creates a new research production and associates authors.
+
+- **Method** `add_author(self, production_id: int, researcher_id: int) -> Optional[ResearchProduction]`
+
+  > Add an author to an existing production.

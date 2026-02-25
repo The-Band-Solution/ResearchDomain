@@ -8,13 +8,15 @@ from research_domain.domain.entities.academic_education import (
     AcademicEducation, EducationType)
 from research_domain.domain.entities.article import Article
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
-                                             KnowledgeArea, Researcher,
+                                             KnowledgeArea, ProductionType,
+                                             ResearchProduction, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
     AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
     ArticleRepositoryInterface, CampusRepositoryInterface,
     EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
-    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ProductionTypeRepositoryInterface,
+    ResearchProductionRepositoryInterface, ResearcherRepositoryInterface,
     ResearchGroupRepositoryInterface, RoleRepositoryInterface,
     UniversityRepositoryInterface)
 
@@ -122,3 +124,19 @@ class PostgresEducationTypeRepository(
     def __init__(self):
         client = PostgresClient()
         super().__init__(client.get_session(), EducationType)
+
+
+class PostgresProductionTypeRepository(
+    GenericSqlRepository[ProductionType], ProductionTypeRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), ProductionType)
+
+
+class PostgresResearchProductionRepository(
+    GenericSqlRepository[ResearchProduction], ResearchProductionRepositoryInterface
+):
+    def __init__(self):
+        client = PostgresClient()
+        super().__init__(client.get_session(), ResearchProduction)

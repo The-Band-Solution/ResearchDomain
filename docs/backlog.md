@@ -23,6 +23,7 @@ Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 54](https://github.com/The-Band-Solution/ResearchDomain/issues/54) | ✅ | [EPIC] Implement Research Production Management | @paulossjunior | - | Issue Base |
 <<<<<<< HEAD
 | [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | ✅ | Add resume field to Researcher entity | @paulossjunior | - | Issue Base |
 | [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | ✅ | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
@@ -76,6 +77,7 @@ Overview of all demands, their states and executors.
 - [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) **Add resume field to Researcher entity**
 =======
 >>>>>>> main
+- [#54](https://github.com/The-Band-Solution/ResearchDomain/issues/54) **[EPIC] Implement Research Production Management**
 - [#9](https://github.com/The-Band-Solution/ResearchDomain/issues/9) **[US] Researcher Academic Metadata & Knowledge Areas**
 - [#6](https://github.com/The-Band-Solution/ResearchDomain/issues/6) **[TASK] Implementation of Role-based Leadership and Many-to-Many Areas**
 - [#5](https://github.com/The-Band-Solution/ResearchDomain/issues/5) **[US] ResearchGroup Categorization & Leadership Recognition**
@@ -86,7 +88,24 @@ Overview of all demands, their states and executors.
 
 ## 📝 Detailed Backlog
 
-### [OPEN] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
+### [CLOSED] [#54](https://github.com/The-Band-Solution/ResearchDomain/issues/54) [EPIC] Implement Research Production Management
+- **Executor**: paulossjunior
+- **Labels**: epic, feature
+- **Milestone**: Issue Base
+
+**Description**:
+Implement the Research Production entity and its related components (Type, Authors, CRUD) to support Books, Software, and Chapters.
+
+**Tasks**:
+- [x] Create entity `ProductionType`.
+- [x] Create entity `ResearchProduction`.
+- [x] Implement many-to-many relationship with `Researcher` (Authors).
+- [x] Implement Repository Interfaces and Strategies (Postgres/Memory).
+- [x] Implement Service Layer logic.
+- [x] Implement Controller (Facade) layer.
+- [x] Verify with unit tests (TDD).
+
+---
 - **Executor**: -
 - **Labels**: feature, task
 - **Milestone**: Issue Base
