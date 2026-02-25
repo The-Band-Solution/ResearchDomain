@@ -1,12 +1,13 @@
 # Project Backlog - ResearchDomain
 
-This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-25 01:29:10
+This document is automatically synchronized with GitHub Issues. Last updated: 2026-02-25 17:55:42
 
 ## 📋 Master Issue List
 Overview of all demands, their states and executors.
 
 | # | Status | Title | Executor | Sprint | Milestone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [# 55](https://github.com/The-Band-Solution/ResearchDomain/issues/55) | 🟢 | [EPIC] Implement Research Production Management (Dynamic Types) | @paulossjunior | - | Issue Base |
 | [# 49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) | 🟢 | Add resume field to Researcher entity | - | - | Issue Base |
 | [# 34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) | 🟢 | [feat] Implement Advisorship Types and Examination Board | @paulossjunior | - | Issue Base |
 | [# 30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) | 🟢 | [feat] Implement Article Architecture Layers | @paulossjunior | - | Issue Base |
@@ -31,6 +32,7 @@ Overview of all demands, their states and executors.
 ## 📂 Workflow States
 
 ### 🟢 In Progress / Todo
+- [#55](https://github.com/The-Band-Solution/ResearchDomain/issues/55) **[EPIC] Implement Research Production Management (Dynamic Types)**
 - [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) **Add resume field to Researcher entity**
 - [#34](https://github.com/The-Band-Solution/ResearchDomain/issues/34) **[feat] Implement Advisorship Types and Examination Board**
 - [#30](https://github.com/The-Band-Solution/ResearchDomain/issues/30) **[feat] Implement Article Architecture Layers**
@@ -55,6 +57,35 @@ Overview of all demands, their states and executors.
 ---
 
 ## 📝 Detailed Backlog
+
+### [OPEN] [#55](https://github.com/The-Band-Solution/ResearchDomain/issues/55) [EPIC] Implement Research Production Management (Dynamic Types)
+- **Executor**: paulossjunior
+- **Labels**: feature, epic
+- **Milestone**: Issue Base
+
+**Description**:
+### Proposta de Issue (GitHub)
+**Título:** `[EPIC] Implement Research Production Management (Dynamic Types)`
+**Descrição:** 
+Implementação da entidade `ResearchProduction` e suas camadas arquiteturais (Repository, Service, Controller) para suportar produções acadêmicas além de artigos científicos, incluindo Livros, Capítulos e Software. A entidade `ProductionType` será uma entidade independente para permitir tipos dinâmicos.
+**Referências:** FR-07 em `docs/requirements.md`.
+**Campos (MANDATÓRIOS):**
+- **Label:** `epic`
+- **Type:** `feature`
+- **Milestone:** `Issue Base`
+- **Project:** `The Band Project`
+- **Assignee:** `@paulossjunior`
+
+**Tarefas:**
+- [x] Atualizar documentação (`requirements.md`, `sdd.md`, `entities.md`).
+- [ ] Implementar entidade `ProductionType`.
+- [ ] Implementar entidade `ResearchProduction`.
+- [ ] Implementar relacionamento Many-to-Many entre `Researcher` e `ResearchProduction`.
+- [ ] Criar interfaces e implementações de Repositório (Postgres).
+- [ ] Criar camada de Serviço e Controller.
+- [ ] Adicionar testes unitários e exemplos no demo.
+
+---
 
 ### [OPEN] [#49](https://github.com/The-Band-Solution/ResearchDomain/issues/49) Add resume field to Researcher entity
 - **Executor**: -
