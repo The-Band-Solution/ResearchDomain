@@ -8,6 +8,7 @@ from libbase.services.generic_service import GenericService
 
 from research_domain.domain.entities import (Advisorship, AdvisorshipRole,
                                              Campus, Fellowship, KnowledgeArea,
+                                             ProductionType, ResearchProduction,
                                              Researcher, ResearchGroup,
                                              University)
 from research_domain.domain.entities.academic_education import (
@@ -17,7 +18,8 @@ from research_domain.domain.repositories import (
     AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
     ArticleRepositoryInterface, CampusRepositoryInterface,
     EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
-    KnowledgeAreaRepositoryInterface, ResearcherRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ProductionTypeRepositoryInterface,
+    ResearchProductionRepositoryInterface, ResearcherRepositoryInterface,
     ResearchGroupRepositoryInterface, RoleRepositoryInterface,
     UniversityRepositoryInterface)
 
@@ -354,4 +356,101 @@ class EducationTypeService(GenericService[EducationType]):
         for et in all_types:
             if et.name == name:
                 return et
+        return None
+class ProductionTypeService(GenericService[ProductionType]):
+    """
+    Service for managing Production Types.
+    """
+
+    def __init__(self, repository: ProductionTypeRepositoryInterface):
+        super().__init__(repository)
+
+    def create_production_type(self, name: str) -> ProductionType:
+        """
+        Creates a new Production Type.
+        """
+        production_type = ProductionType(name=name)
+        self.create(production_type)
+        return production_type
+
+    def get_by_name(self, name: str) -> Optional[ProductionType]:
+        """
+        Retrieves a Production Type by name.
+        """
+        all_types = self.get_all()
+        for pt in all_types:
+            if pt.name == name:
+                return pt
+        return None
+
+
+class ResearchProductionService(GenericService[ResearchProduction]):
+    """
+    Service for managing Research Productions.
+    """
+
+    def __init__(
+        self,
+        repository: ResearchProductionRepositoryInterface,
+        researcher_repository: ResearcherRepositoryInterface,
+    ):
+        super().__init__(repository)
+        self.researcher_repository = researcher_repository
+
+    def create_production(
+        self,
+        title: str,
+        year: int,
+        production_type_id: int,
+        author_ids: Optional[List[int]] = None,
+        publisher: Optional[str] = None,
+        isbn: Optional[str] = None,
+        edition: Optional[str] = None,
+        book_title: Optional[str] = None,
+        pages: Optional[str] = None,
+        version: Optional[str] = None,
+        platform: Optional[str] = None,
+        link: Optional[str] = None,
+        **kwargs,
+    ) -> ResearchProduction:
+        """
+        Creates a new research production and associates authors.
+        """
+        authors = []
+        if author_ids:
+            for rid in author_ids:
+                author = self.researcher_repository.get(rid)
+                if author:
+                    authors.append(author)
+
+        production = ResearchProduction(
+            title=title,
+            year=year,
+            production_type_id=production_type_id,
+            authors=authors,
+            publisher=publisher,
+            isbn=isbn,
+            edition=edition,
+            book_title=book_title,
+            pages=pages,
+            version=version,
+            platform=platform,
+            link=link,
+            **kwargs,
+        )
+        self.create(production)
+        return production
+
+    def add_author(self, production_id: int, researcher_id: int) -> Optional[ResearchProduction]:
+        """
+        Add an author to an existing production.
+        """
+        production = self.get_by_id(production_id)
+        researcher = self.researcher_repository.get(researcher_id)
+
+        if production and researcher:
+            if researcher not in production.authors:
+                production.authors.append(researcher)
+                self.update(production)
+            return production
         return None

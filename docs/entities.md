@@ -39,49 +39,24 @@ classDiagram
     }
 
     %% Research Domain Entities
-    class Researcher {
-        +str cnpq_url
-        +str google_scholar_url
-        +str resume
-        +list[KnowledgeArea] knowledge_areas
+    class ResearchProduction {
+        +int id
+        +str title
+        +int year
+        +int production_type_id
+        +str publisher
+        +str isbn
+        +str edition
+        +str book_title
+        +str pages
+        +str version
+        +str platform
+        +str link
     }
 
-    class ResearchGroup {
-        +int campus_id
-        +str cnpq_url
-        +str site
-        +list[KnowledgeArea] knowledge_areas
-    }
-
-    class University {
-        +str short_name
-    }
-
-    class Campus {
-        +str description
-        +str short_name
-    }
-
-    class ExternalResearchGroup {
-        +str contact_email
-    }
-
-    class KnowledgeArea {
+    class ProductionType {
         +int id
         +str name
-    }
-
-    class Advisorship {
-        +int student_id
-        +int supervisor_id
-        +int fellowship_id
-    }
-
-    class Fellowship {
-        +int id
-        +str name
-        +float value
-        +int sponsor_id
     }
 
     %% Inheritance
@@ -99,17 +74,20 @@ classDiagram
     ResearchGroup "N" --> "1" Campus : Present in
     KnowledgeArea "M" --> "N" Initiative : Categorizes
     ExternalResearchGroup "M" --> "N" Initiative : Associated with
-    Initiative "N" --> "1" Organization : Has Demandante
+    Initiative "1" --> "1" Organization : Has Demandante
     Advisorship "N" --> "1" Person : Student
     Advisorship "N" --> "1" Person : Supervisor
     Advisorship "N" --> "0..1" Fellowship : Receives
     Fellowship "N" --> "1" Organization : Sponsored by
+    Researcher "M" --> "N" ResearchProduction : Authors
+    ResearchProduction "N" --> "1" ProductionType : Classified as
 ```
 
 ## 2. Entity Definitions
 
 | Entity | Purpose | Key Attributes | Inheritance |
 |:---|:---|:---|:---|
+| **ResearchProduction** | Represents a book, software, or other research output. | `title`, `year`, `type`, `link` | - |
 | **Researcher** | Represents an individual conducting research. | `cnpq_url`, `google_scholar_url`, `resume` | `Person` |
 | **ResearchGroup** | A collective of researchers working on specific themes. | `campus_id`, `cnpq_url`, `site` | `Team` |
 | **University** | The high-level academic organization. | `short_name` | `Organization` |

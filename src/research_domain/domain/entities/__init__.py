@@ -6,6 +6,8 @@ from .knowledge_area import KnowledgeArea
 from .research_group import ResearchGroup
 from .researcher import Researcher
 from .university import Campus, University
+from .production_type import ProductionType
+from .research_production import ResearchProduction
 
 __all__ = [
     "Researcher",
@@ -19,4 +21,6 @@ __all__ = [
     "AdvisorshipRole",
     "AdvisorshipMember",
     "Fellowship",
+    "ProductionType",
+    "ResearchProduction",
 ]

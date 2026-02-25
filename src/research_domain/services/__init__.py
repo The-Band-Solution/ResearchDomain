@@ -1,6 +1,7 @@
 from .services import (AcademicEducationService, AdvisorshipService,
                         ArticleService, CampusService, EducationTypeService,
                         FellowshipService, KnowledgeAreaService,
+                         ProductionTypeService, ResearchProductionService,
                         ResearcherService, ResearchGroupService, RoleService,
                         UniversityService)
 
@@ -16,4 +17,6 @@ __all__ = [
     "AcademicEducationService",
     "ArticleService",
     "EducationTypeService",
+    "ProductionTypeService",
+    "ResearchProductionService",
 ]

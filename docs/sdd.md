@@ -92,6 +92,33 @@ The system models a research environment within Universities.
 | :--- | :--- | :--- | :--- |
 | `article_id` | Integer | FK (Article) | Link to the Article. |
 | `researcher_id` | Integer | FK (Researcher) | Link to the Author. |
+#### 2.2.8 Research Production
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `title` | String | Not Null | Production title. |
+| `year` | Integer | Not Null | Publication/Creation year. |
+| `production_type_id` | Integer | FK (ProductionType) | Type of production. |
+| `publisher` | String | Optional | Publisher name (for Books/Chapters). |
+| `isbn` | String | Optional | ISBN code. |
+| `edition` | String | Optional | Edition number. |
+| `book_title`| String | Optional | Title of the book (for Chapters). |
+| `pages` | String | Optional | Page range. |
+| `version` | String | Optional | Software version. |
+| `platform` | String | Optional | Software platform. |
+| `link` | String | Optional | External link (DOI, site, repository). |
+
+#### 2.2.9 ProductionType
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | Integer | PK, Auto-Inc | Unique identifier. |
+| `name` | String | Unique, Not Null | Type name (e.g., BOOK, SOFTWARE). |
+
+#### 2.2.10 Production Author (Association)
+| Attribute | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `production_id` | Integer | FK (ResearchProduction) | Link to the Production. |
+| `researcher_id` | Integer | FK (Researcher) | Link to the Author. |
 
 #### 2.2.2 EducationType
 | Attribute | Type | Constraints | Description |

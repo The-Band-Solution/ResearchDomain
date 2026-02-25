@@ -3,19 +3,22 @@ from research_domain.infrastructure.repositories import (
     InMemoryAdvisorshipRepository, InMemoryArticleRepository,
     InMemoryCampusRepository, InMemoryEducationTypeRepository,
     InMemoryFellowshipRepository, InMemoryKnowledgeAreaRepository,
+    InMemoryProductionTypeRepository, InMemoryResearchProductionRepository,
     InMemoryResearcherRepository, InMemoryResearchGroupRepository,
     InMemoryRoleRepository, InMemoryUniversityRepository,
     InMemoryAcademicEducationRepository,
     PostgresAcademicEducationRepository, PostgresAdvisorshipRepository,
     PostgresArticleRepository, PostgresCampusRepository,
     PostgresEducationTypeRepository, PostgresFellowshipRepository,
-    PostgresKnowledgeAreaRepository, PostgresResearcherRepository,
+    PostgresKnowledgeAreaRepository, PostgresProductionTypeRepository,
+    PostgresResearchProductionRepository, PostgresResearcherRepository,
     PostgresResearchGroupRepository, PostgresRoleRepository,
     PostgresUniversityRepository)
 from research_domain.services import (
     AcademicEducationService, AdvisorshipService, ArticleService,
     CampusService, EducationTypeService, FellowshipService,
-    KnowledgeAreaService, ResearcherService, ResearchGroupService,
+    KnowledgeAreaService, ProductionTypeService, ResearchProductionService,
+    ResearcherService, ResearchGroupService,
     RoleService, UniversityService)
 
 
@@ -40,6 +43,8 @@ class ServiceFactory:
                 PostgresAcademicEducationRepository,
                 PostgresArticleRepository,
                 PostgresEducationTypeRepository,
+                PostgresProductionTypeRepository,
+                PostgresResearchProductionRepository,
             )
         # Default to memory
         return (
@@ -54,36 +59,38 @@ class ServiceFactory:
             InMemoryAcademicEducationRepository,
             InMemoryArticleRepository,
             InMemoryEducationTypeRepository,
+            InMemoryProductionTypeRepository,
+            InMemoryResearchProductionRepository,
         )
 
     @staticmethod
     def create_researcher_service() -> ResearcherService:
-        (ResearcherRepo, _, _, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
+        (ResearcherRepo, _, _, _, _, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
         return ResearcherService(ResearcherRepo())
 
     @staticmethod
     def create_university_service() -> UniversityService:
-        (_, UniversityRepo, _, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
+        (_, UniversityRepo, _, _, _, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
         return UniversityService(UniversityRepo())
 
     @staticmethod
     def create_campus_service() -> CampusService:
-        (_, _, CampusRepo, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
+        (_, _, CampusRepo, _, _, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
         return CampusService(CampusRepo())
 
     @staticmethod
     def create_research_group_service() -> ResearchGroupService:
-        (_, _, _, GroupRepo, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
+        (_, _, _, GroupRepo, _, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
         return ResearchGroupService(GroupRepo())
 
     @staticmethod
     def create_knowledge_area_service() -> KnowledgeAreaService:
-        (_, _, _, _, AreaRepo, _, _, _, _, _, _) = ServiceFactory._get_strategies()
+        (_, _, _, _, AreaRepo, _, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
         return KnowledgeAreaService(AreaRepo())
 
     @staticmethod
     def create_role_service() -> RoleService:
-        (_, _, _, _, _, RoleRepo, _, _, _, _, _) = ServiceFactory._get_strategies()
+        (_, _, _, _, _, RoleRepo, _, _, _, _, _, _, _) = ServiceFactory._get_strategies()
         return RoleService(RoleRepo())
 
     @staticmethod
@@ -96,6 +103,8 @@ class ServiceFactory:
             _,
             RoleRepo,
             AdvisorshipRepo,
+            _,
+            _,
             _,
             _,
             _,
@@ -121,6 +130,8 @@ class ServiceFactory:
             _,
             _,
             _,
+            _,
+            _,
         ) = ServiceFactory._get_strategies()
         return FellowshipService(FellowshipRepo())
 
@@ -136,6 +147,8 @@ class ServiceFactory:
             _,
             _,
             AcademicEducationRepo,
+            _,
+            _,
             _,
             _,
         ) = ServiceFactory._get_strategies()
@@ -155,6 +168,8 @@ class ServiceFactory:
             _,
             ArticleRepo,
             _,
+            _,
+            _,
         ) = ServiceFactory._get_strategies()
         return ArticleService(ArticleRepo(), ResearcherRepo())
 
@@ -172,5 +187,45 @@ class ServiceFactory:
             _,
             _,
             EducationTypeRepo,
+            _,
+            _,
         ) = ServiceFactory._get_strategies()
         return EducationTypeService(EducationTypeRepo())
+
+    @staticmethod
+    def create_production_type_service() -> ProductionTypeService:
+        (
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            ProductionTypeRepo,
+            _,
+        ) = ServiceFactory._get_strategies()
+        return ProductionTypeService(ProductionTypeRepo())
+
+    @staticmethod
+    def create_research_production_service() -> ResearchProductionService:
+        (
+            ResearcherRepo,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            _,
+            ProductionRepo,
+        ) = ServiceFactory._get_strategies()
+        return ResearchProductionService(ProductionRepo(), ResearcherRepo())
