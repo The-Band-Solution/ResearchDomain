@@ -66,6 +66,232 @@ The local file [`base.py`](https://github.com/The-Band-Solution/ResearchDomain/b
 Its `to_dict()` method walks the class MRO and collects mapped column attributes from the current entity and its inherited parents.
 That behavior is useful for joined-table inheritance because a serialized object can include columns declared in parent tables.
 
+## Class diagram
+
+The diagram below emphasizes the concrete models declared in `research_domain.domain.entities` and the `eo_lib` base classes they extend.
+For readability, only the most relevant local attributes are shown for each domain model.
+
+```mermaid
+classDiagram
+    direction TB
+
+    class Person {
+        <<eo_lib>>
+        +id
+        +name
+    }
+
+    class Team {
+        <<eo_lib>>
+        +id
+        +name
+        +organization_id
+    }
+
+    class Organization {
+        <<eo_lib>>
+        +id
+        +name
+    }
+
+    class OrganizationalUnit {
+        <<eo_lib>>
+        +id
+        +name
+        +organization_id
+    }
+
+    class Initiative {
+        <<eo_lib>>
+        +id
+        +name
+        +status
+        +start_date
+        +end_date
+    }
+
+    class Role {
+        <<eo_lib>>
+        +id
+        +name
+    }
+
+    class Researcher {
+        +id
+        +cnpq_url
+        +google_scholar_url
+        +resume
+        +citation_names
+    }
+
+    class ResearchGroup {
+        +id
+        +campus_id
+        +cnpq_url
+        +site
+    }
+
+    class ExternalResearchGroup {
+        +id
+        +contact_email
+    }
+
+    class University
+    class Campus
+
+    class KnowledgeArea {
+        +id
+        +name
+    }
+
+    class EducationType {
+        +id
+        +name
+    }
+
+    class AcademicEducation {
+        +id
+        +researcher_id
+        +education_type_id
+        +title
+        +start_year
+        +end_year
+        +institution_id
+        +advisor_id
+        +co_advisor_id
+    }
+
+    class Language {
+        +id
+        +name
+    }
+
+    class Proficiency {
+        +id
+        +researcher_id
+        +language_id
+        +comprehension
+        +speaking
+        +reading
+        +writing
+    }
+
+    class Award {
+        +id
+        +researcher_id
+        +title
+        +year
+    }
+
+    class Article {
+        +id
+        +title
+        +doi
+        +year
+        +type
+    }
+
+    class Fellowship {
+        +id
+        +name
+        +value
+        +sponsor_id
+    }
+
+    class ProductionType {
+        +id
+        +name
+    }
+
+    class ResearchProduction {
+        +id
+        +title
+        +year
+        +production_type_id
+        +publisher
+        +isbn
+        +version
+        +platform
+        +link
+    }
+
+    class AdvisorshipMember {
+        +id
+        +advisorship_id
+        +person_id
+        +role_id
+        +role_name
+        +start_date
+        +end_date
+    }
+
+    class Advisorship {
+        +id
+        +fellowship_id
+        +institution_id
+        +type
+        +program
+        +defense_date
+        +cancelled
+        +cancellation_date
+    }
+
+    Researcher --|> Person
+    ResearchGroup --|> Team
+    ExternalResearchGroup --|> Team
+    University --|> Organization
+    Campus --|> OrganizationalUnit
+    Advisorship --|> Initiative
+
+    Researcher "*" -- "*" KnowledgeArea : knowledge_areas
+    ResearchGroup "*" -- "*" KnowledgeArea : knowledge_areas
+    AcademicEducation "*" --> "1" Researcher : researcher
+    AcademicEducation "*" --> "1" EducationType : education_type
+    AcademicEducation "*" --> "1" Organization : institution
+    AcademicEducation "*" --> "0..1" Researcher : advisor
+    AcademicEducation "*" --> "0..1" Researcher : co_advisor
+    AcademicEducation "*" -- "*" KnowledgeArea : knowledge_areas
+    Proficiency "*" --> "1" Researcher : researcher
+    Proficiency "*" --> "1" Language : language
+    Award "*" --> "1" Researcher : researcher
+    Article "*" -- "*" Researcher : authors
+    ResearchProduction "*" -- "*" Researcher : authors
+    ResearchProduction "*" --> "1" ProductionType : production_type
+    Fellowship "*" --> "0..1" Organization : sponsor
+    Advisorship "*" --> "0..1" Fellowship : fellowship
+    Advisorship "*" --> "0..1" Organization : institution
+    Advisorship "1" o-- "*" AdvisorshipMember : members
+    AdvisorshipMember "*" --> "1" Person : person
+    AdvisorshipMember "*" --> "0..1" Role : role
+    ExternalResearchGroup "*" -- "*" Initiative : initiatives
+    Initiative "*" --> "0..1" Organization : demandante
+```
+
+## Attribute matrix
+
+The table below lists the attributes declared locally in the domain models.
+Inherited attributes from `eo_lib` base classes such as `Person.name`, `Team.description`, or `Initiative.status` are intentionally not repeated unless they are redefined locally in `research_domain`.
+
+| Model | Base class | Table | Local attributes |
+| :--- | :--- | :--- | :--- |
+| `Researcher` | `Person` | `researchers` | `id`, `cnpq_url`, `google_scholar_url`, `resume`, `citation_names` |
+| `ResearchGroup` | `Team` | `research_groups` | `id`, `campus_id`, `cnpq_url`, `site` |
+| `ExternalResearchGroup` | `Team` | `external_research_groups` | `id`, `contact_email` |
+| `University` | `Organization` | inherited from `eo_lib` | no local mapped columns |
+| `Campus` | `OrganizationalUnit` | inherited from `eo_lib` | no local mapped columns |
+| `KnowledgeArea` | `Base` | `knowledge_areas` | `id`, `name` |
+| `EducationType` | `Base` | `education_types` | `id`, `name` |
+| `AcademicEducation` | `Base` | `academic_educations` | `id`, `researcher_id`, `education_type_id`, `title`, `start_year`, `end_year`, `thesis_title`, `institution_id`, `advisor_id`, `co_advisor_id` |
+| `Language` | `Base` | `languages` | `id`, `name` |
+| `Proficiency` | `Base` | `proficiencies` | `id`, `researcher_id`, `language_id`, `comprehension`, `speaking`, `reading`, `writing` |
+| `Award` | `Base` | `awards` | `id`, `researcher_id`, `title`, `year` |
+| `Article` | `Base` | `articles` | `id`, `title`, `doi`, `year`, `type`, `journal_conference`, `volume`, `pages` |
+| `Fellowship` | `Base` | `fellowships` | `id`, `name`, `description`, `value`, `sponsor_id` |
+| `ProductionType` | `Base` | `production_types` | `id`, `name` |
+| `ResearchProduction` | `Base` | `research_productions` | `id`, `title`, `year`, `production_type_id`, `publisher`, `isbn`, `edition`, `book_title`, `pages`, `version`, `platform`, `link` |
+| `AdvisorshipMember` | `Base` | `advisorship_members` | `id`, `advisorship_id`, `person_id`, `role_id`, `role_name`, `start_date`, `end_date` |
+| `Advisorship` | `Initiative` | `advisorships` | `id`, `fellowship_id`, `institution_id`, `type`, `program`, `defense_date`, `cancelled`, `cancellation_date` |
+
 ## Entity catalog
 
 ### `academic_education.py`

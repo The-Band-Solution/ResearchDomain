@@ -209,6 +209,7 @@ src/research_domain/
 
 ## Documentation
 
+- Documentation site: [the-band-solution.github.io/ResearchDomain](https://the-band-solution.github.io/ResearchDomain/)
 - [Documentation Index](docs/documentation-index.md)
 - [Requirements](docs/requirements.md)
 - [Specifications](docs/specifications.md)
@@ -219,6 +220,19 @@ src/research_domain/
 To preview the MkDocs site locally:
 
 ```bash
+make install-docs
+make run
+```
+
+To build the documentation site locally:
+
+```bash
+make build-docs
+```
+
+If you prefer to run MkDocs directly:
+
+```bash
 pip install -e ".[docs]"
-mkdocs serve
+python -m mkdocs serve
 ```
