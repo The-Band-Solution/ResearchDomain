@@ -8,10 +8,9 @@ document$.subscribe(function () {
     securityLevel: "loose",
   });
 
-  const blocks = document.querySelectorAll("pre code.mermaid");
+  const blocks = document.querySelectorAll("pre.mermaid");
   blocks.forEach((block, index) => {
-    const parent = block.parentElement;
-    if (!parent || parent.dataset.mermaidProcessed === "true") {
+    if (block.dataset.mermaidProcessed === "true") {
       return;
     }
 
@@ -20,7 +19,7 @@ document$.subscribe(function () {
     wrapper.textContent = block.textContent || "";
     wrapper.id = "mermaid-" + index;
 
-    parent.replaceWith(wrapper);
+    block.replaceWith(wrapper);
     mermaid.run({ nodes: [wrapper] });
     wrapper.dataset.mermaidProcessed = "true";
   });
