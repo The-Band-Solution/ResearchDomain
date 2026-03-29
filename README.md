@@ -38,12 +38,12 @@ The project depends on:
 - `eo_lib`
 - `libbase`
 
-Both are declared in [`pyproject.toml`](/home/paulossjunior/projects/ResearchDomain/pyproject.toml).
+Both are declared in [`pyproject.toml`](pyproject.toml).
 
 ### Package metadata
 
 - Package name: `research_domain`
-- Current version: `0.14.1`
+- Current version: `0.14.2`
 
 ## Configuration
 
@@ -209,9 +209,16 @@ src/research_domain/
 
 ## Documentation
 
-- [Documentation Index](/home/paulossjunior/projects/ResearchDomain/docs/README.md)
-- [Requirements](/home/paulossjunior/projects/ResearchDomain/docs/requirements.md)
-- [Specifications](/home/paulossjunior/projects/ResearchDomain/docs/specifications.md)
-- [Software Design Description](/home/paulossjunior/projects/ResearchDomain/docs/sdd.md)
-- [Implementation Plan](/home/paulossjunior/projects/ResearchDomain/docs/implementation_plan.md)
-- [Backlog](/home/paulossjunior/projects/ResearchDomain/docs/backlog.md)
+- [Documentation Index](docs/documentation-index.md)
+- [Requirements](docs/requirements.md)
+- [Specifications](docs/specifications.md)
+- [Software Design Description](docs/sdd.md)
+- [Implementation Plan](docs/implementation_plan.md)
+- [Backlog](docs/backlog.md)
+
+To preview the MkDocs site locally:
+
+```bash
+pip install -e ".[docs]"
+mkdocs serve
+```

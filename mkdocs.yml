@@ -1,0 +1,57 @@
+site_name: ResearchDomain
+site_description: Documentacao tecnica da biblioteca research_domain
+site_url: https://the-band-solution.github.io/ResearchDomain/
+repo_url: https://github.com/The-Band-Solution/ResearchDomain
+repo_name: The-Band-Solution/ResearchDomain
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid.js
+
+nav:
+  - Home: index.md
+  - Documentation Index: documentation-index.md
+  - Domain:
+      - Entities: entities.md
+      - Advisorship Model: domain_model_advisorship.md
+      - Examination Board Refactor: domain_model_advisorship_refactor.md
+  - Design:
+      - Requirements: requirements.md
+      - Specifications: specifications.md
+      - Software Design Description: sdd.md
+      - Implementation Plan: implementation_plan.md
+      - Walkthrough: walkthrough.md
+      - Constitution: constitution.md
+      - Backlog: backlog.md

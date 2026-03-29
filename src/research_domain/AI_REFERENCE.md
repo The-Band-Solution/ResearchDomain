@@ -365,34 +365,6 @@ Automated documentation for LLM ingestion.
 
 ---
 
-## File: `domain/entities/production_type.py`
-
-### Class `ProductionType`
-
-  > Production Type Entity.
-  > Categorizes different types of research production (e.g., BOOK, SOFTWARE).
-
-*Inherits from:* `Base`
-
-- **Method** `__init__(self, name: str, id: Optional[int], **kwargs)`
-
-
----
-
-## File: `domain/entities/research_production.py`
-
-### Class `ResearchProduction`
-
-  > Research Production Entity.
-  > Represents academic outputs like Books, Chapters, and Software.
-
-*Inherits from:* `Base, SerializableMixin`
-
-- **Method** `__init__(self, title: str, year: int, production_type: Optional[object], production_type_id: Optional[int], authors: Optional[List], publisher: Optional[str], isbn: Optional[str], edition: Optional[str], book_title: Optional[str], pages: Optional[str], version: Optional[str], platform: Optional[str], link: Optional[str], id: Optional[int], **kwargs)`
-
-
----
-
 ## File: `domain/entities/initiative_demandante.py`
 
 ## File: `domain/entities/knowledge_area.py`
@@ -423,6 +395,20 @@ Automated documentation for LLM ingestion.
   > Language Catalog Entity.
 
 *Inherits from:* `Base, SerializableMixin`
+
+- **Method** `__init__(self, name: str, id: Optional[int], **kwargs)`
+
+
+---
+
+## File: `domain/entities/production_type.py`
+
+### Class `ProductionType`
+
+  > Production Type Entity.
+  > Categorizes different types of research production (e.g., BOOK, SOFTWARE).
+
+*Inherits from:* `Base`
 
 - **Method** `__init__(self, name: str, id: Optional[int], **kwargs)`
 
@@ -464,6 +450,20 @@ Automated documentation for LLM ingestion.
 - **Method** `__init__(self, name: str, campus_id: Optional[int], description: Optional[str], short_name: Optional[str], organization_id: Optional[int], cnpq_url: Optional[str], site: Optional[str], knowledge_areas: Optional[List], id: Optional[int])`
 
   > Initializes a new ResearchGroup instance.
+
+
+---
+
+## File: `domain/entities/research_production.py`
+
+### Class `ResearchProduction`
+
+  > Research Production Entity.
+  > Represents academic outputs like Books, Chapters, and Software.
+
+*Inherits from:* `Base, SerializableMixin`
+
+- **Method** `__init__(self, title: str, year: int, production_type: Optional[object], production_type_id: Optional[int], authors: Optional[List], publisher: Optional[str], isbn: Optional[str], edition: Optional[str], book_title: Optional[str], pages: Optional[str], version: Optional[str], platform: Optional[str], link: Optional[str], id: Optional[int], **kwargs)`
 
 
 ---
@@ -658,6 +658,8 @@ Automated documentation for LLM ingestion.
   > Factory for creating Service instances with the appropriate Repository Strategy.
 
 - **Method** `_get_strategies()`
+
+- **Method** `_build_repository(cls, repo_type)`
 
 - **Method** `create_researcher_service() -> ResearcherService`
 
@@ -895,30 +897,6 @@ Automated documentation for LLM ingestion.
 
 ---
 
-### Class `PostgresEducationTypeRepository`
-
-*Inherits from:* `GenericSqlRepository[EducationType], EducationTypeRepositoryInterface`
-
-- **Method** `__init__(self)`
-
-
----
-
-### Class `PostgresProductionTypeRepository`
-
-*Inherits from:* `GenericSqlRepository[ProductionType], ProductionTypeRepositoryInterface`
-
-- **Method** `__init__(self)`
-
-
----
-
-### Class `PostgresResearchProductionRepository`
-
-*Inherits from:* `GenericSqlRepository[ResearchProduction], ResearchProductionRepositoryInterface`
-
-- **Method** `__init__(self)`
-
 ### Class `PostgresUniversityRepository`
 
 *Inherits from:* `GenericSqlRepository[University], UniversityRepositoryInterface`
@@ -1015,7 +993,37 @@ Automated documentation for LLM ingestion.
 
 ---
 
+### Class `PostgresProductionTypeRepository`
+
+*Inherits from:* `GenericSqlRepository[ProductionType], ProductionTypeRepositoryInterface`
+
+- **Method** `__init__(self)`
+
+
+---
+
+### Class `PostgresResearchProductionRepository`
+
+*Inherits from:* `GenericSqlRepository[ResearchProduction], ResearchProductionRepositoryInterface`
+
+- **Method** `__init__(self)`
+
+
+---
+
 ## File: `services/services.py`
+
+### Function `_repo_get_by_id(repo, entity_id)`
+
+  > Compatibility shim for older tests/mocks that still expose `get`.
+
+
+---
+
+### Function `_repo_add(repo, entity)`
+
+
+---
 
 ### Class `RoleService`
 
@@ -1044,6 +1052,8 @@ Automated documentation for LLM ingestion.
 *Inherits from:* `PersonService`
 
 - **Method** `__init__(self, repo: ResearcherRepositoryInterface)`
+
+- **Method** `create_with_details(self, name: str, emails: List[str], identification_id: str, birthday: date, resume: str) -> Researcher`
 
 
 ---
@@ -1202,3 +1212,6 @@ Automated documentation for LLM ingestion.
 - **Method** `add_author(self, production_id: int, researcher_id: int) -> Optional[ResearchProduction]`
 
   > Add an author to an existing production.
+
+
+---
