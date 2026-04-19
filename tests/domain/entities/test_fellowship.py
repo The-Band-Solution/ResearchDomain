@@ -1,5 +1,3 @@
-from datetime import date
-
 from eo_lib.domain.entities import Organization
 
 from research_domain.domain.entities.fellowship import Fellowship
@@ -17,8 +15,8 @@ def test_fellowship_creation():
     assert fellowship.value == 700.0
     assert fellowship.description == "Technological Innovation Fellowship"
     assert fellowship.sponsor_id is None
-    assert fellowship.cancelled is False
-    assert fellowship.cancellation_date is None
+    assert not hasattr(fellowship, "cancelled")
+    assert not hasattr(fellowship, "cancellation_date")
 
 
 def test_fellowship_serialization():
@@ -30,23 +28,14 @@ def test_fellowship_serialization():
     assert data["value"] == 400.0
     assert data["id"] == 5
     assert data["sponsor_id"] == 1
-    assert data["cancelled"] is False
-    assert data["cancellation_date"] is None
+    assert "cancelled" not in data
+    assert "cancellation_date" not in data
 
 
-def test_fellowship_can_be_created_as_cancelled():
-    """Test creating a cancelled Fellowship with a cancellation date."""
-    cancellation_date = date(2026, 4, 19)
-
-    fellowship = Fellowship(
-        name="PIBIC",
-        value=700.0,
-        cancelled=True,
-        cancellation_date=cancellation_date,
-    )
-
-    assert fellowship.cancelled is True
-    assert fellowship.cancellation_date == cancellation_date
+def test_fellowship_schema_does_not_include_cancellation_columns():
+    """Fellowship identity is the program/sponsor, not a cancelled allocation."""
+    assert "cancelled" not in Fellowship.__table__.columns
+    assert "cancellation_date" not in Fellowship.__table__.columns
 
 
 def test_fellowship_with_sponsor():
