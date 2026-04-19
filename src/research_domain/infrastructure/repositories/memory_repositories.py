@@ -8,13 +8,15 @@ from research_domain.domain.entities.academic_education import (
 from research_domain.domain.entities.article import Article
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
                                              KnowledgeArea, ProductionType,
+                                             ProfessionalActivity,
                                              ResearchProduction, Researcher,
                                              ResearchGroup, University)
 from research_domain.domain.repositories import (
     AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
     ArticleRepositoryInterface, CampusRepositoryInterface,
     EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
-    KnowledgeAreaRepositoryInterface, ProductionTypeRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ProfessionalActivityRepositoryInterface,
+    ProductionTypeRepositoryInterface,
     ResearchProductionRepositoryInterface, ResearcherRepositoryInterface,
     ResearchGroupRepositoryInterface, RoleRepositoryInterface,
     UniversityRepositoryInterface)
@@ -106,6 +108,17 @@ class InMemoryArticleRepository(
     BaseInMemoryRepository, ArticleRepositoryInterface
 ):
     pass
+
+
+class InMemoryProfessionalActivityRepository(
+    BaseInMemoryRepository, ProfessionalActivityRepositoryInterface
+):
+    def list_by_researcher(self, researcher_id: int) -> List[ProfessionalActivity]:
+        return [
+            activity
+            for activity in self.get_all()
+            if activity.researcher_id == researcher_id
+        ]
 
 
 class InMemoryEducationTypeRepository(

@@ -271,6 +271,8 @@ The system models a research environment within Universities.
 | `description` | Text | Optional | - |
 | `value` | Float | Not Null | Monthly value of the fellowship. |
 | `sponsor_id` | Integer | FK (Organization) | The organization that sponsors the fellowship. |
+| `cancelled` | Boolean | Default False | Indicates if the fellowship was cancelled. |
+| `cancellation_date` | Date | Nullable | The date when the fellowship was cancelled. |
 The entities are implemented using **SQLAlchemy Declarative Models** inheriting from a shared `Base`. This provides a direct mapping between the classes described above and the underlying Relational Database Schema, ensuring the DRY principle is respected.
 
 ## 3. Class Diagrams
@@ -365,6 +367,8 @@ classDiagram
         +str description
         +float value
         +int sponsor_id
+        +bool cancelled
+        +date cancellation_date
     }
 
     class Advisorship {

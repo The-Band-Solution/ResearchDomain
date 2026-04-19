@@ -7,6 +7,7 @@ from .research_group import ResearchGroup
 from .researcher import Researcher
 from .university import Campus, University
 from .production_type import ProductionType
+from .professional_activity import ProfessionalActivity
 from .research_production import ResearchProduction
 
 __all__ = [
@@ -22,5 +23,6 @@ __all__ = [
     "AdvisorshipMember",
     "Fellowship",
     "ProductionType",
+    "ProfessionalActivity",
     "ResearchProduction",
 ]

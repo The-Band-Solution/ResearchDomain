@@ -9,6 +9,7 @@ from libbase.infrastructure.interface import \
 from research_domain.domain.entities.academic_education import (
     AcademicEducation, EducationType)
 from research_domain.domain.entities.article import Article
+from research_domain.domain.entities.professional_activity import ProfessionalActivity
 
 
 class ResearcherRepositoryInterface(PersonRepositoryInterface):
@@ -81,6 +82,18 @@ class ArticleRepositoryInterface(GenericRepositoryInterface):
     def find_by_doi(self, doi: str) -> Optional[Article]:
         """
         Find an article by its DOI.
+        """
+        ...
+
+
+class ProfessionalActivityRepositoryInterface(GenericRepositoryInterface):
+    """
+    Interface for ProfessionalActivity Repository.
+    """
+
+    def list_by_researcher(self, researcher_id: int) -> List[ProfessionalActivity]:
+        """
+        List all professional activities for a researcher.
         """
         ...
 

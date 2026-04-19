@@ -196,6 +196,8 @@ classDiagram
         +name
         +value
         +sponsor_id
+        +cancelled
+        +cancellation_date
     }
 
     class ProductionType {
@@ -286,7 +288,7 @@ Inherited attributes from `eo_lib` base classes such as `Person.name`, `Team.des
 | `Proficiency` | `Base` | `proficiencies` | `id`, `researcher_id`, `language_id`, `comprehension`, `speaking`, `reading`, `writing` |
 | `Award` | `Base` | `awards` | `id`, `researcher_id`, `title`, `year` |
 | `Article` | `Base` | `articles` | `id`, `title`, `doi`, `year`, `type`, `journal_conference`, `volume`, `pages` |
-| `Fellowship` | `Base` | `fellowships` | `id`, `name`, `description`, `value`, `sponsor_id` |
+| `Fellowship` | `Base` | `fellowships` | `id`, `name`, `description`, `value`, `sponsor_id`, `cancelled`, `cancellation_date` |
 | `ProductionType` | `Base` | `production_types` | `id`, `name` |
 | `ResearchProduction` | `Base` | `research_productions` | `id`, `title`, `year`, `production_type_id`, `publisher`, `isbn`, `edition`, `book_title`, `pages`, `version`, `platform`, `link` |
 | `AdvisorshipMember` | `Base` | `advisorship_members` | `id`, `advisorship_id`, `person_id`, `role_id`, `role_name`, `start_date`, `end_date` |
@@ -492,6 +494,8 @@ Key fields:
 - `description`
 - `value`
 - `sponsor_id`
+- `cancelled`
+- `cancellation_date`
 
 Relationships:
 

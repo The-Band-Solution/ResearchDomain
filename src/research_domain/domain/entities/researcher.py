@@ -49,6 +49,11 @@ class Researcher(Person, SerializableMixin):
         back_populates="researcher",
         cascade="all, delete-orphan"
     )
+    professional_activities = relationship(
+        "ProfessionalActivity",
+        back_populates="researcher",
+        cascade="all, delete-orphan"
+    )
     awards = relationship(
         "Award",
         back_populates="researcher",

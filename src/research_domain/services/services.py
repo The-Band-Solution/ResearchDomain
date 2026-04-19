@@ -9,8 +9,8 @@ from libbase.services.generic_service import GenericService
 
 from research_domain.domain.entities import (Advisorship, AdvisorshipRole,
                                              Campus, Fellowship, KnowledgeArea,
-                                             ProductionType, ResearchProduction,
-                                             Researcher, ResearchGroup,
+                                             ProductionType, ProfessionalActivity,
+                                             ResearchProduction, Researcher, ResearchGroup,
                                              University)
 from research_domain.domain.entities.academic_education import (
     AcademicEducation, EducationType)
@@ -19,7 +19,8 @@ from research_domain.domain.repositories import (
     AcademicEducationRepositoryInterface, AdvisorshipRepositoryInterface,
     ArticleRepositoryInterface, CampusRepositoryInterface,
     EducationTypeRepositoryInterface, FellowshipRepositoryInterface,
-    KnowledgeAreaRepositoryInterface, ProductionTypeRepositoryInterface,
+    KnowledgeAreaRepositoryInterface, ProfessionalActivityRepositoryInterface,
+    ProductionTypeRepositoryInterface,
     ResearchProductionRepositoryInterface, ResearcherRepositoryInterface,
     ResearchGroupRepositoryInterface, RoleRepositoryInterface,
     UniversityRepositoryInterface)
@@ -372,6 +373,73 @@ class ArticleService(GenericService[Article]):
                 self.update(article)
             return article
         return None
+
+
+class ProfessionalActivityService(GenericService[ProfessionalActivity]):
+    """
+    Service for managing Professional Activities.
+    """
+
+    def __init__(self, repository: ProfessionalActivityRepositoryInterface):
+        super().__init__(repository)
+
+    def create_activity(
+        self,
+        researcher_id: int,
+        institution: str,
+        organization_id: Optional[int] = None,
+        institution_name: Optional[str] = None,
+        institution_acronym: Optional[str] = None,
+        institution_country: Optional[str] = None,
+        period: Optional[str] = None,
+        start_year: Optional[int] = None,
+        end_year: Optional[int] = None,
+        bond: Optional[str] = None,
+        classification: Optional[str] = None,
+        work_regime: Optional[str] = None,
+        role_function: Optional[str] = None,
+        activity_type: Optional[str] = None,
+        current: bool = False,
+    ) -> ProfessionalActivity:
+        activity = ProfessionalActivity(
+            researcher_id=researcher_id,
+            institution=institution,
+            organization_id=organization_id,
+            institution_name=institution_name,
+            institution_acronym=institution_acronym,
+            institution_country=institution_country,
+            period=period,
+            start_year=start_year,
+            end_year=end_year,
+            bond=bond,
+            classification=classification,
+            work_regime=work_regime,
+            role_function=role_function,
+            activity_type=activity_type,
+            current=current,
+        )
+        self.create(activity)
+        return activity
+
+    def create_from_dict(
+        self,
+        researcher_id: int,
+        data: dict,
+        organization_id: Optional[int] = None,
+    ) -> ProfessionalActivity:
+        activity = ProfessionalActivity.from_dict(
+            researcher_id=researcher_id,
+            data=data,
+            organization_id=organization_id,
+        )
+        self.create(activity)
+        return activity
+
+    def get_by_researcher(self, researcher_id: int) -> List[ProfessionalActivity]:
+        return self._repository.list_by_researcher(researcher_id)
+
+    def delete_activity(self, activity_id: int) -> None:
+        self.delete(activity_id)
 
 
 class EducationTypeService(GenericService[EducationType]):

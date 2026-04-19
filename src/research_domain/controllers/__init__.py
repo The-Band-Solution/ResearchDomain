@@ -1,4 +1,5 @@
 from .controllers import (AcademicEducationController, ArticleController,
+                           ProfessionalActivityController,
                            CampusController, EducationTypeController,
                            FellowshipController, KnowledgeAreaController,
                            ProductionTypeController, ResearchProductionController,
@@ -17,6 +18,7 @@ __all__ = [
     "FellowshipController",
     "AcademicEducationController",
     "ArticleController",
+    "ProfessionalActivityController",
     "EducationTypeController",
     "ProductionTypeController",
     "ResearchProductionController",
