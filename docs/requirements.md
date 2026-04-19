@@ -40,6 +40,8 @@
 - **FR-05-F**: An `Advisorship` can optionally be associated with a `Fellowship`. If no fellowship is linked, the advisorship is considered "voluntary".
 - **FR-05-G**: The `Fellowship` entity must store `name`, `description`, and `value`.
 - [x] FR-05-H: A `Fellowship` must be associated with an `Organization` that acts as its **Sponsor**.
+- [x] FR-05-H1: The system must allow marking a `Fellowship` as `cancelled`.
+- [x] FR-05-H2: The system must store the `cancellation_date` for a cancelled `Fellowship`.
 - [x] FR-05-I: The system must allow marking an `Advisorship` as `cancelled`.
 - [x] FR-05-J: The system must store the `cancellation_date` for a cancelled `Advisorship`.
 - [x] FR-05-K: An `Advisorship` must allow the definition of an **Examination Board** (Banca).

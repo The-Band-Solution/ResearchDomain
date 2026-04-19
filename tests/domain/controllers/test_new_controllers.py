@@ -4,7 +4,8 @@ from datetime import date
 os.environ["STORAGE_TYPE"] = "memory"
 
 from research_domain.controllers.controllers import (AdvisorshipController,
-                                                     FellowshipController)
+                                                     FellowshipController,
+                                                     ProfessionalActivityController)
 
 
 def test_fellowship_controller_creation():
@@ -35,3 +36,26 @@ def test_advisorship_controller_creation():
 
     retrieved = controller.get_by_id(created.id)
     assert retrieved.name == "Test Advisorship"
+
+
+def test_professional_activity_controller_creation():
+    controller = ProfessionalActivityController()
+
+    created = controller.create_professional_activity(
+        researcher_id=1,
+        institution="Instituto Federal do Espírito Santo, IFES, Brasil.",
+        institution_name="Instituto Federal do Espírito Santo",
+        institution_acronym="IFES",
+        start_year=2012,
+        current=True,
+    )
+    assert created.id is not None
+    assert created.researcher_id == 1
+    assert created.institution_acronym == "IFES"
+
+    retrieved = controller.get_by_id(created.id)
+    assert retrieved.institution_name == "Instituto Federal do Espírito Santo"
+
+    history = controller.list_history(1)
+    assert len(history) == 1
+    assert history[0].id == created.id

@@ -148,6 +148,23 @@ Automated documentation for LLM ingestion.
 
 ---
 
+### Class `ProfessionalActivityController`
+
+  > Controller for Professional Activity operations.
+
+*Inherits from:* `GenericController[ProfessionalActivity]`
+
+- **Method** `__init__(self)`
+
+- **Method** `create_professional_activity(self, researcher_id: int, institution: str, organization_id: Optional[int], institution_name: Optional[str], institution_acronym: Optional[str], institution_country: Optional[str], period: Optional[str], start_year: Optional[int], end_year: Optional[int], bond: Optional[str], classification: Optional[str], work_regime: Optional[str], role_function: Optional[str], activity_type: Optional[str], current: bool) -> ProfessionalActivity`
+
+- **Method** `create_professional_activity_from_dict(self, researcher_id: int, data: dict, organization_id: Optional[int]) -> ProfessionalActivity`
+
+- **Method** `list_history(self, researcher_id: int) -> List[ProfessionalActivity]`
+
+
+---
+
 ### Class `EducationTypeController`
 
   > Controller for Education Types.
@@ -415,6 +432,25 @@ Automated documentation for LLM ingestion.
 
 ---
 
+## File: `domain/entities/professional_activity.py`
+
+### Class `ProfessionalActivity`
+
+  > Professional Activity Entity.
+  > Represents a researcher's professional work history.
+  > The structure is based on Lattes-like "atuacao_profissional" payloads.
+
+*Inherits from:* `Base, SerializableMixin`
+
+- **Method** `__init__(self, researcher_id: int, institution: str, organization_id: Optional[int], institution_name: Optional[str], institution_acronym: Optional[str], institution_country: Optional[str], period: Optional[str], start_year: Optional[int], end_year: Optional[int], bond: Optional[str], classification: Optional[str], work_regime: Optional[str], role_function: Optional[str], activity_type: Optional[str], current: bool, id: Optional[int], **kwargs)`
+
+- **Method** `from_dict(cls, researcher_id: int, data: Mapping[str, Any], organization_id: Optional[int], id: Optional[int]) -> 'ProfessionalActivity'`
+
+- **Method** `_parse_year(value: Any) -> Optional[int]`
+
+
+---
+
 ## File: `domain/entities/proficiency.py`
 
 ### Class `ProficiencyLevel`
@@ -624,6 +660,19 @@ Automated documentation for LLM ingestion.
 
 ---
 
+### Class `ProfessionalActivityRepositoryInterface`
+
+  > Interface for ProfessionalActivity Repository.
+
+*Inherits from:* `GenericRepositoryInterface`
+
+- **Method** `list_by_researcher(self, researcher_id: int) -> List[ProfessionalActivity]`
+
+  > List all professional activities for a researcher.
+
+
+---
+
 ### Class `EducationTypeRepositoryInterface`
 
   > Interface for EducationType Repository.
@@ -661,31 +710,33 @@ Automated documentation for LLM ingestion.
 
 - **Method** `_build_repository(cls, repo_type)`
 
-- **Method** `create_researcher_service() -> ResearcherService`
+- **Method** `create_researcher_service(cls) -> ResearcherService`
 
-- **Method** `create_university_service() -> UniversityService`
+- **Method** `create_university_service(cls) -> UniversityService`
 
-- **Method** `create_campus_service() -> CampusService`
+- **Method** `create_campus_service(cls) -> CampusService`
 
-- **Method** `create_research_group_service() -> ResearchGroupService`
+- **Method** `create_research_group_service(cls) -> ResearchGroupService`
 
-- **Method** `create_knowledge_area_service() -> KnowledgeAreaService`
+- **Method** `create_knowledge_area_service(cls) -> KnowledgeAreaService`
 
-- **Method** `create_role_service() -> RoleService`
+- **Method** `create_role_service(cls) -> RoleService`
 
-- **Method** `create_advisorship_service() -> AdvisorshipService`
+- **Method** `create_advisorship_service(cls) -> AdvisorshipService`
 
-- **Method** `create_fellowship_service() -> FellowshipService`
+- **Method** `create_fellowship_service(cls) -> FellowshipService`
 
-- **Method** `create_academic_education_service() -> AcademicEducationService`
+- **Method** `create_academic_education_service(cls) -> AcademicEducationService`
 
-- **Method** `create_article_service() -> ArticleService`
+- **Method** `create_article_service(cls) -> ArticleService`
 
-- **Method** `create_education_type_service() -> EducationTypeService`
+- **Method** `create_professional_activity_service(cls) -> ProfessionalActivityService`
 
-- **Method** `create_production_type_service() -> ProductionTypeService`
+- **Method** `create_education_type_service(cls) -> EducationTypeService`
 
-- **Method** `create_research_production_service() -> ResearchProductionService`
+- **Method** `create_production_type_service(cls) -> ProductionTypeService`
+
+- **Method** `create_research_production_service(cls) -> ResearchProductionService`
 
 
 ---
@@ -865,6 +916,15 @@ Automated documentation for LLM ingestion.
 
 ---
 
+### Class `InMemoryProfessionalActivityRepository`
+
+*Inherits from:* `BaseInMemoryRepository, ProfessionalActivityRepositoryInterface`
+
+- **Method** `list_by_researcher(self, researcher_id: int) -> List[ProfessionalActivity]`
+
+
+---
+
 ### Class `InMemoryEducationTypeRepository`
 
 *Inherits from:* `BaseInMemoryRepository, EducationTypeRepositoryInterface`
@@ -980,6 +1040,17 @@ Automated documentation for LLM ingestion.
 *Inherits from:* `GenericSqlRepository[Article], ArticleRepositoryInterface`
 
 - **Method** `__init__(self)`
+
+
+---
+
+### Class `PostgresProfessionalActivityRepository`
+
+*Inherits from:* `GenericSqlRepository[ProfessionalActivity], ProfessionalActivityRepositoryInterface`
+
+- **Method** `__init__(self)`
+
+- **Method** `list_by_researcher(self, researcher_id: int) -> List[ProfessionalActivity]`
 
 
 ---
@@ -1155,6 +1226,25 @@ Automated documentation for LLM ingestion.
 - **Method** `add_author(self, article_id: int, researcher_id: int) -> Optional[Article]`
 
   > Add an author to an existing article.
+
+
+---
+
+### Class `ProfessionalActivityService`
+
+  > Service for managing Professional Activities.
+
+*Inherits from:* `GenericService[ProfessionalActivity]`
+
+- **Method** `__init__(self, repository: ProfessionalActivityRepositoryInterface)`
+
+- **Method** `create_activity(self, researcher_id: int, institution: str, organization_id: Optional[int], institution_name: Optional[str], institution_acronym: Optional[str], institution_country: Optional[str], period: Optional[str], start_year: Optional[int], end_year: Optional[int], bond: Optional[str], classification: Optional[str], work_regime: Optional[str], role_function: Optional[str], activity_type: Optional[str], current: bool) -> ProfessionalActivity`
+
+- **Method** `create_from_dict(self, researcher_id: int, data: dict, organization_id: Optional[int]) -> ProfessionalActivity`
+
+- **Method** `get_by_researcher(self, researcher_id: int) -> List[ProfessionalActivity]`
+
+- **Method** `delete_activity(self, activity_id: int) -> None`
 
 
 ---

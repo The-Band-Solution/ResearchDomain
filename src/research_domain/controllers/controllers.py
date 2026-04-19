@@ -6,6 +6,7 @@ from libbase.controllers.generic_controller import GenericController
 
 from research_domain.domain.entities import (Advisorship, Campus, Fellowship,
                                              KnowledgeArea, ProductionType,
+                                             ProfessionalActivity,
                                              ResearchProduction, ResearchGroup,
                                              University)
 from research_domain.domain.entities.academic_education import (
@@ -294,6 +295,67 @@ class ArticleController(GenericController[Article]):
 
     def add_author(self, article_id: int, researcher_id: int) -> Optional[Article]:
         return self._service.add_author(article_id, researcher_id)
+
+
+class ProfessionalActivityController(GenericController[ProfessionalActivity]):
+    """
+    Controller for Professional Activity operations.
+    """
+
+    def __init__(self):
+        service = ServiceFactory.create_professional_activity_service()
+        super().__init__(service)
+
+    def create_professional_activity(
+        self,
+        researcher_id: int,
+        institution: str,
+        organization_id: Optional[int] = None,
+        institution_name: Optional[str] = None,
+        institution_acronym: Optional[str] = None,
+        institution_country: Optional[str] = None,
+        period: Optional[str] = None,
+        start_year: Optional[int] = None,
+        end_year: Optional[int] = None,
+        bond: Optional[str] = None,
+        classification: Optional[str] = None,
+        work_regime: Optional[str] = None,
+        role_function: Optional[str] = None,
+        activity_type: Optional[str] = None,
+        current: bool = False,
+    ) -> ProfessionalActivity:
+        return self._service.create_activity(
+            researcher_id=researcher_id,
+            institution=institution,
+            organization_id=organization_id,
+            institution_name=institution_name,
+            institution_acronym=institution_acronym,
+            institution_country=institution_country,
+            period=period,
+            start_year=start_year,
+            end_year=end_year,
+            bond=bond,
+            classification=classification,
+            work_regime=work_regime,
+            role_function=role_function,
+            activity_type=activity_type,
+            current=current,
+        )
+
+    def create_professional_activity_from_dict(
+        self,
+        researcher_id: int,
+        data: dict,
+        organization_id: Optional[int] = None,
+    ) -> ProfessionalActivity:
+        return self._service.create_from_dict(
+            researcher_id=researcher_id,
+            data=data,
+            organization_id=organization_id,
+        )
+
+    def list_history(self, researcher_id: int) -> List[ProfessionalActivity]:
+        return self._service.get_by_researcher(researcher_id)
 
 
 class EducationTypeController(GenericController[EducationType]):

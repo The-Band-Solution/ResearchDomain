@@ -1,7 +1,8 @@
+from datetime import date
 from typing import Optional
 
 from eo_lib.domain.base import Base
-from sqlalchemy import Column, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, Column, Date, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
 
 from research_domain.domain.mixins import SerializableMixin
@@ -22,6 +23,8 @@ class Fellowship(Base, SerializableMixin):
     description = Column(Text, nullable=True)
     value = Column(Float, nullable=False)
     sponsor_id = Column(Integer, ForeignKey("organizations.id"), nullable=True)
+    cancelled = Column(Boolean, default=False)
+    cancellation_date = Column(Date, nullable=True)
 
     # Relationships
     sponsor = relationship("Organization", foreign_keys=[sponsor_id])
@@ -33,6 +36,8 @@ class Fellowship(Base, SerializableMixin):
         description: Optional[str] = None,
         sponsor_id: Optional[int] = None,
         sponsor: Optional[object] = None,
+        cancelled: bool = False,
+        cancellation_date: Optional[date] = None,
         id: Optional[int] = None,
         **kwargs,
     ):
@@ -45,6 +50,8 @@ class Fellowship(Base, SerializableMixin):
             description: Optional description
             sponsor_id: Optional ID of the sponsoring organization
             sponsor: Optional sponsor Organization object
+            cancelled: Whether the fellowship was cancelled
+            cancellation_date: Optional date when the fellowship was cancelled
             id: Optional fellowship ID
         """
         super().__init__(**kwargs)
@@ -54,3 +61,5 @@ class Fellowship(Base, SerializableMixin):
         self.description = description
         self.sponsor_id = sponsor_id
         self.sponsor = sponsor
+        self.cancelled = cancelled
+        self.cancellation_date = cancellation_date
