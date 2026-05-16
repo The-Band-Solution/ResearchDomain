@@ -374,6 +374,12 @@ class ArticleService(GenericService[Article]):
             return article
         return None
 
+    def find_by_doi(self, doi: str) -> Optional[Article]:
+        return self._repository.find_by_doi(doi)
+
+    def find_by_title_year(self, title: str, year: int) -> Optional[Article]:
+        return self._repository.find_by_title_year(title, year)
+
 
 class ProfessionalActivityService(GenericService[ProfessionalActivity]):
     """
