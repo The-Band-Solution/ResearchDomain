@@ -296,6 +296,12 @@ class ArticleController(GenericController[Article]):
     def add_author(self, article_id: int, researcher_id: int) -> Optional[Article]:
         return self._service.add_author(article_id, researcher_id)
 
+    def get_by_doi(self, doi: str) -> Optional[Article]:
+        return self._service.find_by_doi(doi)
+
+    def get_by_title_year(self, title: str, year: int) -> Optional[Article]:
+        return self._service.find_by_title_year(title, year)
+
 
 class ProfessionalActivityController(GenericController[ProfessionalActivity]):
     """

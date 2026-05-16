@@ -16,3 +16,6 @@ class ArticleRepositoryImpl(GenericSqlRepository[Article], IArticleRepository):
         
     def find_by_doi(self, doi: str) -> Optional[Article]:
         return self._session.query(Article).filter(Article.doi == doi).first()
+
+    def find_by_title_year(self, title: str, year: int) -> Optional[Article]:
+        return self._session.query(Article).filter(Article.title == title, Article.year == year).first()

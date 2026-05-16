@@ -107,7 +107,17 @@ class InMemoryAcademicEducationRepository(
 class InMemoryArticleRepository(
     BaseInMemoryRepository, ArticleRepositoryInterface
 ):
-    pass
+    def find_by_doi(self, doi: str):
+        for article in self.get_all():
+            if getattr(article, "doi", None) == doi:
+                return article
+        return None
+
+    def find_by_title_year(self, title: str, year: int):
+        for article in self.get_all():
+            if article.title == title and article.year == year:
+                return article
+        return None
 
 
 class InMemoryProfessionalActivityRepository(

@@ -85,6 +85,12 @@ class ArticleRepositoryInterface(GenericRepositoryInterface):
         """
         ...
 
+    def find_by_title_year(self, title: str, year: int) -> Optional[Article]:
+        """
+        Find an article by exact title and year.
+        """
+        ...
+
 
 class ProfessionalActivityRepositoryInterface(GenericRepositoryInterface):
     """

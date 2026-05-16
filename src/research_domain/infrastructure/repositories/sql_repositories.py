@@ -119,6 +119,12 @@ class PostgresArticleRepository(
         client = PostgresClient()
         super().__init__(client.get_session(), Article)
 
+    def find_by_doi(self, doi: str):
+        return self._session.query(Article).filter(Article.doi == doi).first()
+
+    def find_by_title_year(self, title: str, year: int):
+        return self._session.query(Article).filter(Article.title == title, Article.year == year).first()
+
 
 class PostgresProfessionalActivityRepository(
     GenericSqlRepository[ProfessionalActivity], ProfessionalActivityRepositoryInterface
